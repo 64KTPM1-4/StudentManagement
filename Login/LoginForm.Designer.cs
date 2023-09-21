@@ -35,6 +35,7 @@
             this.LoginButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.RegisterLabel = new System.Windows.Forms.LinkLabel();
+            this.Exit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Username
@@ -58,6 +59,7 @@
             this.Password.Size = new System.Drawing.Size(489, 33);
             this.Password.TabIndex = 5;
             this.Password.TextChanged += new System.EventHandler(this.Password_TextChanged);
+            this.Password.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Password_KeyPress);
             // 
             // label1
             // 
@@ -114,11 +116,23 @@
             this.RegisterLabel.Text = "Đăng ký";
             this.RegisterLabel.Click += new System.EventHandler(this.RegisterLabel_Click);
             // 
+            // Exit
+            // 
+            this.Exit.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Exit.Location = new System.Drawing.Point(862, 281);
+            this.Exit.Name = "Exit";
+            this.Exit.Size = new System.Drawing.Size(146, 30);
+            this.Exit.TabIndex = 12;
+            this.Exit.Text = "Thoát";
+            this.Exit.UseVisualStyleBackColor = true;
+            this.Exit.Click += new System.EventHandler(this.Exit_Click);
+            // 
             // Login_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1849, 833);
+            this.Controls.Add(this.Exit);
             this.Controls.Add(this.RegisterLabel);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.LoginButton);
@@ -135,6 +149,7 @@
             this.Controls.SetChildIndex(this.LoginButton, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.RegisterLabel, 0);
+            this.Controls.SetChildIndex(this.Exit, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,5 +164,6 @@
         private System.Windows.Forms.Button LoginButton;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.LinkLabel RegisterLabel;
+        private System.Windows.Forms.Button Exit;
     }
 }

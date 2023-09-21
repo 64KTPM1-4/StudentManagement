@@ -11,6 +11,8 @@ namespace QuanLiSinhVien
 {
     public partial class Login_Form : QuanLiSinhVien.Class.AddClass
     {
+        SignUpForm signUpForm = new SignUpForm();
+        Class_Form frm = new Class_Form();
         public Login_Form()
         {
             InitializeComponent();
@@ -30,7 +32,7 @@ namespace QuanLiSinhVien
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            Class_Form frm = new Class_Form();
+            
             this.Hide();
             frm.ShowDialog();
             this.Show();
@@ -39,12 +41,26 @@ namespace QuanLiSinhVien
 
         private void RegisterLabel_Click(object sender, EventArgs e)
         {
-            SignUpForm signUpForm = new SignUpForm();
+            
             this.Hide();
             signUpForm.ShowDialog();
             this.Show();
         }
 
-       
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Password_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                this.Hide();
+                frm.ShowDialog();
+                this.Show();
+                
+            }
+        }
     }
 }

@@ -27,9 +27,9 @@ namespace QuanLiSinhVien
             this.Show();
         }
 
-        private void Exit_Click(object sender, EventArgs e)
+        private void SignOutButton_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
         private void Add_Class_Click(object sender, EventArgs e)

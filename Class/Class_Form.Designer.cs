@@ -34,7 +34,7 @@
             this.Show_Class = new System.Windows.Forms.Button();
             this.Add_Class = new System.Windows.Forms.Button();
             this.Delete_Class = new System.Windows.Forms.Button();
-            this.Exit = new System.Windows.Forms.Button();
+            this.SignOutButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,16 +95,16 @@
             this.Delete_Class.UseVisualStyleBackColor = true;
             this.Delete_Class.Click += new System.EventHandler(this.Delete_Class_Click);
             // 
-            // Exit
+            // SignOutButton
             // 
-            this.Exit.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Exit.Location = new System.Drawing.Point(519, 459);
-            this.Exit.Name = "Exit";
-            this.Exit.Size = new System.Drawing.Size(489, 58);
-            this.Exit.TabIndex = 5;
-            this.Exit.Text = "Thoát";
-            this.Exit.UseVisualStyleBackColor = true;
-            this.Exit.Click += new System.EventHandler(this.Exit_Click);
+            this.SignOutButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SignOutButton.Location = new System.Drawing.Point(519, 459);
+            this.SignOutButton.Name = "SignOutButton";
+            this.SignOutButton.Size = new System.Drawing.Size(489, 58);
+            this.SignOutButton.TabIndex = 5;
+            this.SignOutButton.Text = "Đăng xuất";
+            this.SignOutButton.UseVisualStyleBackColor = true;
+            this.SignOutButton.Click += new System.EventHandler(this.SignOutButton_Click);
             // 
             // Class_Form
             // 
@@ -112,7 +112,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1849, 833);
-            this.Controls.Add(this.Exit);
+            this.Controls.Add(this.SignOutButton);
             this.Controls.Add(this.Delete_Class);
             this.Controls.Add(this.Add_Class);
             this.Controls.Add(this.Show_Class);
@@ -135,7 +135,7 @@
         private System.Windows.Forms.Button Show_Class;
         private System.Windows.Forms.Button Add_Class;
         private System.Windows.Forms.Button Delete_Class;
-        private System.Windows.Forms.Button Exit;
+        private System.Windows.Forms.Button SignOutButton;
     }
 }
 
