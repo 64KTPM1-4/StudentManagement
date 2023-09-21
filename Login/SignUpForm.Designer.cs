@@ -38,6 +38,7 @@
             this.ConfirmPassword = new System.Windows.Forms.TextBox();
             this.CpasswordLabel = new System.Windows.Forms.Label();
             this.SignUpButton = new System.Windows.Forms.Button();
+            this.ReturnButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,7 +76,7 @@
             this.usernameLabel.Size = new System.Drawing.Size(140, 25);
             this.usernameLabel.TabIndex = 7;
             this.usernameLabel.Text = "Tên đăng nhập";
-            this.usernameLabel.MouseHover += new System.EventHandler(this.usernameLabel_MouseHover);
+            this.usernameLabel.MouseHover += new System.EventHandler(this.usernameLabel_Mouse);
             // 
             // passwordLabel
             // 
@@ -143,12 +144,24 @@
             this.SignUpButton.UseVisualStyleBackColor = true;
             this.SignUpButton.Click += new System.EventHandler(this.SignUpButton_Click);
             // 
+            // ReturnButton
+            // 
+            this.ReturnButton.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReturnButton.Location = new System.Drawing.Point(862, 346);
+            this.ReturnButton.Name = "ReturnButton";
+            this.ReturnButton.Size = new System.Drawing.Size(146, 30);
+            this.ReturnButton.TabIndex = 14;
+            this.ReturnButton.Text = "Quay lại";
+            this.ReturnButton.UseVisualStyleBackColor = true;
+            this.ReturnButton.Click += new System.EventHandler(this.ReturnButton_Click);
+            // 
             // SignUpForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1849, 833);
+            this.Controls.Add(this.ReturnButton);
             this.Controls.Add(this.SignUpButton);
             this.Controls.Add(this.CpasswordLabel);
             this.Controls.Add(this.ConfirmPassword);
@@ -158,6 +171,7 @@
             this.Controls.Add(this.Password);
             this.Controls.Add(this.AppName);
             this.Controls.Add(this.pictureBox1);
+            this.MaximizeBox = false;
             this.Name = "SignUpForm";
             this.Text = "Phần mềm quản lí sinh viên - Đăng ký";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -177,5 +191,6 @@
         private System.Windows.Forms.TextBox ConfirmPassword;
         private System.Windows.Forms.Label CpasswordLabel;
         private System.Windows.Forms.Button SignUpButton;
+        private System.Windows.Forms.Button ReturnButton;
     }
 }

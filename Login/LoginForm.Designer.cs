@@ -1,6 +1,6 @@
-﻿namespace QuanLiSinhVien
+﻿namespace QuanLiSinhVien.Login
 {
-    partial class Login_Form
+    partial class LoginForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,25 +29,39 @@
         private void InitializeComponent()
         {
             this.Username = new System.Windows.Forms.TextBox();
+            this.usernameLabel = new System.Windows.Forms.Label();
             this.Password = new System.Windows.Forms.TextBox();
+            this.passwordLabel = new System.Windows.Forms.Label();
+            this.LoginButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.LoginButton = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.RegisterLabel = new System.Windows.Forms.LinkLabel();
-            this.Exit = new System.Windows.Forms.Button();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.ExitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Username
             // 
             this.Username.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Username.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.Username.Location = new System.Drawing.Point(519, 177);
+            this.Username.Location = new System.Drawing.Point(519, 180);
             this.Username.Name = "Username";
             this.Username.Size = new System.Drawing.Size(489, 33);
-            this.Username.TabIndex = 4;
+            this.Username.TabIndex = 10;
             this.Username.Tag = "";
             this.Username.TextChanged += new System.EventHandler(this.Username_TextChanged);
+            // 
+            // usernameLabel
+            // 
+            this.usernameLabel.AutoSize = true;
+            this.usernameLabel.BackColor = System.Drawing.SystemColors.Window;
+            this.usernameLabel.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.usernameLabel.Location = new System.Drawing.Point(539, 183);
+            this.usernameLabel.Name = "usernameLabel";
+            this.usernameLabel.Size = new System.Drawing.Size(140, 25);
+            this.usernameLabel.TabIndex = 11;
+            this.usernameLabel.Text = "Tên đăng nhập";
+            this.usernameLabel.MouseHover += new System.EventHandler(this.usernameLabel_MouseHover);
             // 
             // Password
             // 
@@ -57,99 +71,98 @@
             this.Password.Name = "Password";
             this.Password.PasswordChar = '*';
             this.Password.Size = new System.Drawing.Size(489, 33);
-            this.Password.TabIndex = 5;
+            this.Password.TabIndex = 12;
             this.Password.TextChanged += new System.EventHandler(this.Password_TextChanged);
-            this.Password.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Password_KeyPress);
             // 
-            // label1
+            // passwordLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label1.Location = new System.Drawing.Point(541, 180);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 25);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Tên đăng nhập";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label2.Location = new System.Drawing.Point(541, 233);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 25);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Mật khẩu";
+            this.passwordLabel.AutoSize = true;
+            this.passwordLabel.BackColor = System.Drawing.SystemColors.Window;
+            this.passwordLabel.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.passwordLabel.Location = new System.Drawing.Point(541, 233);
+            this.passwordLabel.Name = "passwordLabel";
+            this.passwordLabel.Size = new System.Drawing.Size(95, 25);
+            this.passwordLabel.TabIndex = 13;
+            this.passwordLabel.Text = "Mật khẩu";
+            this.passwordLabel.MouseHover += new System.EventHandler(this.passwordLabel_MouseHover);
             // 
             // LoginButton
             // 
             this.LoginButton.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoginButton.Location = new System.Drawing.Point(519, 281);
+            this.LoginButton.Location = new System.Drawing.Point(519, 285);
             this.LoginButton.Name = "LoginButton";
             this.LoginButton.Size = new System.Drawing.Size(146, 30);
-            this.LoginButton.TabIndex = 8;
+            this.LoginButton.TabIndex = 14;
             this.LoginButton.Text = "Đăng nhập";
             this.LoginButton.UseVisualStyleBackColor = true;
             this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
-            // label4
+            // label1
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(515, 367);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(166, 22);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Chưa có tài khoản ?";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 16);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "label1";
             // 
-            // RegisterLabel
+            // label2
             // 
-            this.RegisterLabel.AutoSize = true;
-            this.RegisterLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RegisterLabel.Location = new System.Drawing.Point(676, 367);
-            this.RegisterLabel.Name = "RegisterLabel";
-            this.RegisterLabel.Size = new System.Drawing.Size(75, 22);
-            this.RegisterLabel.TabIndex = 11;
-            this.RegisterLabel.TabStop = true;
-            this.RegisterLabel.Text = "Đăng ký";
-            this.RegisterLabel.Click += new System.EventHandler(this.RegisterLabel_Click);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(515, 355);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(166, 22);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Chưa có tài khoản ?";
             // 
-            // Exit
+            // linkLabel1
             // 
-            this.Exit.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Exit.Location = new System.Drawing.Point(862, 281);
-            this.Exit.Name = "Exit";
-            this.Exit.Size = new System.Drawing.Size(146, 30);
-            this.Exit.TabIndex = 12;
-            this.Exit.Text = "Thoát";
-            this.Exit.UseVisualStyleBackColor = true;
-            this.Exit.Click += new System.EventHandler(this.Exit_Click);
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.Location = new System.Drawing.Point(674, 355);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(75, 22);
+            this.linkLabel1.TabIndex = 17;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Đăng ký";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // Login_Form
+            // ExitButton
+            // 
+            this.ExitButton.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExitButton.Location = new System.Drawing.Point(862, 285);
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Size = new System.Drawing.Size(146, 30);
+            this.ExitButton.TabIndex = 18;
+            this.ExitButton.Text = "Thoát";
+            this.ExitButton.UseVisualStyleBackColor = true;
+            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
+            // 
+            // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1849, 833);
-            this.Controls.Add(this.Exit);
-            this.Controls.Add(this.RegisterLabel);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.LoginButton);
+            this.Controls.Add(this.ExitButton);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.LoginButton);
+            this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.Password);
+            this.Controls.Add(this.usernameLabel);
             this.Controls.Add(this.Username);
-            this.Name = "Login_Form";
-            this.Text = "Phần mềm quản lí sinh viên - Đăng nhập";
+            this.Name = "LoginForm";
             this.Controls.SetChildIndex(this.Username, 0);
+            this.Controls.SetChildIndex(this.usernameLabel, 0);
             this.Controls.SetChildIndex(this.Password, 0);
+            this.Controls.SetChildIndex(this.passwordLabel, 0);
+            this.Controls.SetChildIndex(this.LoginButton, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label2, 0);
-            this.Controls.SetChildIndex(this.LoginButton, 0);
-            this.Controls.SetChildIndex(this.label4, 0);
-            this.Controls.SetChildIndex(this.RegisterLabel, 0);
-            this.Controls.SetChildIndex(this.Exit, 0);
+            this.Controls.SetChildIndex(this.linkLabel1, 0);
+            this.Controls.SetChildIndex(this.ExitButton, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,12 +171,13 @@
         #endregion
 
         private System.Windows.Forms.TextBox Username;
+        private System.Windows.Forms.Label usernameLabel;
         private System.Windows.Forms.TextBox Password;
+        private System.Windows.Forms.Label passwordLabel;
+        private System.Windows.Forms.Button LoginButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button LoginButton;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.LinkLabel RegisterLabel;
-        private System.Windows.Forms.Button Exit;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Button ExitButton;
     }
 }

@@ -35,17 +35,17 @@ namespace QuanLiSinhVien
         private void Add_Class_Click(object sender, EventArgs e)
         {
             AddClass addClass = new AddClass();
-            this.Hide();
             addClass.ShowDialog();
-            this.Show();
         }
 
         private void Delete_Class_Click(object sender, EventArgs e)
         {
-            DeleteClass delClass = new DeleteClass();
-            this.Hide();
-            delClass.ShowDialog();
-            this.Show();
+            
+        }
+
+        private void AddTeacherButton_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

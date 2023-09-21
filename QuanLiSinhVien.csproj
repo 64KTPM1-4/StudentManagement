@@ -58,12 +58,6 @@
     <Compile Include="Class\Class_Form.Designer.cs">
       <DependentUpon>Class_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Class\DeleteClass.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Class\DeleteClass.Designer.cs">
-      <DependentUpon>DeleteClass.cs</DependentUpon>
-    </Compile>
     <Compile Include="Login\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,9 +83,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Class\Class_Form.resx">
       <DependentUpon>Class_Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Class\DeleteClass.resx">
-      <DependentUpon>DeleteClass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

@@ -35,6 +35,7 @@
             this.Add_Class = new System.Windows.Forms.Button();
             this.Delete_Class = new System.Windows.Forms.Button();
             this.SignOutButton = new System.Windows.Forms.Button();
+            this.AddTeacherButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,7 +99,7 @@
             // SignOutButton
             // 
             this.SignOutButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SignOutButton.Location = new System.Drawing.Point(519, 459);
+            this.SignOutButton.Location = new System.Drawing.Point(519, 553);
             this.SignOutButton.Name = "SignOutButton";
             this.SignOutButton.Size = new System.Drawing.Size(489, 58);
             this.SignOutButton.TabIndex = 5;
@@ -106,12 +107,24 @@
             this.SignOutButton.UseVisualStyleBackColor = true;
             this.SignOutButton.Click += new System.EventHandler(this.SignOutButton_Click);
             // 
+            // AddTeacherButton
+            // 
+            this.AddTeacherButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddTeacherButton.Location = new System.Drawing.Point(519, 459);
+            this.AddTeacherButton.Name = "AddTeacherButton";
+            this.AddTeacherButton.Size = new System.Drawing.Size(489, 58);
+            this.AddTeacherButton.TabIndex = 6;
+            this.AddTeacherButton.Text = "Thêm giảng viên";
+            this.AddTeacherButton.UseVisualStyleBackColor = true;
+            this.AddTeacherButton.Click += new System.EventHandler(this.AddTeacherButton_Click);
+            // 
             // Class_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1849, 833);
+            this.Controls.Add(this.AddTeacherButton);
             this.Controls.Add(this.SignOutButton);
             this.Controls.Add(this.Delete_Class);
             this.Controls.Add(this.Add_Class);
@@ -136,6 +149,7 @@
         private System.Windows.Forms.Button Add_Class;
         private System.Windows.Forms.Button Delete_Class;
         private System.Windows.Forms.Button SignOutButton;
+        private System.Windows.Forms.Button AddTeacherButton;
     }
 }
 

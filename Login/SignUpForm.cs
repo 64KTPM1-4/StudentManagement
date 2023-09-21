@@ -47,9 +47,14 @@ namespace QuanLiSinhVien.Login
 
         }
 
-        private void usernameLabel_MouseHover(object sender, EventArgs e)
+        private void usernameLabel_Mouse(object sender, EventArgs e)
         {
             usernameLabel.Hide();
+        }
+
+        private void ReturnButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
