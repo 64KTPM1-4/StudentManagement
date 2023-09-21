@@ -112,6 +112,7 @@
             this.RegisterLabel.TabIndex = 11;
             this.RegisterLabel.TabStop = true;
             this.RegisterLabel.Text = "Đăng ký";
+            this.RegisterLabel.Click += new System.EventHandler(this.RegisterLabel_Click);
             // 
             // Login_Form
             // 

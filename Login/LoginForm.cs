@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLiSinhVien.Login;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,7 +33,18 @@ namespace QuanLiSinhVien
             Class_Form frm = new Class_Form();
             this.Hide();
             frm.ShowDialog();
+            this.Show();
           
         }
+
+        private void RegisterLabel_Click(object sender, EventArgs e)
+        {
+            SignUpForm signUpForm = new SignUpForm();
+            this.Hide();
+            signUpForm.ShowDialog();
+            this.Show();
+        }
+
+       
     }
 }
