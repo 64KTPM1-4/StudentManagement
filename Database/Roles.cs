@@ -12,17 +12,18 @@ namespace QuanLiSinhVien.Database
     using System;
     using System.Collections.Generic;
     
-    public partial class Teacher
+    public partial class Roles
     {
-        public int ID { get; set; }
-        public string TeacherName { get; set; }
-        public int ClassID { get; set; }
-        public string Roles { get; set; }
-        public string Username { get; set; }
-        public int RoleId { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Roles()
+        {
+            this.Teacher = new HashSet<Teacher>();
+        }
     
-        public virtual Class Class { get; set; }
-        public virtual LoginInfor LoginInfor { get; set; }
-        public virtual Roles Roles1 { get; set; }
+        public int ID { get; set; }
+        public string RoleName { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Teacher> Teacher { get; set; }
     }
 }

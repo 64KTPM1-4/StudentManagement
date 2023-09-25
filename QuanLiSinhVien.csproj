@@ -73,6 +73,9 @@
     <Compile Include="Database\LoginInfor.cs">
       <DependentUpon>Students.tt</DependentUpon>
     </Compile>
+    <Compile Include="Database\Roles.cs">
+      <DependentUpon>Students.tt</DependentUpon>
+    </Compile>
     <Compile Include="Database\Student.cs">
       <DependentUpon>Students.tt</DependentUpon>
     </Compile>
