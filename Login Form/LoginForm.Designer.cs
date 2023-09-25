@@ -33,7 +33,6 @@
             this.Password = new System.Windows.Forms.TextBox();
             this.passwordLabel = new System.Windows.Forms.Label();
             this.LoginButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.ExitButton = new System.Windows.Forms.Button();
@@ -61,7 +60,6 @@
             this.usernameLabel.Size = new System.Drawing.Size(140, 25);
             this.usernameLabel.TabIndex = 11;
             this.usernameLabel.Text = "Tên đăng nhập";
-            this.usernameLabel.MouseHover += new System.EventHandler(this.usernameLabel_MouseHover);
             // 
             // Password
             // 
@@ -73,6 +71,7 @@
             this.Password.Size = new System.Drawing.Size(489, 33);
             this.Password.TabIndex = 12;
             this.Password.TextChanged += new System.EventHandler(this.Password_TextChanged);
+            this.Password.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Password_KeyPress);
             // 
             // passwordLabel
             // 
@@ -85,7 +84,6 @@
             this.passwordLabel.Size = new System.Drawing.Size(95, 25);
             this.passwordLabel.TabIndex = 13;
             this.passwordLabel.Text = "Mật khẩu";
-            this.passwordLabel.MouseHover += new System.EventHandler(this.passwordLabel_MouseHover);
             // 
             // LoginButton
             // 
@@ -97,15 +95,6 @@
             this.LoginButton.Text = "Đăng nhập";
             this.LoginButton.UseVisualStyleBackColor = true;
             this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "label1";
             // 
             // label2
             // 
@@ -147,7 +136,6 @@
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.Password);
@@ -159,7 +147,6 @@
             this.Controls.SetChildIndex(this.Password, 0);
             this.Controls.SetChildIndex(this.passwordLabel, 0);
             this.Controls.SetChildIndex(this.LoginButton, 0);
-            this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.linkLabel1, 0);
             this.Controls.SetChildIndex(this.ExitButton, 0);
@@ -175,7 +162,6 @@
         private System.Windows.Forms.TextBox Password;
         private System.Windows.Forms.Label passwordLabel;
         private System.Windows.Forms.Button LoginButton;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Button ExitButton;

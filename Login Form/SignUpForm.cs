@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLiSinhVien.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace QuanLiSinhVien.Login
 {
     public partial class SignUpForm : Form
     {
+        private StudentEntities student;
         public SignUpForm()
         {
             InitializeComponent();
@@ -38,11 +40,13 @@ namespace QuanLiSinhVien.Login
         private void SignUpButton_Click(object sender, EventArgs e)
         {
 
-            if (Password.Text != ConfirmPassword.Text) MessageBox.Show("Mật khẩu không trùng khớp !");
+            student = new StudentEntities();
+            var Query = student.LoginInfor.FirstOrDefault(model => model.Username == Username.Text);
+            if (Query != null) MessageBox.Show("Tài khoản đã tồn tại !");
+            else if (Password.Text != ConfirmPassword.Text) MessageBox.Show("Mật khẩu không trùng khớp !");
             else
             {
-                MessageBox.Show("Đăng ký thành công !");
-                this.Close();
+
             }
 
         }

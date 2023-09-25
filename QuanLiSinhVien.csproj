@@ -33,8 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,48 +55,78 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class\AddClass.cs">
+    <Compile Include="Class Form\AddClass.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Class\AddClass.Designer.cs">
+    <Compile Include="Class Form\AddClass.Designer.cs">
       <DependentUpon>AddClass.cs</DependentUpon>
     </Compile>
-    <Compile Include="Class\Class_Form.cs">
+    <Compile Include="Class Form\Class_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Class\Class_Form.Designer.cs">
+    <Compile Include="Class Form\Class_Form.Designer.cs">
       <DependentUpon>Class_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login\LoginForm.cs">
+    <Compile Include="Database\Class.cs">
+      <DependentUpon>Students.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\LoginInfor.cs">
+      <DependentUpon>Students.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Student.cs">
+      <DependentUpon>Students.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Students.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Students.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Students.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Students.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Students.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Students.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Database\sysdiagrams.cs">
+      <DependentUpon>Students.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Teacher.cs">
+      <DependentUpon>Students.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Login Form\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login\LoginForm.Designer.cs">
+    <Compile Include="Login Form\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login\SignUpForm.cs">
+    <Compile Include="Login Form\SignUpForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login\SignUpForm.Designer.cs">
+    <Compile Include="Login Form\SignUpForm.Designer.cs">
       <DependentUpon>SignUpForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Class\ClassList.cs">
+    <Compile Include="Class Form\ClassList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Class\ClassList.Designer.cs">
+    <Compile Include="Class Form\ClassList.Designer.cs">
       <DependentUpon>ClassList.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Class\AddClass.resx">
+    <EmbeddedResource Include="Class Form\AddClass.resx">
       <DependentUpon>AddClass.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Class\Class_Form.resx">
+    <EmbeddedResource Include="Class Form\Class_Form.resx">
       <DependentUpon>Class_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login\LoginForm.resx">
+    <EmbeddedResource Include="Login Form\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login\SignUpForm.resx">
+    <EmbeddedResource Include="Login Form\SignUpForm.resx">
       <DependentUpon>SignUpForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -99,9 +138,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Class\ClassList.resx">
+    <EmbeddedResource Include="Class Form\ClassList.resx">
       <DependentUpon>ClassList.cs</DependentUpon>
     </EmbeddedResource>
+    <EntityDeploy Include="Database\Students.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Students.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Database\Students.edmx.diagram">
+      <DependentUpon>Students.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -114,6 +161,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModel\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Database\Students.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Students.edmx</DependentUpon>
+      <LastGenOutput>Students.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Database\Students.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Students.edmx</DependentUpon>
+      <LastGenOutput>Students.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

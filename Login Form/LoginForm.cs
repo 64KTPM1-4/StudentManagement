@@ -5,11 +5,15 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Linq;
+using QuanLiSinhVien.Database;
+using System.Data.Entity.Infrastructure;
 
 namespace QuanLiSinhVien.Login
 {
     public partial class LoginForm : QuanLiSinhVien.ClassList
     {
+        private StudentEntities student;
         public LoginForm()
         {
             InitializeComponent();
@@ -17,10 +21,24 @@ namespace QuanLiSinhVien.Login
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Class_Form class_Form = new Class_Form();
-            class_Form.ShowDialog();
-            this.Show();
+            
+            student = new StudentEntities();
+
+            var Query = student.LoginInfor.FirstOrDefault(model => model.Username == Username.Text && 
+                                                          model.Password == Password.Text);
+
+            if (Query != null)
+            {
+
+                this.Hide();
+                Class_Form class_Form = new Class_Form();
+                class_Form.ShowDialog();
+                this.Show();
+
+            }
+
+            else MessageBox.Show("Tài khoản hoặc mật khẩu không đúng !");
+
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
@@ -36,25 +54,24 @@ namespace QuanLiSinhVien.Login
             this.Show();
         }
 
-        private void usernameLabel_MouseHover(object sender, EventArgs e)
-        {
-            usernameLabel.Hide();
-        }
-
-        private void passwordLabel_MouseHover(object sender, EventArgs e)
-        {
-            passwordLabel.Hide();
-        }
-
         private void Username_TextChanged(object sender, EventArgs e)
         {
+            if(Username.Text != "")
             usernameLabel.Hide();
+            else usernameLabel.Show();
 
         }
 
         private void Password_TextChanged(object sender, EventArgs e)
         {
+            if(Password.Text != "")
             passwordLabel.Hide();
+            else passwordLabel.Show();
+        }
+
+        private void Password_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)Keys.Enter) LoginButton_Click(sender, e);
         }
     }
 }
