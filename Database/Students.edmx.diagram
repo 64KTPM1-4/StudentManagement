@@ -13,6 +13,8 @@
         <AssociationConnector Association="StudentModel.FK__Student__ClassID__47DBAE45" ManuallyRouted="false" />
         <AssociationConnector Association="StudentModel.FK__Teacher__ClassID__45F365D3" ManuallyRouted="false" />
         <AssociationConnector Association="StudentModel.FK__Teacher__Usernam__5EBF139D" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="StudentModel.Roles" Width="1.5" PointX="5.375" PointY="5.875" />
+        <AssociationConnector Association="StudentModel.FK__Teacher__RoleId__6FE99F9F" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

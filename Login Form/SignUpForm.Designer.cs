@@ -39,6 +39,8 @@
             this.CpasswordLabel = new System.Windows.Forms.Label();
             this.SignUpButton = new System.Windows.Forms.Button();
             this.ReturnButton = new System.Windows.Forms.Button();
+            this.Fullname = new System.Windows.Forms.TextBox();
+            this.fullnameLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,7 +78,6 @@
             this.usernameLabel.Size = new System.Drawing.Size(140, 25);
             this.usernameLabel.TabIndex = 7;
             this.usernameLabel.Text = "Tên đăng nhập";
-            this.usernameLabel.MouseHover += new System.EventHandler(this.usernameLabel_Mouse);
             // 
             // passwordLabel
             // 
@@ -136,7 +137,7 @@
             // SignUpButton
             // 
             this.SignUpButton.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SignUpButton.Location = new System.Drawing.Point(519, 346);
+            this.SignUpButton.Location = new System.Drawing.Point(519, 397);
             this.SignUpButton.Name = "SignUpButton";
             this.SignUpButton.Size = new System.Drawing.Size(146, 30);
             this.SignUpButton.TabIndex = 13;
@@ -147,7 +148,7 @@
             // ReturnButton
             // 
             this.ReturnButton.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReturnButton.Location = new System.Drawing.Point(862, 346);
+            this.ReturnButton.Location = new System.Drawing.Point(862, 397);
             this.ReturnButton.Name = "ReturnButton";
             this.ReturnButton.Size = new System.Drawing.Size(146, 30);
             this.ReturnButton.TabIndex = 14;
@@ -155,12 +156,34 @@
             this.ReturnButton.UseVisualStyleBackColor = true;
             this.ReturnButton.Click += new System.EventHandler(this.ReturnButton_Click);
             // 
+            // Fullname
+            // 
+            this.Fullname.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Fullname.Location = new System.Drawing.Point(519, 339);
+            this.Fullname.Name = "Fullname";
+            this.Fullname.Size = new System.Drawing.Size(489, 33);
+            this.Fullname.TabIndex = 15;
+            this.Fullname.TextChanged += new System.EventHandler(this.Fullname_TextChanged);
+            // 
+            // fullnameLabel
+            // 
+            this.fullnameLabel.AutoSize = true;
+            this.fullnameLabel.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullnameLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.fullnameLabel.Location = new System.Drawing.Point(539, 342);
+            this.fullnameLabel.Name = "fullnameLabel";
+            this.fullnameLabel.Size = new System.Drawing.Size(97, 25);
+            this.fullnameLabel.TabIndex = 16;
+            this.fullnameLabel.Text = "Họ và tên";
+            // 
             // SignUpForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1849, 833);
+            this.Controls.Add(this.fullnameLabel);
+            this.Controls.Add(this.Fullname);
             this.Controls.Add(this.ReturnButton);
             this.Controls.Add(this.SignUpButton);
             this.Controls.Add(this.CpasswordLabel);
@@ -192,5 +215,7 @@
         private System.Windows.Forms.Label CpasswordLabel;
         private System.Windows.Forms.Button SignUpButton;
         private System.Windows.Forms.Button ReturnButton;
+        private System.Windows.Forms.TextBox Fullname;
+        private System.Windows.Forms.Label fullnameLabel;
     }
 }

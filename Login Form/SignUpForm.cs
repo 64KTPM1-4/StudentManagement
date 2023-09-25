@@ -51,14 +51,17 @@ namespace QuanLiSinhVien.Login
 
         }
 
-        private void usernameLabel_Mouse(object sender, EventArgs e)
-        {
-            usernameLabel.Hide();
-        }
 
         private void ReturnButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Fullname_TextChanged(object sender, EventArgs e)
+        {
+            if(Fullname.Text != "")
+            fullnameLabel.Hide();
+            else fullnameLabel.Show();
         }
     }
 }
