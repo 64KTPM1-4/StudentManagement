@@ -5,12 +5,6 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuanLiSinhVien", "QuanLiSinhVien.csproj", "{2F7F0FE6-3E49-407B-A646-09287A24C062}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ViewModel", "ViewModel", "{A5FC5BDF-448D-4950-A2C6-EEBA7E8D355A}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\..\OneDrive\Desktop\ViewModel\DanhSachUser.cs = ..\..\..\..\OneDrive\Desktop\ViewModel\DanhSachUser.cs
-		..\..\..\..\OneDrive\Desktop\ViewModel\User.cs = ..\..\..\..\OneDrive\Desktop\ViewModel\User.cs
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
