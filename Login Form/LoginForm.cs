@@ -81,7 +81,7 @@ namespace QuanLiSinhVien.Login
             }
             else
             {
-                MessageBox.Show("Tài khoản hoặc mật khẩu không đúng !");
+                MessageBox.Show("Tài khoản hoặc mật khẩu không đúng 1 !");
             }
         }
 
