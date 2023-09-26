@@ -6,25 +6,83 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Linq;
-
+using Newtonsoft.Json;
+using System.IO;
 
 
 namespace QuanLiSinhVien.Login
 {
     public partial class LoginForm : QuanLiSinhVien.ClassList
     {
-        List<Username> listTaiKhoan = DanhSachUser.Instance.ListTK;
+        List<AccountModel> accounts;
+        
         
         public LoginForm()
         {
-            InitializeComponent();
-        }
+            accounts = new List<AccountModel>();
+            accounts.Add(new AccountModel()
+            {
+                username = "TruongKhoa",
+                password = "truongkhoa123",
+                roles = "Truong khoa"
+            });
+            accounts.Add(new AccountModel()
+            {
+                username = "GVCN",
+                password = "gvcn123",
+                roles = "GVCN"
+            });
 
+            accounts.Add(new AccountModel()
+            {
+                username = "GVBM",
+                password = "gvbm123",
+                roles = "GVBM"
+            });
+
+            accounts.Add(new AccountModel()
+            {
+                username = "Loptruong",
+                password = "loptruong123",
+                roles = "Lop truong"
+            });
+
+            string record = JsonConvert.SerializeObject(accounts);
+            File.WriteAllText(@"Account.json", record);
+            
+
+            InitializeComponent();
+
+        }
+        
         private void LoginButton_Click(object sender, EventArgs e)
         {
+
+            var LoginCheck = JsonConvert.DeserializeObject<List<AccountModel>>(File.ReadAllText(@"Account.json"));
+            bool valid = false;
+            foreach (AccountModel account in LoginCheck)
+            {
+                if (account.username == Username.Text && account.password == Password.Text)
+                {
+                    valid = true; 
+                    break;
+                }
+                 
             
-           
-           
+            }
+
+            if (valid)
+            {
+                Class_Form class_Form = new Class_Form();
+                this.Hide();
+                class_Form.ShowDialog();
+                this.Show();
+
+            }
+            else
+            {
+                MessageBox.Show("Tài khoản hoặc mật khẩu không đúng !");
+            }
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
@@ -56,15 +114,7 @@ namespace QuanLiSinhVien.Login
 
         bool KiemTraDangNhap(string tentaikhoan, string matkhau)
         {
-            for(int i = 0; i < listTaiKhoan.Count; i++) 
-            {
-                if(tentaikhoan == listTaiKhoan[i].TenTaiKhoan && matkhau == listTaiKhoan[i].MatKhau)
-                {
-                    BienToanCuc.LoaiTaiKhoan = listTaiKhoan[i].LoaiTK;
-                    return true;
-                }
-            }
-            return false;
+            return true;
         }
     }
 }
