@@ -60,6 +60,7 @@ namespace QuanLiSinhVien.Login
             {
                 if(tentaikhoan == listTaiKhoan[i].TenTaiKhoan && matkhau == listTaiKhoan[i].MatKhau)
                 {
+                    BienToanCuc.LoaiTaiKhoan = listTaiKhoan[i].LoaiTK;
                     return true;
                 }
             }
