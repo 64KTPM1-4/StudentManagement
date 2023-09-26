@@ -14,6 +14,7 @@ namespace QuanLiSinhVien.Login
     public partial class SignUpForm : Form
     {
         private StudentEntities student;
+        
         public SignUpForm()
         {
             InitializeComponent();
@@ -46,7 +47,25 @@ namespace QuanLiSinhVien.Login
             else if (Password.Text != ConfirmPassword.Text) MessageBox.Show("Mật khẩu không trùng khớp !");
             else
             {
+                student.LoginInfor.Add(new LoginInfor()
+                {
 
+                    Username = Username.Text,
+                    Password = Password.Text,
+
+                });
+
+               
+
+                student.Teacher.Add(new Teacher()
+                {
+                    TeacherName = Fullname.Text,
+                    Username = Username.Text,
+                    RoleId = 1
+                });
+                
+                MessageBox.Show("Đăng ký thành công");
+                this.Close();
             }
 
         }
