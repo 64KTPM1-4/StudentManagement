@@ -67,39 +67,6 @@
     <Compile Include="Class Form\Class_Form.Designer.cs">
       <DependentUpon>Class_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Database\Class.cs">
-      <DependentUpon>Students.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\LoginInfor.cs">
-      <DependentUpon>Students.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\Roles.cs">
-      <DependentUpon>Students.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\Student.cs">
-      <DependentUpon>Students.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\Students.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Students.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\Students.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Students.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\Students.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Students.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Database\sysdiagrams.cs">
-      <DependentUpon>Students.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\Teacher.cs">
-      <DependentUpon>Students.tt</DependentUpon>
-    </Compile>
     <Compile Include="Login Form\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,13 +102,6 @@
     <EmbeddedResource Include="Class Form\ClassList.resx">
       <DependentUpon>ClassList.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="Database\Students.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Students.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Database\Students.edmx.diagram">
-      <DependentUpon>Students.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -160,19 +120,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Process\" />
     <Folder Include="ViewModel\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Database\Students.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Students.edmx</DependentUpon>
-      <LastGenOutput>Students.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Database\Students.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Students.edmx</DependentUpon>
-      <LastGenOutput>Students.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
