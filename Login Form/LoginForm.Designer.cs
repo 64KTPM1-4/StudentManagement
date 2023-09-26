@@ -33,8 +33,6 @@
             this.Password = new System.Windows.Forms.TextBox();
             this.passwordLabel = new System.Windows.Forms.Label();
             this.LoginButton = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.ExitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -96,28 +94,6 @@
             this.LoginButton.UseVisualStyleBackColor = true;
             this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(515, 355);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(166, 22);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Chưa có tài khoản ?";
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(674, 355);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(75, 22);
-            this.linkLabel1.TabIndex = 17;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Đăng ký";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
             // ExitButton
             // 
             this.ExitButton.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -134,8 +110,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(1849, 833);
             this.Controls.Add(this.ExitButton);
-            this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.Password);
@@ -147,8 +121,6 @@
             this.Controls.SetChildIndex(this.Password, 0);
             this.Controls.SetChildIndex(this.passwordLabel, 0);
             this.Controls.SetChildIndex(this.LoginButton, 0);
-            this.Controls.SetChildIndex(this.label2, 0);
-            this.Controls.SetChildIndex(this.linkLabel1, 0);
             this.Controls.SetChildIndex(this.ExitButton, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -162,8 +134,6 @@
         private System.Windows.Forms.TextBox Password;
         private System.Windows.Forms.Label passwordLabel;
         private System.Windows.Forms.Button LoginButton;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Button ExitButton;
     }
 }

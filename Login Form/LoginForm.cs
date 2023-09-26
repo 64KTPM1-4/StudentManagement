@@ -46,13 +46,7 @@ namespace QuanLiSinhVien.Login
             Application.Exit();
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            this.Hide();
-            SignUpForm signUpForm = new SignUpForm();
-            signUpForm.ShowDialog();
-            this.Show();
-        }
+       
 
         private void Username_TextChanged(object sender, EventArgs e)
         {
