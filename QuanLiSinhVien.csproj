@@ -81,6 +81,8 @@
     <Compile Include="Class Form\ClassList.Designer.cs">
       <DependentUpon>ClassList.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\DanhSachUser.cs" />
+    <Compile Include="ViewModel\User.cs" />
     <EmbeddedResource Include="Class Form\AddClass.resx">
       <DependentUpon>AddClass.cs</DependentUpon>
     </EmbeddedResource>
