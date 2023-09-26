@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Linq;
 
-using System.Data.Entity.Infrastructure;
+
 
 namespace QuanLiSinhVien.Login
 {
