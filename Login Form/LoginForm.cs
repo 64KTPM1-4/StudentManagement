@@ -13,6 +13,7 @@ namespace QuanLiSinhVien.Login
 {
     public partial class LoginForm : QuanLiSinhVien.ClassList
     {
+        List<Username> listTaiKhoan = DanhSachUser.Instance.ListTK;
         
         public LoginForm()
         {
@@ -51,6 +52,19 @@ namespace QuanLiSinhVien.Login
         private void Password_KeyPress(object sender, KeyPressEventArgs e)
         {
             if(e.KeyChar == (char)Keys.Enter) LoginButton_Click(sender, e);
+        }
+
+        bool KiemTraDangNhap(string tentaikhoan, string matkhau)
+        {
+            for(int i = 0; i < listTaiKhoan.Count; i++) 
+            {
+                if(tentaikhoan == listTaiKhoan[i].TenTaiKhoan && matkhau == listTaiKhoan[i].MatKhau)
+                {
+                    BienToanCuc.LoaiTaiKhoan = listTaiKhoan[i].LoaiTK;
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

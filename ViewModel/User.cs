@@ -9,36 +9,36 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace QuanLiSinhVien
-    .EntityFrameworkCore.DataAccess
-{
-    public class User
-    {
-        private string Users;
-        private string Pass;
 
-        public string Username
+{
+    public class Username
+    {
+        private string tenTaiKhoan;
+        private string matKhau;
+
+        public string TenTaiKhoan
         {
-            get => Users;
-            set => Users = value;
+            get => tenTaiKhoan;
+            set => tenTaiKhoan = value;
         }
 
-        public string Password
+        public string MatKhau
         {
-            get => Pass;
-            set => Pass = value;
+            get => matKhau;
+            set => matKhau = value;
         }
 
         private bool loaiTK;
-        public string LoaiTK
+        public bool LoaiTK
         {
             get => loaiTK;
             set => loaiTK = value;
         }
 
-        public User(string username, string password, int loaitk) 
+        public Username(string tentaikhoan, string matkhau, int loaitk) 
         {
-            this.Username = username;
-            this.Password = password;
+            this.TenTaiKhoan = tentaikhoan;
+            this.MatKhau = matkhau;
             this.LoaiTK = loaitk;
         }
     }
