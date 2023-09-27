@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace QuanLiSinhVien.Model
 {
-    class AccountModel
+    public class AccountModel
     {
+        
         public string username {  get; set; }
         public string password { get; set; }
         public string roles { get; set; }

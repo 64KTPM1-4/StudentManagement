@@ -1,4 +1,4 @@
-﻿namespace QuanLiSinhVien.Login
+﻿namespace QuanLiSinhVien.Login_Form
 {
     partial class LoginForm
     {
@@ -28,100 +28,88 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
+            this.AppName = new System.Windows.Forms.Label();
             this.Username = new System.Windows.Forms.TextBox();
-            this.usernameLabel = new System.Windows.Forms.Label();
             this.Password = new System.Windows.Forms.TextBox();
-            this.passwordLabel = new System.Windows.Forms.Label();
             this.LoginButton = new System.Windows.Forms.Button();
-            this.ExitButton = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // AppName
+            // 
+            this.AppName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AppName.AutoSize = true;
+            this.AppName.BackColor = System.Drawing.SystemColors.Highlight;
+            this.AppName.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.AppName.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AppName.Location = new System.Drawing.Point(442, 60);
+            this.AppName.Name = "AppName";
+            this.AppName.Size = new System.Drawing.Size(648, 47);
+            this.AppName.TabIndex = 1;
+            this.AppName.Text = "PHẦN MỀM QUẢN LÍ SINH VIÊN";
             // 
             // Username
             // 
             this.Username.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Username.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.Username.Location = new System.Drawing.Point(519, 180);
+            this.Username.Location = new System.Drawing.Point(442, 156);
             this.Username.Name = "Username";
-            this.Username.Size = new System.Drawing.Size(489, 33);
-            this.Username.TabIndex = 10;
-            this.Username.Tag = "";
-            this.Username.TextChanged += new System.EventHandler(this.Username_TextChanged);
-            // 
-            // usernameLabel
-            // 
-            this.usernameLabel.AutoSize = true;
-            this.usernameLabel.BackColor = System.Drawing.SystemColors.Window;
-            this.usernameLabel.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.usernameLabel.Location = new System.Drawing.Point(539, 183);
-            this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(140, 25);
-            this.usernameLabel.TabIndex = 11;
-            this.usernameLabel.Text = "Tên đăng nhập";
+            this.Username.Size = new System.Drawing.Size(648, 33);
+            this.Username.TabIndex = 2;
+            this.Username.Text = "Tên đăng nhập";
+            this.Username.MouseLeave += new System.EventHandler(this.Username_MouseLeave);
+            this.Username.MouseHover += new System.EventHandler(this.Username_MouseHover);
             // 
             // Password
             // 
             this.Password.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Password.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.Password.Location = new System.Drawing.Point(519, 230);
+            this.Password.Location = new System.Drawing.Point(442, 219);
             this.Password.Name = "Password";
             this.Password.PasswordChar = '*';
-            this.Password.Size = new System.Drawing.Size(489, 33);
-            this.Password.TabIndex = 12;
-            this.Password.TextChanged += new System.EventHandler(this.Password_TextChanged);
+            this.Password.Size = new System.Drawing.Size(648, 33);
+            this.Password.TabIndex = 3;
+            this.Password.Text = "Mật khẩu";
             this.Password.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Password_KeyPress);
-            // 
-            // passwordLabel
-            // 
-            this.passwordLabel.AutoSize = true;
-            this.passwordLabel.BackColor = System.Drawing.SystemColors.Window;
-            this.passwordLabel.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.passwordLabel.Location = new System.Drawing.Point(541, 233);
-            this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(95, 25);
-            this.passwordLabel.TabIndex = 13;
-            this.passwordLabel.Text = "Mật khẩu";
+            this.Password.MouseLeave += new System.EventHandler(this.Password_MouseLeave);
+            this.Password.MouseHover += new System.EventHandler(this.Password_MouseHover);
             // 
             // LoginButton
             // 
-            this.LoginButton.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoginButton.Location = new System.Drawing.Point(519, 285);
+            this.LoginButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginButton.Location = new System.Drawing.Point(442, 269);
             this.LoginButton.Name = "LoginButton";
-            this.LoginButton.Size = new System.Drawing.Size(146, 30);
-            this.LoginButton.TabIndex = 14;
+            this.LoginButton.Size = new System.Drawing.Size(158, 36);
+            this.LoginButton.TabIndex = 4;
             this.LoginButton.Text = "Đăng nhập";
             this.LoginButton.UseVisualStyleBackColor = true;
             this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
-            // ExitButton
+            // pictureBox1
             // 
-            this.ExitButton.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ExitButton.Location = new System.Drawing.Point(862, 285);
-            this.ExitButton.Name = "ExitButton";
-            this.ExitButton.Size = new System.Drawing.Size(146, 30);
-            this.ExitButton.TabIndex = 18;
-            this.ExitButton.Text = "Thoát";
-            this.ExitButton.UseVisualStyleBackColor = true;
-            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(52, 40);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(197, 149);
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
             // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1849, 833);
-            this.Controls.Add(this.ExitButton);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.LoginButton);
-            this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.Password);
-            this.Controls.Add(this.usernameLabel);
             this.Controls.Add(this.Username);
+            this.Controls.Add(this.AppName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoginForm";
-            this.Controls.SetChildIndex(this.Username, 0);
-            this.Controls.SetChildIndex(this.usernameLabel, 0);
-            this.Controls.SetChildIndex(this.Password, 0);
-            this.Controls.SetChildIndex(this.passwordLabel, 0);
-            this.Controls.SetChildIndex(this.LoginButton, 0);
-            this.Controls.SetChildIndex(this.ExitButton, 0);
+            this.Text = "Đăng nhập";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,11 +117,10 @@
 
         #endregion
 
+        private System.Windows.Forms.Label AppName;
         private System.Windows.Forms.TextBox Username;
-        private System.Windows.Forms.Label usernameLabel;
         private System.Windows.Forms.TextBox Password;
-        private System.Windows.Forms.Label passwordLabel;
         private System.Windows.Forms.Button LoginButton;
-        private System.Windows.Forms.Button ExitButton;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
