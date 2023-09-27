@@ -8,9 +8,9 @@ namespace QuanLiSinhVien.Model
 {
     public class ClassModel
     {
-        public int ClassId { get; set; } = 0;
+        public int? ClassId { get; set; }
         public string ClassName { get; set; }
-        public IEnumerable<SubjectModel> Subjects { get; set; }
+        public List<SubjectModel> Subjects { get; set; } = new List<SubjectModel>();
         
 
     }
