@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Linq;
 using Newtonsoft.Json;
 using System.IO;
+using QuanLiSinhVien.Model;
 
 
 namespace QuanLiSinhVien.Login
