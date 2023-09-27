@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QuanLiSinhVien.Model
 {
     public class DanhSachAccount
     {
+        public DanhSachAccount()
+        {
             
         var accounts = new List<AccountModel>
         {
@@ -19,10 +18,11 @@ namespace QuanLiSinhVien.Model
             new AccountModel { username = "Loptruong", password = "loptruong123", roles = "Lop truong" }
         };
 
+            
         string json = JsonConvert.SerializeObject(accounts, Formatting.Indented);
-        File.WriteAllText("Account.json", json);
 
-        InitializeComponent();
 
+            File.WriteAllText("Account.json", json);
+        }
     }
 }

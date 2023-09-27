@@ -69,5 +69,10 @@ namespace QuanLiSinhVien.Login_Form
             if(e.KeyChar == (char)Keys.Enter)
             LoginButton_Click(sender, e);
         }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
