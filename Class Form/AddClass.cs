@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLiSinhVien.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +13,10 @@ namespace QuanLiSinhVien.Class
 {
     public partial class AddClass : Form
     {
+        private ClassServices classServices;
         public AddClass()
         {
+            classServices = new ClassServices();
             InitializeComponent();
         }
 
@@ -37,6 +40,7 @@ namespace QuanLiSinhVien.Class
 
         private void AddClassButton_Click(object sender, EventArgs e)
         {
+            classServices.AddClass(textBox1.Text);
             this.Close();
         }
     }
