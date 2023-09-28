@@ -13,8 +13,8 @@ namespace QuanLiSinhVien.Model
             var accounts = new List<AccountModel>
             {
                 new AccountModel { username = "Chuyenvien", password = "chuyenvien123", roles = "Chuyen vien" },
-                new AccountModel { username = "GiaovienChuNhiem", password = "GVCN123", roles = "GVCN" },
-                new AccountModel { username = "GiaovienBoMon", password = "GVBM123", roles = "GVBM" },
+                new AccountModel { username = "GVCN", password = "gvcn123", roles = "GVCN" },
+                new AccountModel { username = "GVBM", password = "gvbm123", roles = "GVBM" },
                 new AccountModel { username = "Loptruong", password = "loptruong123", roles = "Lop truong" }
             };
 
