@@ -8,9 +8,9 @@ namespace QuanLiSinhVien.Model
 {
     public class AccountModel
     {
-        
-        public string username {  get; set; }
-        public string password { get; set; }
-        public string roles { get; set; }
+
+        public string username { get; set; } = string.Empty;
+        public string password { get; set; } = string.Empty;
+        public string roles { get; set; } = string.Empty;
     }
 }

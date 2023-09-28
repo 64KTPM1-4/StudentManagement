@@ -9,8 +9,8 @@ namespace QuanLiSinhVien.Model
     public class StudentModel
     {
 
-        public int Id { get; set; }
-        public string Name { get; set; }
+        public int? Id { get; set; } = 0;
+        public string Name { get; set; } = string.Empty;
                 
 
     }

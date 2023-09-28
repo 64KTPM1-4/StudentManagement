@@ -9,11 +9,11 @@ namespace QuanLiSinhVien.Model
     public class SubjectModel
     {
 
-        public int SubjectId { get; set; }
-        public string SubjectName { get; set; }
-        public int points { get; set; }
-        public string notes {  get; set; }
-        IEnumerable<StudentModel> students { get; set; }
+        public int? SubjectId { get; set; } = 0;
+        public string SubjectName { get; set; } = string.Empty;
+        public int? points { get; set; } = 0;
+        public string notes { get; set; } = string.Empty;
+        public List<StudentModel> students { get; set; } = new List<StudentModel>();
         
 
     }

@@ -1,21 +1,21 @@
-﻿using Newtonsoft.Json;
-using QuanLiSinhVien.Model;
+﻿using QuanLiSinhVien.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Text.Json;
 
 namespace QuanLiSinhVien.Services
 {
     public class ClassServices
     {
         
-        public IEnumerable<ClassModel> ClassSearch(string keyword = null)
+        public List<ClassModel> ClassSearch()
         {
-            var classList = JsonConvert.DeserializeObject<IEnumerable<ClassModel>>("Class.json");
+            var classList = new List<ClassModel> { };
+            classList = JsonSerializer.Deserialize<List<ClassModel>>(File.ReadAllText(@"Class.json"));
             return classList;
         }
 
@@ -39,14 +39,32 @@ namespace QuanLiSinhVien.Services
             }
 
             int ClassId = sum % 10;
+            var classList = new List<ClassModel>
+            {
+                
+            };
+            classList = JsonSerializer.Deserialize<List<ClassModel>>(File.ReadAllText(@"Class.json"));
             List<ClassModel> newClass = new List<ClassModel>();
             newClass.Add(new ClassModel
             {
                 ClassId = ClassId,
                 ClassName = ClassName,
+                Subjects = new List<SubjectModel> 
+                { 
+                    new SubjectModel() 
+                    {
+                        students = new List<StudentModel> 
+                        { 
+                            new StudentModel()
+                            
+                        }                     
+                    } 
+                }
+
             });
 
-            File.WriteAllText(@"Class.json", JsonConvert.SerializeObject(newClass));
+            classList.AddRange(newClass);
+            File.WriteAllText(@"Class.json", JsonSerializer.Serialize(classList));
 
         }
 
