@@ -28,10 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClassList));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.AppName = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.classModelBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.classModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.classServicesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classModelBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classModelBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classServicesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -58,11 +67,24 @@
             this.AppName.TabIndex = 3;
             this.AppName.Text = "PHẦN MỀM QUẢN LÍ SINH VIÊN";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeight = 29;
+            this.dataGridView1.Location = new System.Drawing.Point(402, 220);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(697, 344);
+            this.dataGridView1.TabIndex = 4;
+            this.dataGridView1.DataSource = classServices.ClassSearch();
+            // 
             // ClassList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1849, 833);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.AppName);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -70,6 +92,10 @@
             this.Name = "ClassList";
             this.Text = "Phần mềm quản lí sinh viên - Danh sách lớp";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classModelBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classModelBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classServicesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -79,5 +105,9 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label AppName;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource classModelBindingSource;
+        private System.Windows.Forms.BindingSource classModelBindingSource1;
+        private System.Windows.Forms.BindingSource classServicesBindingSource;
     }
 }

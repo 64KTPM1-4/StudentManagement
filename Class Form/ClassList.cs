@@ -1,4 +1,5 @@
 ﻿using QuanLiSinhVien.Class;
+using QuanLiSinhVien.Model;
 using QuanLiSinhVien.Services;
 using System;
 using System.Collections.Generic;
@@ -19,14 +20,13 @@ namespace QuanLiSinhVien
         public ClassList()
         {
             classServices = new ClassServices();
+           // dataGridView1 = new DataGridView();
+            var classList = new List<ClassModel> { };
+            classList = classServices.ClassSearch();
+            //dataGridView1.DataSource = classList;
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            AddClass addClass = new AddClass();
-            addClass.Show();
-            
-        }
+
     }
 }
