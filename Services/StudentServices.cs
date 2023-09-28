@@ -48,7 +48,7 @@ namespace QuanLiSinhVien.Services
 
         private void LoadStudents()
         {
-            string json = File.ReadAllText(@"students.json");
+            string json = File.ReadAllText(@"Class.json");
             if(!string.IsNullOrEmpty(json)) 
             {
                 students = JsonConvert.DeserializeObject<List<StudentModel>>(json);
