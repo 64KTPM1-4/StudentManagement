@@ -15,7 +15,7 @@ namespace QuanLiSinhVien.Services
 
         public StudentSevices() 
         {
-            LoadStudents();
+            LoadStudentsGVCN();
         }
 
         public IEnumerable<StudentModel> GetAllStudents() 
@@ -23,7 +23,7 @@ namespace QuanLiSinhVien.Services
             return students;
         }
 
-        public StudentModel GetStudentById(int studentId)
+        public StudentModel GetStudentById(int? studentId)
         {
             return students.FirstOrDefault(student => student.Id == studentId);
         }
@@ -35,7 +35,7 @@ namespace QuanLiSinhVien.Services
             SaveStudents();
         }
 
-        public void RemoveStudent(int studentId) 
+        public void RemoveStudent(int? studentId) 
         {
             StudentModel studentRemove = students.FirstOrDefault(s => s.Id == studentId);
 
@@ -46,10 +46,23 @@ namespace QuanLiSinhVien.Services
             }
         }
 
-        private void LoadStudents()
+        private void LoadStudentsGVCN()
         {
-            string json = File.ReadAllText(@"students.json");
+            string json = File.ReadAllText(@"Class.json");
             if(!string.IsNullOrEmpty(json)) 
+            {
+                students = JsonConvert.DeserializeObject<List<StudentModel>>(json);
+            }
+            else
+            {
+                students = new List<StudentModel>();
+            }
+        }
+
+        private void LoadStudentsGVBM()
+        {
+            string json = File.ReadAllText(@"subjects.json");
+            if (!string.IsNullOrEmpty(json))
             {
                 students = JsonConvert.DeserializeObject<List<StudentModel>>(json);
             }
