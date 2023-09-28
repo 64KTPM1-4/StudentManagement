@@ -22,7 +22,7 @@ namespace QuanLiSinhVien.Model
             string json = JsonConvert.SerializeObject(accounts, Formatting.Indented);
 
             
-            File.WriteAllText("Account.json", json);
+            File.WriteAllText(@"Account.json", json);
         }
     }
 }
