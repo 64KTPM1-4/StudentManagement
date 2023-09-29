@@ -11,27 +11,53 @@ namespace QuanLiSinhVien.Services
 {
     public class SubjectServices
     {
-        List<SubjectModel> subjects;
 
-        public SubjectServices() 
+        List<SubjectModel> subjects;
+        ClassModel currentClass;
+        List<ClassModel> ClassList;
+        public SubjectServices(List<ClassModel> Class, ClassModel selectedClass) 
         {
-            LoadSubjects();
+            currentClass = selectedClass;
+            ClassList = Class;
+            subjects = new List<SubjectModel>();
         }
 
-        public IEnumerable<SubjectModel> GetAllSubjects() 
+        public List<SubjectModel> SubjectsSearch() 
         {
-            return subjects;
+            
+            return currentClass.Subjects;
         }
 
         public SubjectModel GetSubjectsById(int? subjectId)
         {
             return subjects.FirstOrDefault(subject => subject.SubjectId == subjectId);
         }
-
-        public void AddedSubject(SubjectModel subject) 
+        SubjectModel subject;
+        public void AddedSubject(string subjectName) 
         {
-            subject.SubjectId = subjects.Count > 0 ? subjects.Max(s => s.SubjectId ?? 0) + 1 : 1;
+            int sum = 0;
+            foreach (char c in subjectName)
+            {
+                if (char.IsDigit(c))
+                {
+                    int digit = (int)Char.GetNumericValue(c);
+                    sum += digit;
+                }
+                else
+                {
+                    int asciiValue = (int)c;
+                    sum += asciiValue;
+                }
+
+            }
+
+            subject = new SubjectModel();
+            subject.SubjectId = sum;
+            subject.SubjectName = subjectName;
             subjects.Add(subject);
+            currentClass.Subjects.Add(subject);
+            int index = ClassList.FindIndex(s => s == currentClass);
+            ClassList[index] = currentClass;
             SaveSubjects();
         }
 
@@ -46,24 +72,12 @@ namespace QuanLiSinhVien.Services
             }
         }
 
-        private void LoadSubjects()
-        {
-            string json = File.ReadAllText(@"Class.json");
 
-            if(!string.IsNullOrEmpty(json)) 
-            {
-                subjects = JsonConvert.DeserializeObject<List<SubjectModel>>(json);
-            }
-            else
-            {
-                subjects = new List<SubjectModel>();
-            }
-        }
 
         private void SaveSubjects()
         {
-            string json = JsonConvert.SerializeObject(subjects, Formatting.Indented);
-            File.WriteAllText(@"subjects.json", json);
+           var json = JsonConvert.SerializeObject(ClassList, Formatting.Indented);
+            File.WriteAllText(@"Class.json", json);
         }
     }
 }

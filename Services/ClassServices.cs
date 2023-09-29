@@ -15,7 +15,14 @@ namespace QuanLiSinhVien.Services
         public List<ClassModel> ClassSearch()
         {
             var classList = new List<ClassModel> { };
-            classList = JsonSerializer.Deserialize<List<ClassModel>>(File.ReadAllText(@"Class.json"));
+            try
+            {
+                classList = JsonSerializer.Deserialize<List<ClassModel>>(File.ReadAllText(@"Class.json"));
+            }
+            catch (FileNotFoundException)
+            {
+                File.WriteAllText(@"Class.json", "[]");
+            }
             return classList;
         }
 
@@ -38,7 +45,7 @@ namespace QuanLiSinhVien.Services
                
             }
 
-            int ClassId = sum % 10;
+            int ClassId = sum;
             var classList = new List<ClassModel>
             {
                 
@@ -51,14 +58,14 @@ namespace QuanLiSinhVien.Services
                 ClassName = ClassName,
                 Subjects = new List<SubjectModel> 
                 { 
-                    new SubjectModel() 
+                  /*  new SubjectModel() 
                     {
                         students = new List<StudentModel> 
                         { 
                             new StudentModel()
                             
                         }                     
-                    } 
+                    } */
                 }
 
             });

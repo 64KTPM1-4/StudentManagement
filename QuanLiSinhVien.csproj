@@ -95,11 +95,23 @@
     <Compile Include="Class Form\AddClass.Designer.cs">
       <DependentUpon>AddClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Class Form\AddSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Class Form\AddSubject.Designer.cs">
+      <DependentUpon>AddSubject.cs</DependentUpon>
+    </Compile>
     <Compile Include="Class Form\Class_Form.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Class Form\Class_Form.Designer.cs">
       <DependentUpon>Class_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class Form\SubjectList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Class Form\SubjectList.Designer.cs">
+      <DependentUpon>SubjectList.cs</DependentUpon>
     </Compile>
     <Compile Include="Login Form\LoginForm.cs">
       <SubType>Form</SubType>
@@ -127,8 +139,14 @@
     <EmbeddedResource Include="Class Form\AddClass.resx">
       <DependentUpon>AddClass.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Class Form\AddSubject.resx">
+      <DependentUpon>AddSubject.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Class Form\Class_Form.resx">
       <DependentUpon>Class_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Class Form\SubjectList.resx">
+      <DependentUpon>SubjectList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login Form\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

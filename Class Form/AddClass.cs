@@ -30,18 +30,18 @@ namespace QuanLiSinhVien.Class
             AddClassLabel.Hide();
         }
 
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if(e.KeyChar == (char)Keys.Enter)
-            {
-                this.Close();
-            }
-        }
-
         private void AddClassButton_Click(object sender, EventArgs e)
         {
             classServices.AddClass(textBox1.Text);
             this.Close();
+        }
+
+        private void AddClassButton_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char) Keys.Enter)
+            {
+                AddClassButton_Click(sender, e);
+            }
         }
     }
 }
