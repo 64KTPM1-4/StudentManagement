@@ -26,33 +26,37 @@ namespace QuanLiSinhVien.Services
             return classList;
         }
 
-        public void AddClass(string ClassName)
+        public bool AddClass(string ClassName)
         {
             
-
-
-
             int ClassId = 0;
             var classList = JsonSerializer.Deserialize<List<ClassModel>>(File.ReadAllText(@"Class.json"));
-
-            int index = classList.Count() - 1;
-            if (index >= 0)
+            var valid = classList.FirstOrDefault(x => x.ClassName == ClassName);
+            if(valid == null)
             {
-                ClassId = classList[index].ClassId + 1;
+                int index = classList.Count() - 1;
+                if (index >= 0)
+                {
+                    ClassId = classList[index].ClassId + 1;
+                }
+
+
+                List<ClassModel> newClass = new List<ClassModel>();
+                newClass.Add(new ClassModel
+                {
+                    ClassId = ClassId,
+                    ClassName = ClassName,
+                    SubjectId = new List<int>()
+
+                });
+
+                classList.AddRange(newClass);
+                File.WriteAllText(@"Class.json", JsonSerializer.Serialize(classList));
+                return true;
             }
+            else return false;
+
             
-
-            List<ClassModel> newClass = new List<ClassModel>();
-            newClass.Add(new ClassModel
-            {
-                ClassId = ClassId,
-                ClassName = ClassName,
-                SubjectId = new List<int>()
-
-            });
-
-            classList.AddRange(newClass);
-            File.WriteAllText(@"Class.json", JsonSerializer.Serialize(classList));
 
         }
         public void AddClassSubject(ClassModel currentClass, int SubjectId)
@@ -65,6 +69,32 @@ namespace QuanLiSinhVien.Services
             
             
             File.WriteAllText(@"Class.json", JsonSerializer.Serialize(classList));
+
+        }
+
+        public void DeleteClass(string className)
+        {
+            var classList = JsonSerializer.Deserialize<List<ClassModel>>(File.ReadAllText(@"Class.json"));
+            var index = classList.FindIndex(x => x.ClassName == className);
+            classList.RemoveAt(index);
+            File.WriteAllText(@"Class.json", JsonSerializer.Serialize(classList));
+        }
+
+        public bool EditClassName(string currentClassName, string newClassName)
+        {
+
+            var classList = JsonSerializer.Deserialize<List<ClassModel>>(File.ReadAllText(@"Class.json"));
+            var valid = classList.FindIndex(x => x.ClassName == newClassName);
+            if(valid == -1)
+            {
+                var index = classList.FindIndex(x => x.ClassName == currentClassName);
+                classList[index].ClassName = newClassName;
+                File.WriteAllText(@"Class.json", JsonSerializer.Serialize(classList));
+                return true;
+            }
+            else return false;
+            
+
 
         }
 

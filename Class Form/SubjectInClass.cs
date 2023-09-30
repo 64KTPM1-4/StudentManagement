@@ -17,14 +17,18 @@ namespace QuanLiSinhVien
     
     public partial class SubjectInClass : Form
     {
-        ClassModel currentClass = new ClassModel();
+        AddClassSubject addClassSubject;
+        ClassModel currentClass;
+        ClassServices classServices;
         public SubjectInClass(ClassModel selectedClass)
         {
             InitializeComponent();
             currentClass = selectedClass;
-            
+            ClassNameLabel.Text = "Danh sách học phần của lớp " + currentClass.ClassName;
             ClassSubjectGridView.DataSource = JoinTableServices.JoinClassSubject(selectedClass);
-           
+            addClassSubject = new AddClassSubject(currentClass);
+            classServices = new ClassServices();
+
         }
 
         private void ClassSubjectGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -37,13 +41,32 @@ namespace QuanLiSinhVien
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void AddClassSubject_Click(object sender, EventArgs e)
         {
-            AddClassSubject addClassSubject = new AddClassSubject(currentClass);
+           
             addClassSubject.ShowDialog();
             ClassSubjectGridView.DataSource = JoinTableServices.JoinClassSubject(currentClass);
             ClassSubjectGridView.Update();
             ClassSubjectGridView.Refresh();
+
+        }
+
+        private void DeleteClassButton_Click(object sender, EventArgs e)
+        {
+            classServices.DeleteClass(currentClass.ClassName);
+            this.Close();
+        }
+
+        private void EditClass_Click(object sender, EventArgs e)
+        {
+            EditClass editClass = new EditClass(currentClass);
+            editClass.ShowDialog();
+            currentClass = classServices.ClassSearch().FirstOrDefault(x => x.ClassId == currentClass.ClassId);
+            ClassSubjectGridView.DataSource = JoinTableServices.JoinClassSubject(currentClass);
+            ClassSubjectGridView.Update();
+            ClassSubjectGridView.Refresh();
+            ClassNameLabel.Text = "Danh sách học phần của lớp " + currentClass.ClassName;
+
 
         }
     }

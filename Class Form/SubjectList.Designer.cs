@@ -34,6 +34,8 @@
             this.SubjectGridView = new System.Windows.Forms.DataGridView();
             this.ReturnButton = new System.Windows.Forms.Button();
             this.AddSubjectButton = new System.Windows.Forms.Button();
+            this.DeleteSubjectButton = new System.Windows.Forms.Button();
+            this.EditSubjectButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SubjectGridView)).BeginInit();
             this.SuspendLayout();
@@ -69,13 +71,14 @@
             this.SubjectGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.SubjectGridView.ColumnHeadersHeight = 29;
             this.SubjectGridView.GridColor = System.Drawing.SystemColors.Control;
-            this.SubjectGridView.Location = new System.Drawing.Point(409, 192);
+            this.SubjectGridView.Location = new System.Drawing.Point(413, 192);
             this.SubjectGridView.Name = "SubjectGridView";
             this.SubjectGridView.ReadOnly = true;
             this.SubjectGridView.RowHeadersWidth = 51;
             this.SubjectGridView.RowTemplate.Height = 24;
             this.SubjectGridView.Size = new System.Drawing.Size(736, 579);
             this.SubjectGridView.TabIndex = 5;
+            this.SubjectGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SubjectGridView_CellClick);
             // 
             // ReturnButton
             // 
@@ -99,11 +102,35 @@
             this.AddSubjectButton.UseVisualStyleBackColor = true;
             this.AddSubjectButton.Click += new System.EventHandler(this.AddSubjectButton_Click);
             // 
+            // DeleteSubjectButton
+            // 
+            this.DeleteSubjectButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteSubjectButton.Location = new System.Drawing.Point(106, 256);
+            this.DeleteSubjectButton.Name = "DeleteSubjectButton";
+            this.DeleteSubjectButton.Size = new System.Drawing.Size(225, 35);
+            this.DeleteSubjectButton.TabIndex = 10;
+            this.DeleteSubjectButton.Text = "Xóa môn học";
+            this.DeleteSubjectButton.UseVisualStyleBackColor = true;
+            this.DeleteSubjectButton.Visible = false;
+            // 
+            // EditSubjectButton
+            // 
+            this.EditSubjectButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EditSubjectButton.Location = new System.Drawing.Point(106, 318);
+            this.EditSubjectButton.Name = "EditSubjectButton";
+            this.EditSubjectButton.Size = new System.Drawing.Size(225, 35);
+            this.EditSubjectButton.TabIndex = 11;
+            this.EditSubjectButton.Text = "Chỉnh sửa môn học";
+            this.EditSubjectButton.UseVisualStyleBackColor = true;
+            this.EditSubjectButton.Visible = false;
+            // 
             // SubjectList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1849, 833);
+            this.Controls.Add(this.EditSubjectButton);
+            this.Controls.Add(this.DeleteSubjectButton);
             this.Controls.Add(this.AddSubjectButton);
             this.Controls.Add(this.ReturnButton);
             this.Controls.Add(this.SubjectGridView);
@@ -111,6 +138,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "SubjectList";
             this.Text = "SubjectList";
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SubjectList_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SubjectGridView)).EndInit();
             this.ResumeLayout(false);
@@ -125,5 +153,7 @@
         private System.Windows.Forms.DataGridView SubjectGridView;
         private System.Windows.Forms.Button ReturnButton;
         private System.Windows.Forms.Button AddSubjectButton;
+        private System.Windows.Forms.Button DeleteSubjectButton;
+        private System.Windows.Forms.Button EditSubjectButton;
     }
 }
