@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuanLiSinhVien.Class;
 using QuanLiSinhVien.Model;
 using QuanLiSinhVien.Services;
 
@@ -14,33 +15,21 @@ namespace QuanLiSinhVien
 {
     public partial class SubjectList : Form
     {
+        
+        List<SubjectModel> subjectList;
         SubjectServices subjectServices;
-        ClassModel currenntClass;
-        List<ClassModel> currentClassList;
-        public SubjectList(List<ClassModel> classList ,ClassModel selectedClass)
+        public SubjectList()
         {
             InitializeComponent();
-            subjectServices = new SubjectServices(classList, selectedClass);
-            SubjectGridView.DataSource = subjectServices.SubjectsSearch();
-            currenntClass = classList.FirstOrDefault(x => x == selectedClass);
-            currentClassList = classList;
-            
+            subjectServices = new SubjectServices();
+            subjectList = new List<SubjectModel>();
+            subjectList = subjectServices.SubjectSearch();
+            this.SubjectGridView.DataSource = subjectList;
 
-            if(currenntClass.Subjects.Count > 0)
-            {
-                SubjectGridView.DataSource = subjectServices.SubjectsSearch();
-                int height = 35;
-                foreach(DataGridViewRow row in SubjectGridView.Rows)
-                {
-                    if(row.Visible) height += row.Height;
-                }
-                SubjectGridView.Height = height;
-            }
-            else
-            {
-                SubjectGridView.Hide();
-                EmptyClassList.Show();
-            }
+
+
+
+
         }
 
         private void ReturnButton_Click(object sender, EventArgs e)
@@ -50,13 +39,12 @@ namespace QuanLiSinhVien
 
         private void AddSubjectButton_Click(object sender, EventArgs e)
         {
-            AddSubject addSubject = new AddSubject(currentClassList, currenntClass);
+            AddSubject addSubject = new AddSubject();
             addSubject.ShowDialog();
-            SubjectGridView = new DataGridView();
-            this.SubjectGridView.DataSource = subjectServices.SubjectsSearch();
+            SubjectGridView.DataSource = subjectServices.SubjectSearch();
             SubjectGridView.Update();
             SubjectGridView.Refresh();
-            
+
         }
     }
 }

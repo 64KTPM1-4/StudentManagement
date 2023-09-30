@@ -7,14 +7,11 @@ using System.Threading.Tasks;
 
 namespace QuanLiSinhVien.Model
 {
-    public class SubjectModel
+    public class JoinClassSubjectModel
     {
         [DisplayName("ID")]
-        public int SubjectId { get; set; } = 0;
+        public int SubjectId { get; set; }
         [DisplayName("Tên môn học")]
-        public string SubjectName { get; set; } = string.Empty;
-        public List<int> studentId { get; set; } = new List<int>();
-        
-
+        public string SubjectName { get; set; }
     }
 }

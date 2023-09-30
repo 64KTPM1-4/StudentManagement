@@ -14,15 +14,12 @@ namespace QuanLiSinhVien
 {
     public partial class AddSubject : Form
     {
-        List<ClassModel> classList;
-        ClassModel currentClass;
+        
         SubjectServices subjectServices;
-        public AddSubject(List<ClassModel> classes, ClassModel currentClass)
+        public AddSubject()
         {
             InitializeComponent();
-            classList = classes;
-            this.currentClass = currentClass;
-            subjectServices = new SubjectServices(classList, currentClass);
+            subjectServices = new SubjectServices();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -33,8 +30,7 @@ namespace QuanLiSinhVien
 
         private void AddClassButton_Click(object sender, EventArgs e)
         {
-            
-            subjectServices.AddedSubject(textBox1.Text);
+            subjectServices.AddSubject(textBox1.Text);
             this.Close();
         }
     }

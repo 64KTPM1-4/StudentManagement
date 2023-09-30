@@ -81,7 +81,7 @@
             this.Add_Class.Name = "Add_Class";
             this.Add_Class.Size = new System.Drawing.Size(489, 58);
             this.Add_Class.TabIndex = 3;
-            this.Add_Class.Text = "Thêm lớp mới";
+            this.Add_Class.Text = "Xem danh sách môn học";
             this.Add_Class.UseVisualStyleBackColor = true;
             this.Add_Class.Click += new System.EventHandler(this.Add_Class_Click);
             // 
