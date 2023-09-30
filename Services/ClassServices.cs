@@ -28,49 +28,42 @@ namespace QuanLiSinhVien.Services
 
         public void AddClass(string ClassName)
         {
-            int sum = 0;
+            
 
-            foreach (char c in ClassName)
+
+
+            int ClassId = 0;
+            var classList = JsonSerializer.Deserialize<List<ClassModel>>(File.ReadAllText(@"Class.json"));
+
+            int index = classList.Count() - 1;
+            if (index >= 0)
             {
-                if (char.IsDigit(c))
-                {
-                    int digit = (int)Char.GetNumericValue(c);
-                    sum += digit;
-                }
-                else
-                {
-                    int asciiValue = (int)c;
-                    sum += asciiValue;
-                }
-               
+                ClassId = classList[index].ClassId + 1;
             }
+            
 
-            int ClassId = sum;
-            var classList = new List<ClassModel>
-            {
-                
-            };
-            classList = JsonSerializer.Deserialize<List<ClassModel>>(File.ReadAllText(@"Class.json"));
             List<ClassModel> newClass = new List<ClassModel>();
             newClass.Add(new ClassModel
             {
                 ClassId = ClassId,
                 ClassName = ClassName,
-                Subjects = new List<SubjectModel> 
-                { 
-                  /*  new SubjectModel() 
-                    {
-                        students = new List<StudentModel> 
-                        { 
-                            new StudentModel()
-                            
-                        }                     
-                    } */
-                }
+                SubjectId = new List<int>()
 
             });
 
             classList.AddRange(newClass);
+            File.WriteAllText(@"Class.json", JsonSerializer.Serialize(classList));
+
+        }
+        public void AddClassSubject(ClassModel currentClass, int SubjectId)
+        {
+            
+            var classList = ClassSearch();
+            int index = classList.FindIndex(x => x.ClassId == currentClass.ClassId);
+           
+            classList[index].SubjectId.Add(SubjectId);
+            
+            
             File.WriteAllText(@"Class.json", JsonSerializer.Serialize(classList));
 
         }

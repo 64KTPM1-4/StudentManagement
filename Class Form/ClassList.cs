@@ -25,25 +25,7 @@ namespace QuanLiSinhVien
             classServices = new ClassServices();
             classList = new List<ClassModel> { };
             classList = classServices.ClassSearch();
-            if (classList.Count > 0)
-            {
-                this.dataGridView1.DataSource = classList;
-
-                int height = 35;
-                foreach (DataGridViewRow dataGridViewRow in dataGridView1.Rows)
-                {
-                    if (dataGridViewRow.Visible) height += dataGridViewRow.Height;
-                }
-                dataGridView1.Height = height;
-            }
-            else
-            {
-
-                dataGridView1.Hide();
-                EmptyClassList.Show();
-            }
-
-
+            this.dataGridView1.DataSource = classList;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -52,12 +34,10 @@ namespace QuanLiSinhVien
             {
                 var onclick = dataGridView1.SelectedCells[0].Value.ToString();
                 var selectedClass = classList.FirstOrDefault(x => x.ClassName == onclick);
-                SubjectList subjectList = new SubjectList(classList, selectedClass);
+                SubjectInClass subjectInClass = new SubjectInClass(selectedClass);
                 this.Hide();
-                subjectList.ShowDialog();
+                subjectInClass.ShowDialog();
                 this.Show();
-                
-                
                 
             }
         }

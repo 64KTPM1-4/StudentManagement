@@ -11,10 +11,10 @@ namespace QuanLiSinhVien.Model
     public class ClassModel
     {
         [DisplayName("ID")]
-        public int? ClassId { get; set; }
+        public int ClassId { get; set; }
         [DisplayName("Tên lớp")]
         public string ClassName { get; set; }
-        public List<SubjectModel> Subjects { get; set; } = new List<SubjectModel>();
+        public List<int> SubjectId { get; set; } = new List<int>();
         
 
     }

@@ -34,8 +34,10 @@ namespace QuanLiSinhVien
 
         private void Add_Class_Click(object sender, EventArgs e)
         {
-            AddClass addClass = new AddClass();
-            addClass.ShowDialog();
+            SubjectList subjectList = new SubjectList();
+            this.Hide();
+            subjectList.ShowDialog();
+            this.Show();
         }
 
         private void Delete_Class_Click(object sender, EventArgs e)

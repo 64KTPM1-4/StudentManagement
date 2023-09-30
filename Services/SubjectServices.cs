@@ -12,72 +12,44 @@ namespace QuanLiSinhVien.Services
     public class SubjectServices
     {
 
-        List<SubjectModel> subjects;
-        ClassModel currentClass;
-        List<ClassModel> ClassList;
-        public SubjectServices(List<ClassModel> Class, ClassModel selectedClass) 
+        public List<SubjectModel> SubjectSearch()
         {
-            currentClass = selectedClass;
-            ClassList = Class;
-            subjects = new List<SubjectModel>();
-        }
-
-        public List<SubjectModel> SubjectsSearch() 
-        {
-            
-            return currentClass.Subjects;
-        }
-
-        public SubjectModel GetSubjectsById(int? subjectId)
-        {
-            return subjects.FirstOrDefault(subject => subject.SubjectId == subjectId);
-        }
-        SubjectModel subject;
-        public void AddedSubject(string subjectName) 
-        {
-            int sum = 0;
-            foreach (char c in subjectName)
+            var subjectList = new List<SubjectModel> { };
+            try
             {
-                if (char.IsDigit(c))
-                {
-                    int digit = (int)Char.GetNumericValue(c);
-                    sum += digit;
-                }
-                else
-                {
-                    int asciiValue = (int)c;
-                    sum += asciiValue;
-                }
-
+                string json = File.ReadAllText(@"Subject.json");
+                subjectList = JsonConvert.DeserializeObject<List<SubjectModel>>(json);
             }
-
-            subject = new SubjectModel();
-            subject.SubjectId = sum;
-            subject.SubjectName = subjectName;
-            subjects.Add(subject);
-            currentClass.Subjects.Add(subject);
-            int index = ClassList.FindIndex(s => s == currentClass);
-            ClassList[index] = currentClass;
-            SaveSubjects();
-        }
-
-        public void RemoveSubject(int? subjectId)
-        {
-            SubjectModel subjectRemove = subjects.FirstOrDefault(subject => subject.SubjectId == subjectId);
-
-            if (subjectRemove != null) 
+            catch (FileNotFoundException)
             {
-                subjects.Remove(subjectRemove);
-                SaveSubjects();
+                File.WriteAllText(@"Subject.json", "[]");
             }
+            return subjectList;
         }
 
-
-
-        private void SaveSubjects()
+        public void AddSubject(string SubjectName)
         {
-           var json = JsonConvert.SerializeObject(ClassList, Formatting.Indented);
-            File.WriteAllText(@"Class.json", json);
+
+
+            int SubjectId = 0;
+            var subjectList = JsonConvert.DeserializeObject<List<SubjectModel>>(File.ReadAllText(@"Subject.json"));
+            int index = subjectList.Count() - 1;
+            if (index >= 0)
+            {
+                SubjectId = subjectList[index].SubjectId + 1;
+            }
+            List<SubjectModel> newSubject = new List<SubjectModel>();
+            newSubject.Add(new SubjectModel
+            {
+                SubjectId = SubjectId,
+                SubjectName = SubjectName,
+
+            });
+
+            subjectList.AddRange(newSubject);
+            File.WriteAllText(@"Subject.json", JsonConvert.SerializeObject(subjectList));
         }
+
+        
     }
 }
