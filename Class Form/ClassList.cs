@@ -30,14 +30,19 @@ namespace QuanLiSinhVien
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 1)
+            var onclick = dataGridView1.SelectedCells[0].Value.ToString();
+            if (e.ColumnIndex == 1 && onclick != "0")
             {
-                var onclick = dataGridView1.SelectedCells[0].Value.ToString();
+                
                 var selectedClass = classList.FirstOrDefault(x => x.ClassName == onclick);
                 SubjectInClass subjectInClass = new SubjectInClass(selectedClass);
                 this.Hide();
                 subjectInClass.ShowDialog();
                 this.Show();
+                classList = classServices.ClassSearch();
+                dataGridView1.DataSource = classList;
+                dataGridView1.Update();
+                dataGridView1.Refresh();
                 
             }
         }
@@ -52,7 +57,8 @@ namespace QuanLiSinhVien
         {
             AddClass addClass = new AddClass();
             addClass.ShowDialog();
-            dataGridView1.DataSource = classServices.ClassSearch();
+            classList = classServices.ClassSearch();
+            dataGridView1.DataSource = classList;
             dataGridView1.Update();
             dataGridView1.Refresh();
             

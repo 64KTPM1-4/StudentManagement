@@ -32,8 +32,10 @@ namespace QuanLiSinhVien.Class
 
         private void AddClassButton_Click(object sender, EventArgs e)
         {
-            classServices.AddClass(textBox1.Text);
-            this.Close();
+            //classServices.AddClass(textBox1.Text);
+            if (classServices.AddClass(textBox1.Text))
+                this.Close();
+            else MessageBox.Show("Lớp đã tồn tại !");
         }
 
         private void AddClassButton_KeyPress(object sender, KeyPressEventArgs e)

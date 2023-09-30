@@ -34,6 +34,9 @@
             this.ClassSubjectGridView = new System.Windows.Forms.DataGridView();
             this.ReturnButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.ClassNameLabel = new System.Windows.Forms.Label();
+            this.DeleteClassButton = new System.Windows.Forms.Button();
+            this.EditClass = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClassSubjectGridView)).BeginInit();
             this.SuspendLayout();
@@ -69,7 +72,7 @@
             this.ClassSubjectGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ClassSubjectGridView.ColumnHeadersHeight = 29;
             this.ClassSubjectGridView.GridColor = System.Drawing.SystemColors.Control;
-            this.ClassSubjectGridView.Location = new System.Drawing.Point(369, 153);
+            this.ClassSubjectGridView.Location = new System.Drawing.Point(363, 223);
             this.ClassSubjectGridView.Name = "ClassSubjectGridView";
             this.ClassSubjectGridView.ReadOnly = true;
             this.ClassSubjectGridView.RowHeadersWidth = 51;
@@ -98,13 +101,48 @@
             this.button1.TabIndex = 11;
             this.button1.Text = "Thêm môn cho lớp";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.AddClassSubject_Click);
+            // 
+            // ClassNameLabel
+            // 
+            this.ClassNameLabel.AutoSize = true;
+            this.ClassNameLabel.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClassNameLabel.Location = new System.Drawing.Point(454, 172);
+            this.ClassNameLabel.Name = "ClassNameLabel";
+            this.ClassNameLabel.Size = new System.Drawing.Size(54, 32);
+            this.ClassNameLabel.TabIndex = 12;
+            this.ClassNameLabel.Text = "AA";
+            // 
+            // DeleteClassButton
+            // 
+            this.DeleteClassButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteClassButton.Location = new System.Drawing.Point(65, 320);
+            this.DeleteClassButton.Name = "DeleteClassButton";
+            this.DeleteClassButton.Size = new System.Drawing.Size(256, 40);
+            this.DeleteClassButton.TabIndex = 13;
+            this.DeleteClassButton.Text = "Xóa lớp";
+            this.DeleteClassButton.UseVisualStyleBackColor = true;
+            this.DeleteClassButton.Click += new System.EventHandler(this.DeleteClassButton_Click);
+            // 
+            // EditClass
+            // 
+            this.EditClass.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EditClass.Location = new System.Drawing.Point(65, 383);
+            this.EditClass.Name = "EditClass";
+            this.EditClass.Size = new System.Drawing.Size(256, 40);
+            this.EditClass.TabIndex = 14;
+            this.EditClass.Text = "Chỉnh sửa tên lớp";
+            this.EditClass.UseVisualStyleBackColor = true;
+            this.EditClass.Click += new System.EventHandler(this.EditClass_Click);
             // 
             // SubjectInClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1849, 833);
+            this.Controls.Add(this.EditClass);
+            this.Controls.Add(this.DeleteClassButton);
+            this.Controls.Add(this.ClassNameLabel);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.ReturnButton);
             this.Controls.Add(this.ClassSubjectGridView);
@@ -126,5 +164,8 @@
         private System.Windows.Forms.DataGridView ClassSubjectGridView;
         private System.Windows.Forms.Button ReturnButton;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label ClassNameLabel;
+        private System.Windows.Forms.Button DeleteClassButton;
+        private System.Windows.Forms.Button EditClass;
     }
 }

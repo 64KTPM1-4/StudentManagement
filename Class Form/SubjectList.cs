@@ -46,5 +46,21 @@ namespace QuanLiSinhVien
             SubjectGridView.Refresh();
 
         }
+
+        private void SubjectGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var onclick = SubjectGridView.SelectedCells[0].Value.ToString();
+            if(e.ColumnIndex == 1 && onclick != "0" )
+            {
+                EditSubjectButton.Show();
+                DeleteSubjectButton.Show();
+            }
+        }
+
+        private void SubjectList_MouseClick(object sender, MouseEventArgs e)
+        {
+            EditSubjectButton.Hide();
+            DeleteSubjectButton.Hide();
+        }
     }
 }
