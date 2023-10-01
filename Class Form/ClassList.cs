@@ -63,5 +63,10 @@ namespace QuanLiSinhVien
             dataGridView1.Refresh();
             
         }
+
+        private void ClassList_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
