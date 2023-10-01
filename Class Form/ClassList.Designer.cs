@@ -121,6 +121,7 @@
             this.MaximizeBox = false;
             this.Name = "ClassList";
             this.Text = "Phần mềm quản lí sinh viên - Danh sách lớp";
+            this.Load += new System.EventHandler(this.ClassList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.classModelBindingSource1)).EndInit();
