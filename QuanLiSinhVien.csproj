@@ -119,6 +119,12 @@
     <Compile Include="Class Form\EditClass.Designer.cs">
       <DependentUpon>EditClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Class Form\StudentOfClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Class Form\StudentOfClass.Designer.cs">
+      <DependentUpon>StudentOfClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Class Form\SubjectInClass.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,7 @@
     <Compile Include="Model\AccountModel.cs" />
     <Compile Include="Model\ClassModel.cs" />
     <Compile Include="Model\DanhSachAcc.cs" />
+    <Compile Include="Model\JoinClassStudentModel.cs" />
     <Compile Include="Model\JoinClassSubjectModel.cs" />
     <Compile Include="Model\StudentModel.cs" />
     <Compile Include="Model\SubjectModel.cs" />
@@ -170,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Class Form\EditClass.resx">
       <DependentUpon>EditClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Class Form\StudentOfClass.resx">
+      <DependentUpon>StudentOfClass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Class Form\SubjectInClass.resx">
       <DependentUpon>SubjectInClass.cs</DependentUpon>
