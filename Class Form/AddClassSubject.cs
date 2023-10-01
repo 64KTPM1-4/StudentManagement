@@ -28,12 +28,18 @@ namespace QuanLiSinhVien
             SubjectListBox.ValueMember = "SubjectId";
             ClassServices = new ClassServices();
             currentClass = selectedClass;
+            int MemberCount = SubjectListBox.Items.Count;
+
+            if (MemberCount > 0) OkButton.Show();
+            else OkButton.Hide();
+
         }
 
         private void OkButton_Click(object sender, EventArgs e)
         {
-            int IdList = (int)SubjectListBox.SelectedValue;
-            ClassServices.AddClassSubject(currentClass, IdList);
+            
+            int Id = (int)SubjectListBox.SelectedValue;
+            ClassServices.AddClassSubject(currentClass, Id);
             this.Close();
         }
     }

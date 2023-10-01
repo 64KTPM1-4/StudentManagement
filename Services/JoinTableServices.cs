@@ -10,10 +10,10 @@ namespace QuanLiSinhVien.Services
         List<ClassModel> classList;
         ClassModel currentClass;
        public JoinTableServices(ClassModel selectedClass)
-        {
+       {
             classList = JsonConvert.DeserializeObject<List<ClassModel>>(File.ReadAllText(@"Class.json"));
             currentClass = classList.FirstOrDefault(x => x.ClassId == selectedClass.ClassId);
-        }
+       }
         public List<JoinClassSubjectModel> JoinClassSubject() 
         {            
             var subjectList = JsonConvert.DeserializeObject<List<SubjectModel>>(File.ReadAllText(@"Subject.json"));

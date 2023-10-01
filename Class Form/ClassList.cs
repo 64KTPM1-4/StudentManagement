@@ -34,15 +34,11 @@ namespace QuanLiSinhVien
             var onclick = dataGridView1.SelectedCells[0].Value.ToString();
             if (e.ColumnIndex == 1 && onclick != "0")
             {
-
-                ShowStudent.Show();
-                ShowSubject.Show();
-
+                ShowButton();
             }
             else
             {
-                ShowStudent.Hide();
-                ShowSubject.Hide();
+                HideButton();
             }
         }
 
@@ -65,8 +61,7 @@ namespace QuanLiSinhVien
 
         private void ClassList_MouseClick(object sender, MouseEventArgs e)
         {
-            ShowSubject.Hide();
-            ShowStudent.Hide();
+            HideButton();
         }
 
         private void ShowSubject_Click(object sender, EventArgs e)
@@ -81,6 +76,7 @@ namespace QuanLiSinhVien
             dataGridView1.DataSource = classList;
             dataGridView1.Update();
             dataGridView1.Refresh();
+            HideButton();
         }
 
         private void ShowStudent_Click(object sender, EventArgs e)
@@ -95,7 +91,19 @@ namespace QuanLiSinhVien
             dataGridView1.DataSource= classList;
             dataGridView1.Update();
             dataGridView1.Refresh();
+            HideButton();
 
+        }
+
+        private void ShowButton()
+        {
+            ShowStudent.Show();
+            ShowSubject.Show();
+        }
+        private void HideButton()
+        {
+            ShowStudent.Hide();
+            ShowSubject.Hide();
         }
     }
 }

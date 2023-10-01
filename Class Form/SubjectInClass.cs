@@ -47,6 +47,7 @@ namespace QuanLiSinhVien
         {
            
             addClassSubject.ShowDialog();
+            joinTableServices = new JoinTableServices(currentClass);
             ClassSubjectGridView.DataSource = joinTableServices.JoinClassSubject();
             ClassSubjectGridView.Update();
             ClassSubjectGridView.Refresh();
