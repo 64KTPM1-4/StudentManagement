@@ -10,11 +10,11 @@ namespace QuanLiSinhVien.Model
     public class StudentModel
     {
         [DisplayName("ID")]
-        public int? Id { get; set; } = 0;
+        public int Id { get; set; } = 0;
         [DisplayName("Tên sinh viên")]
         public string Name { get; set; } = string.Empty;
         [DisplayName("Điểm")]
-        public int? points { get; set; } = 0;
+        public int points { get; set; } = 0;
         [DisplayName("Vi phạm")]
         public string notes { get; set; } = string.Empty;
 

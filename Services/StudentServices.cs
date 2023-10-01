@@ -28,10 +28,10 @@ namespace QuanLiSinhVien.Services
         }
 
 
-        public void AddStudent(int StudentName)
+        public void AddStudent(string StudentName)
         {
             int StudentId = 0;
-            var studentList = JsonConvert.DeserializeObject<List<StudentModel>>(File.ReadAllText(@"students.json"));
+            var studentList = StudentSearch();
             int index = studentList.Count() - 1;
             
             if(index >= 0) 
@@ -51,7 +51,7 @@ namespace QuanLiSinhVien.Services
 
         public void DeleteStudent(string StudentName)
         {
-            var studentList = JsonSerializer.Deserialize<List<StudentModel>>(File.ReadAllText(@"stuents.json"));
+            var studentList = StudentSearch();
             var Name = studentList.FirstOrDefault(s => s.Name.Equals(StudentName, StringComparison.OrdinalIgnoreCase));
             var index = studentList.FindIndex(x => x.Name == Name);
             studentList.RemoveAt(index);
@@ -61,7 +61,7 @@ namespace QuanLiSinhVien.Services
 
         public void EditStudent(string oldStudentName, string newStudentName)
         {
-            var studentList = JsonSerializer.Deserialize<List<StudentModel>>(File.ReadAllText(@"stuents.json"));
+            var studentList = StudentSearch();
             var student = studentList.FirstOrDefault(s => s.Name.Equals(oldStudentName, StringComparison.OrdinalIgnoreCase));
 
             if (student != null)
@@ -71,6 +71,28 @@ namespace QuanLiSinhVien.Services
             }
         }
 
+        public void AddPointsStudent(string studentName, int pointsToAdd)
+        {
+            var studentList = StudentSearch();
+            var student = studentList.FirstOrDefault(s => s.Name.Equals(studentName, StringComparison.OrdinalIgnoreCase));
 
+            if (student != null)
+            {
+                student.points += pointsToAdd;
+                File.WriteAllText(@"students.json", JsonSerializer.Serialize(studentList));
+            }
+        }
+
+        public void AddNotesStudent(string studentName, string note)
+        {
+            var studentList = StudentSearch();
+            var student = studentList.FirstOrDefault(s => s.Name.Equals(studentName, StringComparison.OrdinalIgnoreCase));
+
+            if (student != null)
+            {
+                student.notes += Environment.NewLine + note;
+                File.WriteAllText(@"students.json", JsonSerializer.Serialize(studentList));
+            }
+        }
     }
 }
