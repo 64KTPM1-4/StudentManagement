@@ -7,75 +7,70 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
+
 namespace QuanLiSinhVien.Services
 {
     public class StudentSevices
     {
-        List<StudentModel> students;
-
-        public StudentSevices() 
+        public List<StudentModel> StudentSearch()
         {
-            LoadStudentsGVCN();
-        }
-
-        public IEnumerable<StudentModel> GetAllStudents() 
-        {
-            return students;
-        }
-
-        public StudentModel GetStudentById(int? studentId)
-        {
-            return students.FirstOrDefault(student => student.Id == studentId);
-        }
-
-        public void AddStudent(StudentModel student)
-        {
-            student.Id = students.Count > 0 ? students.Max(s => s.Id) + 1 : 1;  
-            students.Add(student);
-            SaveStudents();
-        }
-
-        public void RemoveStudent(int? studentId) 
-        {
-            StudentModel studentRemove = students.FirstOrDefault(s => s.Id == studentId);
-
-            if(studentRemove != null) 
+            var studentList = new List<StudentModel>() { };
+            try
             {
-                students.Remove(studentRemove);
-                SaveStudents();
+                string json = File.ReadAllText(@"students.json");
+                studentList = JsonConvert.DeserializeObject<List<StudentModel>>(json);
+        }
+            catch(FileNotFoundException)
+        {
+                File.WriteAllText(@"students.json", "[]");
+        }
+            return studentList;
+        }
+
+
+        public void AddStudent(int StudentName)
+        {
+            int StudentId = 0;
+            var studentList = JsonConvert.DeserializeObject<List<StudentModel>>(File.ReadAllText(@"students.json"));
+            int index = studentList.Count() - 1;
+
+            if(index >= 0) 
+        {
+                StudentId = studentList[index].Id + 1;
+        }
+            List<StudentModel> newStudent = new List<StudentModel>();
+            newStudent.Add(new StudentModel
+        {
+                Id = StudentId,
+                Name = StudentName,
+            });
+
+            studentList.AddRange(newStudent);
+            File.WriteAllText(@"students.json", JsonConvert.SerializeObject(studentList));
+            }
+
+        public void DeleteStudent(string StudentName)
+        {
+            var studentList = JsonSerializer.Deserialize<List<StudentModel>>(File.ReadAllText(@"stuents.json"));
+            var Name = studentList.FirstOrDefault(s => s.Name.Equals(StudentName, StringComparison.OrdinalIgnoreCase));
+            var index = studentList.FindIndex(x => x.Name == Name);
+            studentList.RemoveAt(index);
+            File.WriteAllText(@"students.json", JsonSerializer.Serialize(studentList));
+            }
+
+
+        public void EditStudent(string oldStudentName, string newStudentName)
+            {
+            var studentList = JsonSerializer.Deserialize<List<StudentModel>>(File.ReadAllText(@"stuents.json"));
+            var student = studentList.FirstOrDefault(s => s.Name.Equals(oldStudentName, StringComparison.OrdinalIgnoreCase));
+
+            if (student != null)
+        {
+                student.Name = newStudentName;
+                File.WriteAllText(@"students.json", JsonSerializer.Serialize(studentList));
             }
         }
 
-        private void LoadStudentsGVCN()
-        {
-            string json = File.ReadAllText(@"Class.json");
-            if(!string.IsNullOrEmpty(json)) 
-            {
-                students = JsonConvert.DeserializeObject<List<StudentModel>>(json);
-            }
-            else
-            {
-                students = new List<StudentModel>();
-            }
-        }
 
-        private void LoadStudentsGVBM()
-        {
-            string json = File.ReadAllText(@"subjects.json");
-            if (!string.IsNullOrEmpty(json))
-            {
-                students = JsonConvert.DeserializeObject<List<StudentModel>>(json);
-            }
-            else
-            {
-                students = new List<StudentModel>();
-            }
-        }
-
-        private void SaveStudents()
-        {
-            string json = JsonConvert.SerializeObject(students, Formatting.Indented);
-            File.WriteAllText(@"students.json", json);
-        }
     }
 }
