@@ -17,12 +17,12 @@ namespace QuanLiSinhVien.Services
             var studentList = new List<StudentModel>() { };
             try
             {
-                string json = File.ReadAllText(@"students.json");
+                string json = File.ReadAllText(@"Student.json");
                 studentList = JsonConvert.DeserializeObject<List<StudentModel>>(json);
             }
             catch(FileNotFoundException)
             {
-                File.WriteAllText(@"students.json", "[]");
+                File.WriteAllText(@"Student.json", "[]");
             }
             return studentList;
         }
@@ -46,16 +46,16 @@ namespace QuanLiSinhVien.Services
             });
 
             studentList.AddRange(newStudent);
-            File.WriteAllText(@"students.json", JsonConvert.SerializeObject(studentList));
+            File.WriteAllText(@"Student.json", JsonConvert.SerializeObject(studentList));
         }
 
         public void DeleteStudent(string StudentName)
         {
             var studentList = StudentSearch();
-            var Name = studentList.FirstOrDefault(s => s.Name.Equals(StudentName, StringComparison.OrdinalIgnoreCase));
-            var index = studentList.FindIndex(x => x.Name == Name);
+            var Name = studentList.FirstOrDefault(s => s.Name == StudentName);
+            var index = studentList.FindIndex(x => x.Name == StudentName);
             studentList.RemoveAt(index);
-            File.WriteAllText(@"students.json", JsonSerializer.Serialize(studentList));
+            File.WriteAllText(@"Student.json", JsonConvert.SerializeObject(studentList));
         }
 
 
@@ -67,7 +67,7 @@ namespace QuanLiSinhVien.Services
             if (student != null)
             {
                 student.Name = newStudentName;
-                File.WriteAllText(@"students.json", JsonSerializer.Serialize(studentList));
+                File.WriteAllText(@"Student.json", JsonConvert.SerializeObject(studentList));
             }
         }
 
@@ -79,7 +79,7 @@ namespace QuanLiSinhVien.Services
             if (student != null)
             {
                 student.points += pointsToAdd;
-                File.WriteAllText(@"students.json", JsonSerializer.Serialize(studentList));
+                File.WriteAllText(@"Student.json", JsonConvert.SerializeObject(studentList));
             }
         }
 
@@ -91,7 +91,7 @@ namespace QuanLiSinhVien.Services
             if (student != null)
             {
                 student.notes += Environment.NewLine + note;
-                File.WriteAllText(@"students.json", JsonSerializer.Serialize(studentList));
+                File.WriteAllText(@"Student.json", JsonConvert.SerializeObject(studentList));
             }
         }
     }

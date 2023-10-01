@@ -116,6 +116,7 @@
             this.AddStudentButton.TabIndex = 7;
             this.AddStudentButton.Text = "Xem danh sách sinh viên";
             this.AddStudentButton.UseVisualStyleBackColor = true;
+            this.AddStudentButton.Click += new System.EventHandler(this.AddStudentButton_Click);
             // 
             // Class_Form
             // 

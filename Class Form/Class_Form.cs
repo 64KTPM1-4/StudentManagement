@@ -49,5 +49,11 @@ namespace QuanLiSinhVien
         {
             
         }
+
+        private void AddStudentButton_Click(object sender, EventArgs e)
+        {
+            StudentList studentList = new StudentList();
+            studentList.ShowDialog();
+        }
     }
 }
