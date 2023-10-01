@@ -150,6 +150,7 @@
             this.Name = "ClassList";
             this.Text = "Phần mềm quản lí sinh viên - Danh sách lớp";
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ClassList_MouseClick);
+
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.classModelBindingSource1)).EndInit();

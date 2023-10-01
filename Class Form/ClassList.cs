@@ -95,6 +95,7 @@ namespace QuanLiSinhVien
             dataGridView1.DataSource= classList;
             dataGridView1.Update();
             dataGridView1.Refresh();
+
         }
     }
 }
