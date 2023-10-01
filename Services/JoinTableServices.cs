@@ -7,11 +7,15 @@ namespace QuanLiSinhVien.Services
 {
     public class JoinTableServices
     {
-       
-        public static List<JoinClassSubjectModel> JoinClassSubject(ClassModel selectedClass) 
+        List<ClassModel> classList;
+        ClassModel currentClass;
+       public JoinTableServices(ClassModel selectedClass)
         {
-            var classList = JsonConvert.DeserializeObject<List<ClassModel>>(File.ReadAllText(@"Class.json"));
-            var currentClass = classList.FirstOrDefault(x => x.ClassId == selectedClass.ClassId);
+            classList = JsonConvert.DeserializeObject<List<ClassModel>>(File.ReadAllText(@"Class.json"));
+            currentClass = classList.FirstOrDefault(x => x.ClassId == selectedClass.ClassId);
+        }
+        public List<JoinClassSubjectModel> JoinClassSubject() 
+        {            
             var subjectList = JsonConvert.DeserializeObject<List<SubjectModel>>(File.ReadAllText(@"Subject.json"));
             var query = currentClass.SubjectId.Select(x => x).Join(subjectList,
                                                     ID => ID,
@@ -20,12 +24,25 @@ namespace QuanLiSinhVien.Services
                                                     {
 
                                                         SubjectId = ID,
-                                                        SubjectName = list.SubjectName,
+                                                        SubjectName = list.SubjectName
                                                     }
                                                     ).ToList();
             return query;
         }
 
-        
+        public List<JoinClassStudentModel> JoinClassStudents()
+        {
+            var studentList = JsonConvert.DeserializeObject<List<StudentModel>>(File.ReadAllText(@"Student.json"));
+            var query = currentClass.StudentId.Select(x => x).Join(studentList,
+                                               ID => ID,
+                                               list => list.Id,
+                                               (ID, list) => new JoinClassStudentModel
+                                               {
+                                                   Id = ID,
+                                                   StudentName = list.Name
+                                               }
+                                               ).ToList();
+            return query;
+        }
     }
 }

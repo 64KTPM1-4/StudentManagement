@@ -30,7 +30,6 @@ namespace QuanLiSinhVien.Services
         public void AddSubject(string SubjectName)
         {
 
-
             int SubjectId = 0;
             var subjectList = JsonConvert.DeserializeObject<List<SubjectModel>>(File.ReadAllText(@"Subject.json"));
             int index = subjectList.Count() - 1;
