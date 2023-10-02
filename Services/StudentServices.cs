@@ -17,12 +17,12 @@ namespace QuanLiSinhVien.Services
             var studentList = new List<StudentModel>() { };
             try
             {
-                string json = File.ReadAllText(@"students.json");
+                string json = File.ReadAllText(@"Student.json");
                 studentList = JsonConvert.DeserializeObject<List<StudentModel>>(json);
             }
             catch(FileNotFoundException)
             {
-                File.WriteAllText(@"students.json", "[]");
+                File.WriteAllText(@"Student.json", "[]");
             }
             return studentList;
         }
