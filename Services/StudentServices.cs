@@ -52,7 +52,10 @@ namespace QuanLiSinhVien.Services
         public void DeleteStudent(string StudentName)
         {
             var studentList = StudentSearch();
-            var Name = studentList.FirstOrDefault(s => s.Name.Equals(StudentName, StringComparison.OrdinalIgnoreCase));
+
+
+            var Name = studentList.FirstOrDefault(s => s.Name == StudentName);
+
             var index = studentList.FindIndex(x => x.Name == StudentName);
             studentList.RemoveAt(index);
             File.WriteAllText(@"Student.json", JsonConvert.SerializeObject(studentList));
@@ -79,7 +82,8 @@ namespace QuanLiSinhVien.Services
             if (student != null)
             {
                 student.points += pointsToAdd;
-                File.WriteAllText(@"students.json", JsonConvert.SerializeObject(studentList));
+                File.WriteAllText(@"Student.json", JsonConvert.SerializeObject(studentList));
+
             }
         }
 
@@ -91,7 +95,8 @@ namespace QuanLiSinhVien.Services
             if (student != null)
             {
                 student.notes += Environment.NewLine + note;
-                File.WriteAllText(@"students.json", JsonConvert.SerializeObject(studentList));
+
+                File.WriteAllText(@"Student.json", JsonConvert.SerializeObject(studentList));
             }
         }
     }

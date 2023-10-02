@@ -46,7 +46,8 @@ namespace QuanLiSinhVien.Services
                 {
                     ClassId = ClassId,
                     ClassName = ClassName,
-                    SubjectId = new List<int>()
+                    SubjectId = new List<int>(),
+                    StudentId = new List<int>()
 
                 });
 

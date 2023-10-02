@@ -101,6 +101,12 @@
     <Compile Include="Class Form\AddClassSubject.Designer.cs">
       <DependentUpon>AddClassSubject.cs</DependentUpon>
     </Compile>
+    <Compile Include="Class Form\AddStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Class Form\AddStudent.Designer.cs">
+      <DependentUpon>AddStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Class Form\AddSubject.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,18 @@
     </Compile>
     <Compile Include="Class Form\EditClass.Designer.cs">
       <DependentUpon>EditClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class Form\StudentList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Class Form\StudentList.Designer.cs">
+      <DependentUpon>StudentList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class Form\StudentOfClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Class Form\StudentOfClass.Designer.cs">
+      <DependentUpon>StudentOfClass.cs</DependentUpon>
     </Compile>
     <Compile Include="Class Form\SubjectInClass.cs">
       <SubType>Form</SubType>
@@ -140,6 +158,7 @@
     <Compile Include="Model\AccountModel.cs" />
     <Compile Include="Model\ClassModel.cs" />
     <Compile Include="Model\DanhSachAcc.cs" />
+    <Compile Include="Model\JoinClassStudentModel.cs" />
     <Compile Include="Model\JoinClassSubjectModel.cs" />
     <Compile Include="Model\StudentModel.cs" />
     <Compile Include="Model\SubjectModel.cs" />
@@ -164,6 +183,9 @@
     <EmbeddedResource Include="Class Form\AddClassSubject.resx">
       <DependentUpon>AddClassSubject.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Class Form\AddStudent.resx">
+      <DependentUpon>AddStudent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Class Form\AddSubject.resx">
       <DependentUpon>AddSubject.cs</DependentUpon>
     </EmbeddedResource>
@@ -172,6 +194,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Class Form\EditClass.resx">
       <DependentUpon>EditClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Class Form\StudentList.resx">
+      <DependentUpon>StudentList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Class Form\StudentOfClass.resx">
+      <DependentUpon>StudentOfClass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Class Form\SubjectInClass.resx">
       <DependentUpon>SubjectInClass.cs</DependentUpon>

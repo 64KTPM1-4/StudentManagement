@@ -30,20 +30,15 @@ namespace QuanLiSinhVien
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            
             var onclick = dataGridView1.SelectedCells[0].Value.ToString();
             if (e.ColumnIndex == 1 && onclick != "0")
             {
-                
-                var selectedClass = classList.FirstOrDefault(x => x.ClassName == onclick);
-                SubjectInClass subjectInClass = new SubjectInClass(selectedClass);
-                this.Hide();
-                subjectInClass.ShowDialog();
-                this.Show();
-                classList = classServices.ClassSearch();
-                dataGridView1.DataSource = classList;
-                dataGridView1.Update();
-                dataGridView1.Refresh();
-                
+                ShowButton();
+            }
+            else
+            {
+                HideButton();
             }
         }
 
@@ -64,9 +59,51 @@ namespace QuanLiSinhVien
             
         }
 
-        private void ClassList_Load(object sender, EventArgs e)
+        private void ClassList_MouseClick(object sender, MouseEventArgs e)
         {
+            HideButton();
+        }
 
+        private void ShowSubject_Click(object sender, EventArgs e)
+        {
+            var onclick = dataGridView1.SelectedCells[0].Value.ToString();
+            var selectedClass = classList.FirstOrDefault(x => x.ClassName == onclick);
+            SubjectInClass subjectInClass = new SubjectInClass(selectedClass);
+            this.Hide();
+            subjectInClass.ShowDialog();
+            this.Show();
+            classList = classServices.ClassSearch();
+            dataGridView1.DataSource = classList;
+            dataGridView1.Update();
+            dataGridView1.Refresh();
+            HideButton();
+        }
+
+        private void ShowStudent_Click(object sender, EventArgs e)
+        {
+            var onclick = dataGridView1.SelectedCells[0].Value.ToString();
+            var selectedClass = classList.FirstOrDefault(x => x.ClassName == onclick);
+            StudentOfClass studentOfClass = new StudentOfClass(selectedClass);
+            this.Hide();
+            studentOfClass.ShowDialog();
+            this.Show();
+            classList = classServices.ClassSearch();
+            dataGridView1.DataSource= classList;
+            dataGridView1.Update();
+            dataGridView1.Refresh();
+            HideButton();
+
+        }
+
+        private void ShowButton()
+        {
+            ShowStudent.Show();
+            ShowSubject.Show();
+        }
+        private void HideButton()
+        {
+            ShowStudent.Hide();
+            ShowSubject.Hide();
         }
     }
 }

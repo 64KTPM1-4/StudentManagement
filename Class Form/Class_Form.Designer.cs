@@ -33,9 +33,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Show_Class = new System.Windows.Forms.Button();
             this.Add_Class = new System.Windows.Forms.Button();
-            this.Delete_Class = new System.Windows.Forms.Button();
             this.SignOutButton = new System.Windows.Forms.Button();
             this.AddTeacherButton = new System.Windows.Forms.Button();
+            this.AddStudentButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,7 +77,7 @@
             // Add_Class
             // 
             this.Add_Class.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Add_Class.Location = new System.Drawing.Point(519, 271);
+            this.Add_Class.Location = new System.Drawing.Point(519, 259);
             this.Add_Class.Name = "Add_Class";
             this.Add_Class.Size = new System.Drawing.Size(489, 58);
             this.Add_Class.TabIndex = 3;
@@ -85,21 +85,10 @@
             this.Add_Class.UseVisualStyleBackColor = true;
             this.Add_Class.Click += new System.EventHandler(this.Add_Class_Click);
             // 
-            // Delete_Class
-            // 
-            this.Delete_Class.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Delete_Class.Location = new System.Drawing.Point(519, 365);
-            this.Delete_Class.Name = "Delete_Class";
-            this.Delete_Class.Size = new System.Drawing.Size(489, 58);
-            this.Delete_Class.TabIndex = 4;
-            this.Delete_Class.Text = "Xóa lớp đang có";
-            this.Delete_Class.UseVisualStyleBackColor = true;
-            this.Delete_Class.Click += new System.EventHandler(this.Delete_Class_Click);
-            // 
             // SignOutButton
             // 
             this.SignOutButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SignOutButton.Location = new System.Drawing.Point(519, 553);
+            this.SignOutButton.Location = new System.Drawing.Point(519, 503);
             this.SignOutButton.Name = "SignOutButton";
             this.SignOutButton.Size = new System.Drawing.Size(489, 58);
             this.SignOutButton.TabIndex = 5;
@@ -110,13 +99,24 @@
             // AddTeacherButton
             // 
             this.AddTeacherButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddTeacherButton.Location = new System.Drawing.Point(519, 459);
+            this.AddTeacherButton.Location = new System.Drawing.Point(519, 428);
             this.AddTeacherButton.Name = "AddTeacherButton";
             this.AddTeacherButton.Size = new System.Drawing.Size(489, 58);
             this.AddTeacherButton.TabIndex = 6;
-            this.AddTeacherButton.Text = "Thêm giảng viên";
+            this.AddTeacherButton.Text = "Xem danh sách giảng viên";
             this.AddTeacherButton.UseVisualStyleBackColor = true;
             this.AddTeacherButton.Click += new System.EventHandler(this.AddTeacherButton_Click);
+            // 
+            // AddStudentButton
+            // 
+            this.AddStudentButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddStudentButton.Location = new System.Drawing.Point(519, 339);
+            this.AddStudentButton.Name = "AddStudentButton";
+            this.AddStudentButton.Size = new System.Drawing.Size(489, 58);
+            this.AddStudentButton.TabIndex = 7;
+            this.AddStudentButton.Text = "Xem danh sách sinh viên";
+            this.AddStudentButton.UseVisualStyleBackColor = true;
+            this.AddStudentButton.Click += new System.EventHandler(this.AddStudentButton_Click);
             // 
             // Class_Form
             // 
@@ -124,9 +124,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1849, 833);
+            this.Controls.Add(this.AddStudentButton);
             this.Controls.Add(this.AddTeacherButton);
             this.Controls.Add(this.SignOutButton);
-            this.Controls.Add(this.Delete_Class);
             this.Controls.Add(this.Add_Class);
             this.Controls.Add(this.Show_Class);
             this.Controls.Add(this.pictureBox1);
@@ -147,9 +147,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button Show_Class;
         private System.Windows.Forms.Button Add_Class;
-        private System.Windows.Forms.Button Delete_Class;
         private System.Windows.Forms.Button SignOutButton;
         private System.Windows.Forms.Button AddTeacherButton;
+        private System.Windows.Forms.Button AddStudentButton;
     }
 }
 

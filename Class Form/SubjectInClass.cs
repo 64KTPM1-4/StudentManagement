@@ -20,12 +20,14 @@ namespace QuanLiSinhVien
         AddClassSubject addClassSubject;
         ClassModel currentClass;
         ClassServices classServices;
+        JoinTableServices joinTableServices;
         public SubjectInClass(ClassModel selectedClass)
         {
             InitializeComponent();
             currentClass = selectedClass;
             ClassNameLabel.Text = "Danh sách học phần của lớp " + currentClass.ClassName;
-            ClassSubjectGridView.DataSource = JoinTableServices.JoinClassSubject(selectedClass);
+            joinTableServices = new JoinTableServices(currentClass);
+            ClassSubjectGridView.DataSource = joinTableServices.JoinClassSubject();
             addClassSubject = new AddClassSubject(currentClass);
             classServices = new ClassServices();
 
@@ -45,7 +47,8 @@ namespace QuanLiSinhVien
         {
            
             addClassSubject.ShowDialog();
-            ClassSubjectGridView.DataSource = JoinTableServices.JoinClassSubject(currentClass);
+            joinTableServices = new JoinTableServices(currentClass);
+            ClassSubjectGridView.DataSource = joinTableServices.JoinClassSubject();
             ClassSubjectGridView.Update();
             ClassSubjectGridView.Refresh();
 
@@ -62,7 +65,7 @@ namespace QuanLiSinhVien
             EditClass editClass = new EditClass(currentClass);
             editClass.ShowDialog();
             currentClass = classServices.ClassSearch().FirstOrDefault(x => x.ClassId == currentClass.ClassId);
-            ClassSubjectGridView.DataSource = JoinTableServices.JoinClassSubject(currentClass);
+            ClassSubjectGridView.DataSource = joinTableServices.JoinClassSubject();
             ClassSubjectGridView.Update();
             ClassSubjectGridView.Refresh();
             ClassNameLabel.Text = "Danh sách học phần của lớp " + currentClass.ClassName;
