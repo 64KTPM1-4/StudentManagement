@@ -31,9 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentList));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.AppName = new System.Windows.Forms.Label();
-            this.AddStudentButton = new System.Windows.Forms.Button();
+            this.AddTeacherButton = new System.Windows.Forms.Button();
             this.DeleteStudentButton = new System.Windows.Forms.Button();
-            this.EditStudentButton = new System.Windows.Forms.Button();
             this.ReturnButton = new System.Windows.Forms.Button();
             this.StudentGridView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -64,16 +63,16 @@
             this.AppName.TabIndex = 5;
             this.AppName.Text = "PHẦN MỀM QUẢN LÍ SINH VIÊN";
             // 
-            // AddStudentButton
+            // AddTeacherButton
             // 
-            this.AddStudentButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddStudentButton.Location = new System.Drawing.Point(106, 192);
-            this.AddStudentButton.Name = "AddStudentButton";
-            this.AddStudentButton.Size = new System.Drawing.Size(225, 35);
-            this.AddStudentButton.TabIndex = 10;
-            this.AddStudentButton.Text = "Thêm sinh viên";
-            this.AddStudentButton.UseVisualStyleBackColor = true;
-            this.AddStudentButton.Click += new System.EventHandler(this.AddStudentButton_Click);
+            this.AddTeacherButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddTeacherButton.Location = new System.Drawing.Point(106, 192);
+            this.AddTeacherButton.Name = "AddTeacherButton";
+            this.AddTeacherButton.Size = new System.Drawing.Size(225, 35);
+            this.AddTeacherButton.TabIndex = 10;
+            this.AddTeacherButton.Text = "Thêm sinh viên";
+            this.AddTeacherButton.UseVisualStyleBackColor = true;
+            this.AddTeacherButton.Click += new System.EventHandler(this.AddStudentButton_Click);
             // 
             // DeleteStudentButton
             // 
@@ -85,17 +84,7 @@
             this.DeleteStudentButton.Text = "Xóa sinh viên";
             this.DeleteStudentButton.UseVisualStyleBackColor = true;
             this.DeleteStudentButton.Visible = false;
-            // 
-            // EditStudentButton
-            // 
-            this.EditStudentButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EditStudentButton.Location = new System.Drawing.Point(106, 318);
-            this.EditStudentButton.Name = "EditStudentButton";
-            this.EditStudentButton.Size = new System.Drawing.Size(246, 35);
-            this.EditStudentButton.TabIndex = 12;
-            this.EditStudentButton.Text = "Chỉnh sửa tên sinh viên";
-            this.EditStudentButton.UseVisualStyleBackColor = true;
-            this.EditStudentButton.Visible = false;
+            this.DeleteStudentButton.Click += new System.EventHandler(this.DeleteStudentButton_Click);
             // 
             // ReturnButton
             // 
@@ -122,6 +111,7 @@
             this.StudentGridView.RowTemplate.Height = 24;
             this.StudentGridView.Size = new System.Drawing.Size(736, 579);
             this.StudentGridView.TabIndex = 14;
+            this.StudentGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.StudentGridView_CellContentClick);
             // 
             // StudentList
             // 
@@ -129,9 +119,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1849, 833);
             this.Controls.Add(this.ReturnButton);
-            this.Controls.Add(this.EditStudentButton);
             this.Controls.Add(this.DeleteStudentButton);
-            this.Controls.Add(this.AddStudentButton);
+            this.Controls.Add(this.AddTeacherButton);
             this.Controls.Add(this.AppName);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.StudentGridView);
@@ -149,9 +138,8 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label AppName;
-        private System.Windows.Forms.Button AddStudentButton;
+        private System.Windows.Forms.Button AddTeacherButton;
         private System.Windows.Forms.Button DeleteStudentButton;
-        private System.Windows.Forms.Button EditStudentButton;
         private System.Windows.Forms.Button ReturnButton;
         private System.Windows.Forms.DataGridView StudentGridView;
     }

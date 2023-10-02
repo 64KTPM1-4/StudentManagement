@@ -12,13 +12,25 @@ namespace QuanLiSinhVien.Services
 {
     public class StudentSevices
     {
-        public List<StudentModel> StudentSearch()
+        public List<StudentModel> StudentSearch(ClassModel selectedClass = null)
         {
             var studentList = new List<StudentModel>() { };
             try
             {
                 string json = File.ReadAllText(@"Student.json");
                 studentList = JsonConvert.DeserializeObject<List<StudentModel>>(json);
+                if(selectedClass != null)
+                {
+                    studentList = studentList.Where(x => x.MainClassName == selectedClass.ClassName).Select(x => new StudentModel
+                    {
+                        Id = x.Id,
+                        Name = x.Name,
+                        MainClassName = x.MainClassName,
+                    }).OrderBy(x => x.Name).ToList();
+                    
+                }
+                else studentList = studentList.OrderBy(x => x.Name).ToList();
+                
             }
             catch(FileNotFoundException)
             {
@@ -28,7 +40,7 @@ namespace QuanLiSinhVien.Services
         }
 
 
-        public void AddStudent(string StudentName)
+        public void AddStudent(string StudentName, string mainClassName)
         {
             int StudentId = 0;
             var studentList = StudentSearch();
@@ -43,6 +55,7 @@ namespace QuanLiSinhVien.Services
             {
                 Id = StudentId,
                 Name = StudentName,
+                MainClassName = mainClassName
             });
 
             studentList.AddRange(newStudent);
@@ -52,10 +65,6 @@ namespace QuanLiSinhVien.Services
         public void DeleteStudent(string StudentName)
         {
             var studentList = StudentSearch();
-
-
-            var Name = studentList.FirstOrDefault(s => s.Name == StudentName);
-
             var index = studentList.FindIndex(x => x.Name == StudentName);
             studentList.RemoveAt(index);
             File.WriteAllText(@"Student.json", JsonConvert.SerializeObject(studentList));
@@ -74,7 +83,7 @@ namespace QuanLiSinhVien.Services
             }
         }
 
-        public void AddPointsStudent(string studentName, int pointsToAdd)
+       /* public void AddPointsStudent(string studentName, int pointsToAdd)
         {
             var studentList = StudentSearch();
             var student = studentList.FirstOrDefault(s => s.Name.Equals(studentName, StringComparison.OrdinalIgnoreCase));
@@ -98,6 +107,6 @@ namespace QuanLiSinhVien.Services
 
                 File.WriteAllText(@"Student.json", JsonConvert.SerializeObject(studentList));
             }
-        }
+        }*/
     }
 }

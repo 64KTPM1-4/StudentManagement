@@ -30,6 +30,16 @@ namespace QuanLiSinhVien.Services
             return query;
         }
 
+        public void DeleteClassSubject(string SubjectName)
+        {
+            var subjectList = JsonConvert.DeserializeObject<List<SubjectModel>>(File.ReadAllText(@"Subject.json"));
+            var subjectId = subjectList.Where(x => x.SubjectName == SubjectName).Select(x => x.SubjectId).FirstOrDefault();
+            var classList = JsonConvert.DeserializeObject<List<ClassModel>>(File.ReadAllText(@"Class.json"));
+            var index = classList.FindIndex(x => x.ClassId == currentClass.ClassId);
+            classList[index].SubjectId.Remove(subjectId);
+            File.WriteAllText(@"Class.json", JsonConvert.SerializeObject(classList));
+        }
+
         public List<JoinClassStudentModel> JoinClassStudents()
         {
             var studentList = JsonConvert.DeserializeObject<List<StudentModel>>(File.ReadAllText(@"Student.json"));
@@ -44,5 +54,8 @@ namespace QuanLiSinhVien.Services
                                                ).ToList();
             return query;
         }
+
+
+
     }
 }

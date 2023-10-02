@@ -40,6 +40,7 @@
             this.classModelBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.classModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.classServicesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DeleteClassButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.classModelBindingSource1)).BeginInit();
@@ -85,9 +86,9 @@
             // Add_Class
             // 
             this.Add_Class.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Add_Class.Location = new System.Drawing.Point(133, 188);
+            this.Add_Class.Location = new System.Drawing.Point(89, 209);
             this.Add_Class.Name = "Add_Class";
-            this.Add_Class.Size = new System.Drawing.Size(153, 39);
+            this.Add_Class.Size = new System.Drawing.Size(288, 39);
             this.Add_Class.TabIndex = 7;
             this.Add_Class.Text = "Thêm lớp";
             this.Add_Class.UseVisualStyleBackColor = true;
@@ -112,9 +113,9 @@
             // ShowSubject
             // 
             this.ShowSubject.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ShowSubject.Location = new System.Drawing.Point(69, 254);
+            this.ShowSubject.Location = new System.Drawing.Point(89, 254);
             this.ShowSubject.Name = "ShowSubject";
-            this.ShowSubject.Size = new System.Drawing.Size(291, 39);
+            this.ShowSubject.Size = new System.Drawing.Size(288, 46);
             this.ShowSubject.TabIndex = 9;
             this.ShowSubject.Text = "Xem danh sách học phần";
             this.ShowSubject.UseVisualStyleBackColor = true;
@@ -126,18 +127,31 @@
             this.ShowStudent.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ShowStudent.Location = new System.Drawing.Point(89, 316);
             this.ShowStudent.Name = "ShowStudent";
-            this.ShowStudent.Size = new System.Drawing.Size(246, 94);
+            this.ShowStudent.Size = new System.Drawing.Size(288, 94);
             this.ShowStudent.TabIndex = 10;
             this.ShowStudent.Text = "Xem danh sách sinh viên thuộc lớp quản lí";
             this.ShowStudent.UseVisualStyleBackColor = true;
             this.ShowStudent.Visible = false;
             this.ShowStudent.Click += new System.EventHandler(this.ShowStudent_Click);
             // 
+            // DeleteClassButton
+            // 
+            this.DeleteClassButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteClassButton.Location = new System.Drawing.Point(89, 435);
+            this.DeleteClassButton.Name = "DeleteClassButton";
+            this.DeleteClassButton.Size = new System.Drawing.Size(288, 40);
+            this.DeleteClassButton.TabIndex = 14;
+            this.DeleteClassButton.Text = "Xóa lớp";
+            this.DeleteClassButton.UseVisualStyleBackColor = true;
+            this.DeleteClassButton.Visible = false;
+            this.DeleteClassButton.Click += new System.EventHandler(this.DeleteClassButton_Click);
+            // 
             // ClassList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1849, 833);
+            this.Controls.Add(this.DeleteClassButton);
             this.Controls.Add(this.ShowStudent);
             this.Controls.Add(this.ShowSubject);
             this.Controls.Add(this.dataGridView1);
@@ -150,7 +164,6 @@
             this.Name = "ClassList";
             this.Text = "Phần mềm quản lí sinh viên - Danh sách lớp";
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ClassList_MouseClick);
-
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.classModelBindingSource1)).EndInit();
@@ -173,5 +186,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button ShowSubject;
         private System.Windows.Forms.Button ShowStudent;
+        private System.Windows.Forms.Button DeleteClassButton;
     }
 }

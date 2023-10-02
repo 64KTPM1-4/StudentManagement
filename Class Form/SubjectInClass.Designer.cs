@@ -33,10 +33,10 @@
             this.AppName = new System.Windows.Forms.Label();
             this.ClassSubjectGridView = new System.Windows.Forms.DataGridView();
             this.ReturnButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.AddClassSubjectButton = new System.Windows.Forms.Button();
             this.ClassNameLabel = new System.Windows.Forms.Label();
-            this.DeleteClassButton = new System.Windows.Forms.Button();
-            this.EditClass = new System.Windows.Forms.Button();
+            this.DeleteClassSubjectButton = new System.Windows.Forms.Button();
+            this.ShowSubjectStudent = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClassSubjectGridView)).BeginInit();
             this.SuspendLayout();
@@ -79,7 +79,7 @@
             this.ClassSubjectGridView.RowTemplate.Height = 24;
             this.ClassSubjectGridView.Size = new System.Drawing.Size(736, 579);
             this.ClassSubjectGridView.TabIndex = 9;
-            this.ClassSubjectGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ClassSubjectGridView_CellContentClick);
+            this.ClassSubjectGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ClassSubjectGridView_CellContentClick);
             // 
             // ReturnButton
             // 
@@ -92,16 +92,16 @@
             this.ReturnButton.UseVisualStyleBackColor = true;
             this.ReturnButton.Click += new System.EventHandler(this.ReturnButton_Click);
             // 
-            // button1
+            // AddClassSubjectButton
             // 
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(65, 250);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(256, 40);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Thêm môn cho lớp";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.AddClassSubject_Click);
+            this.AddClassSubjectButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddClassSubjectButton.Location = new System.Drawing.Point(65, 250);
+            this.AddClassSubjectButton.Name = "AddClassSubjectButton";
+            this.AddClassSubjectButton.Size = new System.Drawing.Size(256, 40);
+            this.AddClassSubjectButton.TabIndex = 11;
+            this.AddClassSubjectButton.Text = "Thêm môn cho lớp";
+            this.AddClassSubjectButton.UseVisualStyleBackColor = true;
+            this.AddClassSubjectButton.Click += new System.EventHandler(this.AddClassSubject_Click);
             // 
             // ClassNameLabel
             // 
@@ -113,37 +113,39 @@
             this.ClassNameLabel.TabIndex = 12;
             this.ClassNameLabel.Text = "AA";
             // 
-            // DeleteClassButton
+            // DeleteClassSubjectButton
             // 
-            this.DeleteClassButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteClassButton.Location = new System.Drawing.Point(65, 320);
-            this.DeleteClassButton.Name = "DeleteClassButton";
-            this.DeleteClassButton.Size = new System.Drawing.Size(256, 40);
-            this.DeleteClassButton.TabIndex = 13;
-            this.DeleteClassButton.Text = "Xóa lớp";
-            this.DeleteClassButton.UseVisualStyleBackColor = true;
-            this.DeleteClassButton.Click += new System.EventHandler(this.DeleteClassButton_Click);
+            this.DeleteClassSubjectButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteClassSubjectButton.Location = new System.Drawing.Point(65, 308);
+            this.DeleteClassSubjectButton.Name = "DeleteClassSubjectButton";
+            this.DeleteClassSubjectButton.Size = new System.Drawing.Size(256, 40);
+            this.DeleteClassSubjectButton.TabIndex = 13;
+            this.DeleteClassSubjectButton.Text = "Xóa môn học";
+            this.DeleteClassSubjectButton.UseVisualStyleBackColor = true;
+            this.DeleteClassSubjectButton.Visible = false;
+            this.DeleteClassSubjectButton.Click += new System.EventHandler(this.DeleteClassSubjectButton_Click);
             // 
-            // EditClass
+            // ShowSubjectStudent
             // 
-            this.EditClass.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EditClass.Location = new System.Drawing.Point(65, 383);
-            this.EditClass.Name = "EditClass";
-            this.EditClass.Size = new System.Drawing.Size(256, 40);
-            this.EditClass.TabIndex = 14;
-            this.EditClass.Text = "Chỉnh sửa tên lớp";
-            this.EditClass.UseVisualStyleBackColor = true;
-            this.EditClass.Click += new System.EventHandler(this.EditClass_Click);
+            this.ShowSubjectStudent.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ShowSubjectStudent.Location = new System.Drawing.Point(65, 365);
+            this.ShowSubjectStudent.Name = "ShowSubjectStudent";
+            this.ShowSubjectStudent.Size = new System.Drawing.Size(276, 40);
+            this.ShowSubjectStudent.TabIndex = 14;
+            this.ShowSubjectStudent.Text = "Xem danh sách sinh viên ";
+            this.ShowSubjectStudent.UseVisualStyleBackColor = true;
+            this.ShowSubjectStudent.Visible = false;
+            this.ShowSubjectStudent.Click += new System.EventHandler(this.ShowSubjectStudent_Click);
             // 
             // SubjectInClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1849, 833);
-            this.Controls.Add(this.EditClass);
-            this.Controls.Add(this.DeleteClassButton);
+            this.Controls.Add(this.ShowSubjectStudent);
+            this.Controls.Add(this.DeleteClassSubjectButton);
             this.Controls.Add(this.ClassNameLabel);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.AddClassSubjectButton);
             this.Controls.Add(this.ReturnButton);
             this.Controls.Add(this.ClassSubjectGridView);
             this.Controls.Add(this.AppName);
@@ -163,9 +165,9 @@
         private System.Windows.Forms.Label AppName;
         private System.Windows.Forms.DataGridView ClassSubjectGridView;
         private System.Windows.Forms.Button ReturnButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button AddClassSubjectButton;
         private System.Windows.Forms.Label ClassNameLabel;
-        private System.Windows.Forms.Button DeleteClassButton;
-        private System.Windows.Forms.Button EditClass;
+        private System.Windows.Forms.Button DeleteClassSubjectButton;
+        private System.Windows.Forms.Button ShowSubjectStudent;
     }
 }

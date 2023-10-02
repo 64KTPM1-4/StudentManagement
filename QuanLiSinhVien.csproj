@@ -113,6 +113,18 @@
     <Compile Include="Class Form\AddSubject.Designer.cs">
       <DependentUpon>AddSubject.cs</DependentUpon>
     </Compile>
+    <Compile Include="Class Form\AddSubjectStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Class Form\AddSubjectStudent.Designer.cs">
+      <DependentUpon>AddSubjectStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class Form\AddTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Class Form\AddTeacher.Designer.cs">
+      <DependentUpon>AddTeacher.cs</DependentUpon>
+    </Compile>
     <Compile Include="Class Form\Class_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +136,12 @@
     </Compile>
     <Compile Include="Class Form\EditClass.Designer.cs">
       <DependentUpon>EditClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class Form\StudentInSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Class Form\StudentInSubject.Designer.cs">
+      <DependentUpon>StudentInSubject.cs</DependentUpon>
     </Compile>
     <Compile Include="Class Form\StudentList.cs">
       <SubType>Form</SubType>
@@ -149,6 +167,12 @@
     <Compile Include="Class Form\SubjectList.Designer.cs">
       <DependentUpon>SubjectList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Class Form\TeacherList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Class Form\TeacherList.Designer.cs">
+      <DependentUpon>TeacherList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login Form\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +184,9 @@
     <Compile Include="Model\DanhSachAcc.cs" />
     <Compile Include="Model\JoinClassStudentModel.cs" />
     <Compile Include="Model\JoinClassSubjectModel.cs" />
+    <Compile Include="Model\JoinSubjectStudentModel.cs" />
+    <Compile Include="Services\JoinSubjectStudent.cs" />
+    <Compile Include="Model\StudentListClassModel.cs" />
     <Compile Include="Model\StudentModel.cs" />
     <Compile Include="Model\SubjectModel.cs" />
     <Compile Include="Model\TeacherModel.cs" />
@@ -189,11 +216,20 @@
     <EmbeddedResource Include="Class Form\AddSubject.resx">
       <DependentUpon>AddSubject.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Class Form\AddSubjectStudent.resx">
+      <DependentUpon>AddSubjectStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Class Form\AddTeacher.resx">
+      <DependentUpon>AddTeacher.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Class Form\Class_Form.resx">
       <DependentUpon>Class_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Class Form\EditClass.resx">
       <DependentUpon>EditClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Class Form\StudentInSubject.resx">
+      <DependentUpon>StudentInSubject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Class Form\StudentList.resx">
       <DependentUpon>StudentList.cs</DependentUpon>
@@ -206,6 +242,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Class Form\SubjectList.resx">
       <DependentUpon>SubjectList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Class Form\TeacherList.resx">
+      <DependentUpon>TeacherList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login Form\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

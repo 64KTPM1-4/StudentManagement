@@ -27,28 +27,58 @@ namespace QuanLiSinhVien.Services
             return subjectList;
         }
 
-        public void AddSubject(string SubjectName)
+        public bool AddSubject(string SubjectName)
         {
 
             int SubjectId = 0;
             var subjectList = JsonConvert.DeserializeObject<List<SubjectModel>>(File.ReadAllText(@"Subject.json"));
-            int index = subjectList.Count() - 1;
-            if (index >= 0)
+            var valid = subjectList.FirstOrDefault(x => x.SubjectName == SubjectName);
+            if (valid == null)
             {
-                SubjectId = subjectList[index].SubjectId + 1;
+                int index = subjectList.Count() - 1;
+                if (index >= 0)
+                {
+                    SubjectId = subjectList[index].SubjectId + 1;
+                }
+                List<SubjectModel> newSubject = new List<SubjectModel>();
+                newSubject.Add(new SubjectModel
+                {
+                    SubjectId = SubjectId,
+                    SubjectName = SubjectName,
+
+                });
+
+                subjectList.AddRange(newSubject);
+                File.WriteAllText(@"Subject.json", JsonConvert.SerializeObject(subjectList));
+                return true;
             }
-            List<SubjectModel> newSubject = new List<SubjectModel>();
-            newSubject.Add(new SubjectModel
-            {
-                SubjectId = SubjectId,
-                SubjectName = SubjectName,
+            else return false;
+        }
 
-            });
-
-            subjectList.AddRange(newSubject);
+        public void DeleteSubject(string subjectName)
+        {
+            var subjectList = SubjectSearch();
+            var index = subjectList.FindIndex(x => x.SubjectName == subjectName);
+            subjectList.RemoveAt(index);
             File.WriteAllText(@"Subject.json", JsonConvert.SerializeObject(subjectList));
         }
 
-        
+        public bool AddSubjectStudent(SubjectModel currentSubject, int StudentId)
+        {
+
+            var subjectList = SubjectSearch();
+            int index = subjectList.FindIndex(x => x.SubjectId == currentSubject.SubjectId);
+            var valid = subjectList[index].studentId.FindIndex(x => x == StudentId);
+
+            if (valid == -1)
+            {
+                subjectList[index].studentId.Add(StudentId);
+                File.WriteAllText(@"Subject.json", JsonConvert.SerializeObject(subjectList));
+                return true;
+            }
+            else return false;
+
+        }
+
     }
 }

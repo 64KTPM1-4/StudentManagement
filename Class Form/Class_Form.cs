@@ -47,13 +47,18 @@ namespace QuanLiSinhVien
 
         private void AddTeacherButton_Click(object sender, EventArgs e)
         {
-            
+            TeacherList teacherList = new TeacherList();
+            this.Hide();
+            teacherList.ShowDialog();
+            this.Show();
         }
 
         private void AddStudentButton_Click(object sender, EventArgs e)
         {
             StudentList studentList = new StudentList();
+            this.Hide();
             studentList.ShowDialog();
+            this.Show();
         }
     }
 }

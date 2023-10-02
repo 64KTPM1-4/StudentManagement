@@ -35,7 +35,6 @@
             this.ReturnButton = new System.Windows.Forms.Button();
             this.AddSubjectButton = new System.Windows.Forms.Button();
             this.DeleteSubjectButton = new System.Windows.Forms.Button();
-            this.EditSubjectButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SubjectGridView)).BeginInit();
             this.SuspendLayout();
@@ -112,24 +111,13 @@
             this.DeleteSubjectButton.Text = "Xóa môn học";
             this.DeleteSubjectButton.UseVisualStyleBackColor = true;
             this.DeleteSubjectButton.Visible = false;
-            // 
-            // EditSubjectButton
-            // 
-            this.EditSubjectButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EditSubjectButton.Location = new System.Drawing.Point(106, 318);
-            this.EditSubjectButton.Name = "EditSubjectButton";
-            this.EditSubjectButton.Size = new System.Drawing.Size(225, 35);
-            this.EditSubjectButton.TabIndex = 11;
-            this.EditSubjectButton.Text = "Chỉnh sửa môn học";
-            this.EditSubjectButton.UseVisualStyleBackColor = true;
-            this.EditSubjectButton.Visible = false;
+            this.DeleteSubjectButton.Click += new System.EventHandler(this.DeleteSubjectButton_Click);
             // 
             // SubjectList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1849, 833);
-            this.Controls.Add(this.EditSubjectButton);
             this.Controls.Add(this.DeleteSubjectButton);
             this.Controls.Add(this.AddSubjectButton);
             this.Controls.Add(this.ReturnButton);
@@ -154,6 +142,5 @@
         private System.Windows.Forms.Button ReturnButton;
         private System.Windows.Forms.Button AddSubjectButton;
         private System.Windows.Forms.Button DeleteSubjectButton;
-        private System.Windows.Forms.Button EditSubjectButton;
     }
 }

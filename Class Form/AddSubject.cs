@@ -30,8 +30,9 @@ namespace QuanLiSinhVien
 
         private void AddClassButton_Click(object sender, EventArgs e)
         {
-            subjectServices.AddSubject(textBox1.Text);
-            this.Close();
+            if (subjectServices.AddSubject(textBox1.Text))
+                this.Close();
+            else MessageBox.Show("Môn học đã tồn tại !");
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace QuanLiSinhVien
 {
-    partial class AddStudent
+    partial class AddTeacher
     {
         /// <summary>
         /// Required designer variable.
@@ -28,65 +28,65 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.AddTeacherLabel = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.AddClassButton = new System.Windows.Forms.Button();
-            this.AddStudentLabel = new System.Windows.Forms.Label();
             this.ClassListBox = new System.Windows.Forms.ComboBox();
+            this.AddClassButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // AddTeacherLabel
+            // 
+            this.AddTeacherLabel.AutoSize = true;
+            this.AddTeacherLabel.BackColor = System.Drawing.SystemColors.Window;
+            this.AddTeacherLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddTeacherLabel.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.AddTeacherLabel.Location = new System.Drawing.Point(109, 57);
+            this.AddTeacherLabel.Name = "AddTeacherLabel";
+            this.AddTeacherLabel.Size = new System.Drawing.Size(126, 22);
+            this.AddTeacherLabel.TabIndex = 7;
+            this.AddTeacherLabel.Text = "Tên giảng viên";
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(37, 46);
+            this.textBox1.Location = new System.Drawing.Point(98, 54);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(146, 30);
-            this.textBox1.TabIndex = 3;
+            this.textBox1.Size = new System.Drawing.Size(175, 30);
+            this.textBox1.TabIndex = 8;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // AddClassButton
-            // 
-            this.AddClassButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddClassButton.Location = new System.Drawing.Point(146, 118);
-            this.AddClassButton.Name = "AddClassButton";
-            this.AddClassButton.Size = new System.Drawing.Size(146, 33);
-            this.AddClassButton.TabIndex = 5;
-            this.AddClassButton.Text = "Đồng ý";
-            this.AddClassButton.UseVisualStyleBackColor = true;
-            this.AddClassButton.Click += new System.EventHandler(this.AddClassButton_Click);
-            // 
-            // AddStudentLabel
-            // 
-            this.AddStudentLabel.AutoSize = true;
-            this.AddStudentLabel.BackColor = System.Drawing.SystemColors.Window;
-            this.AddStudentLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddStudentLabel.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.AddStudentLabel.Location = new System.Drawing.Point(43, 49);
-            this.AddStudentLabel.Name = "AddStudentLabel";
-            this.AddStudentLabel.Size = new System.Drawing.Size(116, 22);
-            this.AddStudentLabel.TabIndex = 6;
-            this.AddStudentLabel.Text = "Tên sinh viên";
             // 
             // ClassListBox
             // 
             this.ClassListBox.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClassListBox.FormattingEnabled = true;
-            this.ClassListBox.Location = new System.Drawing.Point(202, 46);
+            this.ClassListBox.Location = new System.Drawing.Point(293, 54);
             this.ClassListBox.Name = "ClassListBox";
             this.ClassListBox.Size = new System.Drawing.Size(249, 33);
-            this.ClassListBox.TabIndex = 7;
+            this.ClassListBox.TabIndex = 9;
             this.ClassListBox.Text = "Chọn lớp quản lí";
             // 
-            // AddStudent
+            // AddClassButton
+            // 
+            this.AddClassButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddClassButton.Location = new System.Drawing.Point(191, 121);
+            this.AddClassButton.Name = "AddClassButton";
+            this.AddClassButton.Size = new System.Drawing.Size(146, 33);
+            this.AddClassButton.TabIndex = 10;
+            this.AddClassButton.Text = "Đồng ý";
+            this.AddClassButton.UseVisualStyleBackColor = true;
+            this.AddClassButton.Click += new System.EventHandler(this.AddClassButton_Click);
+            // 
+            // AddTeacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(527, 358);
-            this.Controls.Add(this.ClassListBox);
-            this.Controls.Add(this.AddStudentLabel);
+            this.ClientSize = new System.Drawing.Size(647, 369);
             this.Controls.Add(this.AddClassButton);
+            this.Controls.Add(this.ClassListBox);
+            this.Controls.Add(this.AddTeacherLabel);
             this.Controls.Add(this.textBox1);
-            this.Name = "AddStudent";
-            this.Text = "AddStudent";
+            this.Name = "AddTeacher";
+            this.Text = "AddTeacher";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -94,9 +94,9 @@
 
         #endregion
 
+        private System.Windows.Forms.Label AddTeacherLabel;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button AddClassButton;
-        private System.Windows.Forms.Label AddStudentLabel;
         private System.Windows.Forms.ComboBox ClassListBox;
+        private System.Windows.Forms.Button AddClassButton;
     }
 }

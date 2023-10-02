@@ -19,6 +19,7 @@ namespace QuanLiSinhVien
     {
         private ClassServices classServices;
         private List<ClassModel> classList;
+        ClassModel selectedClass;
         public ClassList()
         {
             InitializeComponent();
@@ -26,6 +27,8 @@ namespace QuanLiSinhVien
             classList = new List<ClassModel> { };
             classList = classServices.ClassSearch();
             this.dataGridView1.DataSource = classList;
+          
+            
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -34,6 +37,7 @@ namespace QuanLiSinhVien
             var onclick = dataGridView1.SelectedCells[0].Value.ToString();
             if (e.ColumnIndex == 1 && onclick != "0")
             {
+                selectedClass = classList.FirstOrDefault(x => x.ClassName == onclick);
                 ShowButton();
             }
             else
@@ -50,6 +54,7 @@ namespace QuanLiSinhVien
 
         private void Add_Class_Click(object sender, EventArgs e)
         {
+
             AddClass addClass = new AddClass();
             addClass.ShowDialog();
             classList = classServices.ClassSearch();
@@ -66,8 +71,7 @@ namespace QuanLiSinhVien
 
         private void ShowSubject_Click(object sender, EventArgs e)
         {
-            var onclick = dataGridView1.SelectedCells[0].Value.ToString();
-            var selectedClass = classList.FirstOrDefault(x => x.ClassName == onclick);
+           
             SubjectInClass subjectInClass = new SubjectInClass(selectedClass);
             this.Hide();
             subjectInClass.ShowDialog();
@@ -99,11 +103,33 @@ namespace QuanLiSinhVien
         {
             ShowStudent.Show();
             ShowSubject.Show();
+            DeleteClassButton.Show();
+            //EditClass.Show();
         }
         private void HideButton()
         {
             ShowStudent.Hide();
             ShowSubject.Hide();
+            DeleteClassButton.Hide();
+            //EditClass.Hide();
+            dataGridView1.DataSource = classServices.ClassSearch();
+            dataGridView1.Update();
+            dataGridView1.Refresh();
+        }
+
+        private void DeleteClassButton_Click(object sender, EventArgs e)
+        {
+            classServices.DeleteClass(selectedClass.ClassName);
+            
+            HideButton();
+        }
+
+        private void EditClass_Click(object sender, EventArgs e)
+        {
+            EditClass editClass = new EditClass(selectedClass);
+            editClass.ShowDialog();
+            HideButton();
+
         }
     }
 }

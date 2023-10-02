@@ -7,16 +7,11 @@ using System.Threading.Tasks;
 
 namespace QuanLiSinhVien.Model
 {
-    public class StudentModel
+    public class StudentListClassModel
     {
         [DisplayName("ID")]
-        public int Id { get; set; } = 0;
+        public int Id { get; set; }
         [DisplayName("Tên sinh viên")]
-        public string Name { get; set; } = string.Empty;
-
-        [DisplayName("Lớp quản lí")]
-        public string MainClassName {  get; set; }
-
-
+        public string Name { get; set; }
     }
 }

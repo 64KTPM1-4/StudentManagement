@@ -27,9 +27,6 @@ namespace QuanLiSinhVien
             this.SubjectGridView.DataSource = subjectList;
 
 
-
-
-
         }
 
         private void ReturnButton_Click(object sender, EventArgs e)
@@ -52,15 +49,23 @@ namespace QuanLiSinhVien
             var onclick = SubjectGridView.SelectedCells[0].Value.ToString();
             if(e.ColumnIndex == 1 && onclick != "0" )
             {
-                EditSubjectButton.Show();
+                //EditSubjectButton.Show();
                 DeleteSubjectButton.Show();
             }
         }
 
         private void SubjectList_MouseClick(object sender, MouseEventArgs e)
         {
-            EditSubjectButton.Hide();
+            //EditSubjectButton.Hide();
             DeleteSubjectButton.Hide();
+        }
+
+        private void DeleteSubjectButton_Click(object sender, EventArgs e)
+        {
+            subjectServices.DeleteSubject(SubjectGridView.SelectedCells[0].Value.ToString());
+            SubjectGridView.DataSource = subjectServices.SubjectSearch();
+            SubjectGridView.Update();
+            SubjectGridView.Refresh();
         }
     }
 }

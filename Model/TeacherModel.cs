@@ -13,7 +13,7 @@ namespace QuanLiSinhVien.Model
         public int TeacherId { get; set; } = 0;
         [DisplayName("Tên giáo viên")]
         public string TeacherName { get; set; } = string.Empty;
-
-        public List<int> ClassId { get; set; } = new List<int>();
+        [DisplayName("Lớp chủ nhiệm")]
+        public string MainClassName { get; set; }
     }
 }

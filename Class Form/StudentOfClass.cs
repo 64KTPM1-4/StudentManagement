@@ -15,13 +15,17 @@ namespace QuanLiSinhVien
     public partial class StudentOfClass : Form
     {
         ClassModel currentClass;
-        JoinTableServices joinTableServices;
+        StudentSevices studentSevices;
+        TeacherServices teacherServices;
         public StudentOfClass(ClassModel selectedClass)
         {
             InitializeComponent();
             currentClass = selectedClass;
-            joinTableServices = new JoinTableServices(selectedClass);
-            ClassStudentGridView.DataSource = joinTableServices.JoinClassStudents();
+            studentSevices = new StudentSevices();
+            teacherServices = new TeacherServices();
+            ClassStudentGridView.DataSource = studentSevices.StudentSearch(selectedClass);
+            var currentTeacher = teacherServices.TeacherSearch(currentClass);
+            MainTeacherName.Text = "GVCN: " + currentTeacher[0].TeacherName;
             ClassNameLabel.Text = "Danh sách sinh viên thuộc lớp quản lí " + selectedClass.ClassName;
 
             
@@ -35,6 +39,11 @@ namespace QuanLiSinhVien
         private void ReturnButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void AddStudent_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

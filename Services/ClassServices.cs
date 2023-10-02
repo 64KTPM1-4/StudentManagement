@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Text.Json;
+using Newtonsoft.Json;
 
 namespace QuanLiSinhVien.Services
 {
@@ -17,7 +17,7 @@ namespace QuanLiSinhVien.Services
             var classList = new List<ClassModel> { };
             try
             {
-                classList = JsonSerializer.Deserialize<List<ClassModel>>(File.ReadAllText(@"Class.json"));
+                classList = JsonConvert.DeserializeObject<List<ClassModel>>(File.ReadAllText(@"Class.json"));
             }
             catch (FileNotFoundException)
             {
@@ -30,7 +30,7 @@ namespace QuanLiSinhVien.Services
         {
             
             int ClassId = 0;
-            var classList = JsonSerializer.Deserialize<List<ClassModel>>(File.ReadAllText(@"Class.json"));
+            var classList = JsonConvert.DeserializeObject<List<ClassModel>>(File.ReadAllText(@"Class.json"));
             var valid = classList.FirstOrDefault(x => x.ClassName == ClassName);
             if(valid == null)
             {
@@ -52,7 +52,7 @@ namespace QuanLiSinhVien.Services
                 });
 
                 classList.AddRange(newClass);
-                File.WriteAllText(@"Class.json", JsonSerializer.Serialize(classList));
+                File.WriteAllText(@"Class.json", JsonConvert.SerializeObject(classList));
                 return true;
             }
             else return false;
@@ -60,16 +60,20 @@ namespace QuanLiSinhVien.Services
             
 
         }
-        public void AddClassSubject(ClassModel currentClass, int SubjectId)
+        public bool AddClassSubject(ClassModel currentClass, int SubjectId)
         {
             
             var classList = ClassSearch();
             int index = classList.FindIndex(x => x.ClassId == currentClass.ClassId);
-           
-            classList[index].SubjectId.Add(SubjectId);
-            
-            
-            File.WriteAllText(@"Class.json", JsonSerializer.Serialize(classList));
+            var valid = classList[index].SubjectId.FindIndex(x => x == SubjectId);
+
+            if (valid == -1)
+            {
+                classList[index].SubjectId.Add(SubjectId);
+                File.WriteAllText(@"Class.json", JsonConvert.SerializeObject(classList));
+                return true;
+            }
+            else return false;
 
         }
 
@@ -80,27 +84,27 @@ namespace QuanLiSinhVien.Services
 
             classList[index].StudentId.Add(StudentId);
 
-            File.WriteAllText(@"Class.json", JsonSerializer.Serialize(classList));
+            File.WriteAllText(@"Class.json", JsonConvert.SerializeObject(classList));
         }
 
         public void DeleteClass(string className)
         {
-            var classList = JsonSerializer.Deserialize<List<ClassModel>>(File.ReadAllText(@"Class.json"));
+            var classList = JsonConvert.DeserializeObject<List<ClassModel>>(File.ReadAllText(@"Class.json"));
             var index = classList.FindIndex(x => x.ClassName == className);
             classList.RemoveAt(index);
-            File.WriteAllText(@"Class.json", JsonSerializer.Serialize(classList));
+            File.WriteAllText(@"Class.json", JsonConvert.SerializeObject(classList));
         }
 
         public bool EditClassName(string currentClassName, string newClassName)
         {
 
-            var classList = JsonSerializer.Deserialize<List<ClassModel>>(File.ReadAllText(@"Class.json"));
+            var classList = JsonConvert.DeserializeObject<List<ClassModel>>(File.ReadAllText(@"Class.json"));
             var valid = classList.FindIndex(x => x.ClassName == newClassName);
             if(valid == -1)
             {
                 var index = classList.FindIndex(x => x.ClassName == currentClassName);
                 classList[index].ClassName = newClassName;
-                File.WriteAllText(@"Class.json", JsonSerializer.Serialize(classList));
+                File.WriteAllText(@"Class.json", JsonConvert.SerializeObject(classList));
                 return true;
             }
             else return false;

@@ -39,8 +39,9 @@ namespace QuanLiSinhVien
         {
             
             int Id = (int)SubjectListBox.SelectedValue;
-            ClassServices.AddClassSubject(currentClass, Id);
-            this.Close();
+            if (ClassServices.AddClassSubject(currentClass, Id))
+                this.Close();
+            else MessageBox.Show("Môn học đã tồn tại !");
         }
     }
 }

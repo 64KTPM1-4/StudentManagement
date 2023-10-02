@@ -1,6 +1,6 @@
 ﻿namespace QuanLiSinhVien
 {
-    partial class StudentOfClass
+    partial class TeacherList
     {
         /// <summary>
         /// Required designer variable.
@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentOfClass));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TeacherList));
             this.AppName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.ClassStudentGridView = new System.Windows.Forms.DataGridView();
-            this.ClassNameLabel = new System.Windows.Forms.Label();
+            this.TeacherGridView = new System.Windows.Forms.DataGridView();
             this.ReturnButton = new System.Windows.Forms.Button();
-            this.MainTeacherName = new System.Windows.Forms.Label();
+            this.AddTeacherButton = new System.Windows.Forms.Button();
+            this.DeleteTeacherButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ClassStudentGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TeacherGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // AppName
@@ -63,68 +63,72 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // ClassStudentGridView
+            // TeacherGridView
             // 
-            this.ClassStudentGridView.AllowUserToResizeColumns = false;
-            this.ClassStudentGridView.AllowUserToResizeRows = false;
-            this.ClassStudentGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.ClassStudentGridView.ColumnHeadersHeight = 29;
-            this.ClassStudentGridView.GridColor = System.Drawing.SystemColors.Control;
-            this.ClassStudentGridView.Location = new System.Drawing.Point(416, 202);
-            this.ClassStudentGridView.Name = "ClassStudentGridView";
-            this.ClassStudentGridView.ReadOnly = true;
-            this.ClassStudentGridView.RowHeadersWidth = 51;
-            this.ClassStudentGridView.RowTemplate.Height = 24;
-            this.ClassStudentGridView.Size = new System.Drawing.Size(736, 579);
-            this.ClassStudentGridView.TabIndex = 9;
-            // 
-            // ClassNameLabel
-            // 
-            this.ClassNameLabel.AutoSize = true;
-            this.ClassNameLabel.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClassNameLabel.Location = new System.Drawing.Point(480, 154);
-            this.ClassNameLabel.Name = "ClassNameLabel";
-            this.ClassNameLabel.Size = new System.Drawing.Size(54, 32);
-            this.ClassNameLabel.TabIndex = 13;
-            this.ClassNameLabel.Text = "AA";
+            this.TeacherGridView.AllowUserToResizeColumns = false;
+            this.TeacherGridView.AllowUserToResizeRows = false;
+            this.TeacherGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.TeacherGridView.ColumnHeadersHeight = 29;
+            this.TeacherGridView.GridColor = System.Drawing.SystemColors.Control;
+            this.TeacherGridView.Location = new System.Drawing.Point(413, 192);
+            this.TeacherGridView.Name = "TeacherGridView";
+            this.TeacherGridView.ReadOnly = true;
+            this.TeacherGridView.RowHeadersWidth = 51;
+            this.TeacherGridView.RowTemplate.Height = 24;
+            this.TeacherGridView.Size = new System.Drawing.Size(736, 579);
+            this.TeacherGridView.TabIndex = 15;
+            this.TeacherGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TeacherGridView_CellClick);
             // 
             // ReturnButton
             // 
             this.ReturnButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReturnButton.Location = new System.Drawing.Point(1297, 202);
+            this.ReturnButton.Location = new System.Drawing.Point(1214, 192);
             this.ReturnButton.Name = "ReturnButton";
             this.ReturnButton.Size = new System.Drawing.Size(105, 40);
-            this.ReturnButton.TabIndex = 14;
+            this.ReturnButton.TabIndex = 16;
             this.ReturnButton.Text = "Quay lại";
             this.ReturnButton.UseVisualStyleBackColor = true;
             this.ReturnButton.Click += new System.EventHandler(this.ReturnButton_Click);
             // 
-            // MainTeacherName
+            // AddTeacherButton
             // 
-            this.MainTeacherName.AutoSize = true;
-            this.MainTeacherName.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MainTeacherName.Location = new System.Drawing.Point(1210, 75);
-            this.MainTeacherName.Name = "MainTeacherName";
-            this.MainTeacherName.Size = new System.Drawing.Size(54, 32);
-            this.MainTeacherName.TabIndex = 15;
-            this.MainTeacherName.Text = "AA";
+            this.AddTeacherButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddTeacherButton.Location = new System.Drawing.Point(106, 192);
+            this.AddTeacherButton.Name = "AddTeacherButton";
+            this.AddTeacherButton.Size = new System.Drawing.Size(225, 35);
+            this.AddTeacherButton.TabIndex = 17;
+            this.AddTeacherButton.Text = "Thêm giảng viên";
+            this.AddTeacherButton.UseVisualStyleBackColor = true;
+            this.AddTeacherButton.Click += new System.EventHandler(this.AddTeacherButton_Click);
             // 
-            // StudentOfClass
+            // DeleteTeacherButton
+            // 
+            this.DeleteTeacherButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteTeacherButton.Location = new System.Drawing.Point(106, 256);
+            this.DeleteTeacherButton.Name = "DeleteTeacherButton";
+            this.DeleteTeacherButton.Size = new System.Drawing.Size(225, 35);
+            this.DeleteTeacherButton.TabIndex = 18;
+            this.DeleteTeacherButton.Text = "Xóa giảng viên";
+            this.DeleteTeacherButton.UseVisualStyleBackColor = true;
+            this.DeleteTeacherButton.Visible = false;
+            this.DeleteTeacherButton.Click += new System.EventHandler(this.DeleteTeacherButton_Click);
+            // 
+            // TeacherList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1849, 833);
-            this.Controls.Add(this.MainTeacherName);
+            this.Controls.Add(this.DeleteTeacherButton);
+            this.Controls.Add(this.AddTeacherButton);
             this.Controls.Add(this.ReturnButton);
-            this.Controls.Add(this.ClassNameLabel);
-            this.Controls.Add(this.ClassStudentGridView);
+            this.Controls.Add(this.TeacherGridView);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.AppName);
-            this.Name = "StudentOfClass";
-            this.Text = "StudentOfClass";
-            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.StudentOfClass_MouseClick);
+            this.Name = "TeacherList";
+            this.Text = "TeacherList";
+            this.Load += new System.EventHandler(this.TeacherList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ClassStudentGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TeacherGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,9 +138,9 @@
 
         private System.Windows.Forms.Label AppName;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridView ClassStudentGridView;
-        private System.Windows.Forms.Label ClassNameLabel;
+        private System.Windows.Forms.DataGridView TeacherGridView;
         private System.Windows.Forms.Button ReturnButton;
-        private System.Windows.Forms.Label MainTeacherName;
+        private System.Windows.Forms.Button AddTeacherButton;
+        private System.Windows.Forms.Button DeleteTeacherButton;
     }
 }

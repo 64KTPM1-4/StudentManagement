@@ -11,13 +11,17 @@ namespace QuanLiSinhVien.Services
 {
     public class TeacherServices
     {
-        public List<TeacherModel> TeacherSearch()
+        public List<TeacherModel> TeacherSearch(ClassModel selectedClass = null)
         {
             var teacherList = new List<TeacherModel>();
             try
             {
                 string json = File.ReadAllText(@"Teacher.json");
                 teacherList = JsonConvert.DeserializeObject<List<TeacherModel>>(json);
+                if (selectedClass != null)
+                {
+                    teacherList = teacherList.Where(x => x.MainClassName == selectedClass.ClassName).ToList();
+                }
             }
             catch (FileNotFoundException)
             {
@@ -26,7 +30,7 @@ namespace QuanLiSinhVien.Services
             return teacherList;
         }
 
-        public void AddTeacher(string TeacherName)
+        public void AddTeacher(string TeacherName, string mainClassName)
         {
             int TeacherId = 0;
             var teacherList = TeacherSearch();
@@ -42,6 +46,7 @@ namespace QuanLiSinhVien.Services
             {
                 TeacherId = TeacherId,
                 TeacherName = TeacherName,
+                MainClassName = mainClassName
             });
 
             teacherList.AddRange(newTeacher);
@@ -51,7 +56,6 @@ namespace QuanLiSinhVien.Services
         public void DeleteTeacher(string TeacherName)
         {
             var teacherList = TeacherSearch();
-            var Name = teacherList.FirstOrDefault(s => s.TeacherName.Equals(TeacherName, StringComparison.OrdinalIgnoreCase));
             var index = teacherList.FindIndex(x => x.TeacherName == TeacherName);
             teacherList.RemoveAt(index);
             File.WriteAllText(@"Teacher.json", JsonConvert.SerializeObject(teacherList));
