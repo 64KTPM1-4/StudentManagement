@@ -176,6 +176,7 @@
     <Compile Include="Services\LoginServices.cs" />
     <Compile Include="Services\StudentServices.cs" />
     <Compile Include="Services\SubjectServices.cs" />
+    <Compile Include="Services\TeacherServices.cs" />
     <EmbeddedResource Include="Class Form\AddClass.resx">
       <DependentUpon>AddClass.cs</DependentUpon>
     </EmbeddedResource>

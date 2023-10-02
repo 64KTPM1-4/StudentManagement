@@ -73,6 +73,16 @@ namespace QuanLiSinhVien.Services
 
         }
 
+        public void AddClassStudent(ClassModel currentClass, int StudentId)
+        {
+            var classList = ClassSearch();
+            int index = classList.FindIndex(s =>  s.ClassId == currentClass.ClassId);
+
+            classList[index].StudentId.Add(StudentId);
+
+            File.WriteAllText(@"Class.json", JsonSerializer.Serialize(classList));
+        }
+
         public void DeleteClass(string className)
         {
             var classList = JsonSerializer.Deserialize<List<ClassModel>>(File.ReadAllText(@"Class.json"));
