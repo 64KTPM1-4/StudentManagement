@@ -31,15 +31,25 @@ namespace QuanLiSinhVien
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (textBox1.Text.Count() > 0) AddStudentLabel.Hide();
-            else AddStudentLabel.Show();
+            if (textBox1.Text.Count() > 0) {
+                AddStudentLabel.Hide();
+                if (ClassListBox.SelectedValue != null)
+                    AddClassButton.Show();
+            }
+            else
+            {
+                AddStudentLabel.Show();
+                AddClassButton.Hide();
+            }
         }
 
         private void AddClassButton_Click(object sender, EventArgs e)
         {
-            var ClassId = ClassListBox.SelectedValue.ToString();
+            string ClassId = ClassListBox.SelectedValue.ToString();
             studentSevices.AddStudent(textBox1.Text, ClassId);
             this.Close();
+           
+            
         }
     }
 }

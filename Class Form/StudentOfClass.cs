@@ -25,7 +25,15 @@ namespace QuanLiSinhVien
             teacherServices = new TeacherServices();
             ClassStudentGridView.DataSource = studentSevices.StudentSearch(selectedClass);
             var currentTeacher = teacherServices.TeacherSearch(currentClass);
-            MainTeacherName.Text = "GVCN: " + currentTeacher[0].TeacherName;
+            try
+            {
+                MainTeacherName.Text = "GVCN: " + currentTeacher[0].TeacherName;
+            }
+            catch
+            {
+                MainTeacherName.Text = "GVCN: Chưa có";
+            }
+            
             ClassNameLabel.Text = "Danh sách sinh viên thuộc lớp quản lí " + selectedClass.ClassName;
 
             

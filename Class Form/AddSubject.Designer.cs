@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.AddClassButton = new System.Windows.Forms.Button();
+            this.AddSubjectButton = new System.Windows.Forms.Button();
             this.AddSubjectLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -42,16 +42,17 @@
             this.textBox1.TabIndex = 3;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // AddClassButton
+            // AddSubjectButton
             // 
-            this.AddClassButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddClassButton.Location = new System.Drawing.Point(146, 103);
-            this.AddClassButton.Name = "AddClassButton";
-            this.AddClassButton.Size = new System.Drawing.Size(146, 33);
-            this.AddClassButton.TabIndex = 5;
-            this.AddClassButton.Text = "Đồng ý";
-            this.AddClassButton.UseVisualStyleBackColor = true;
-            this.AddClassButton.Click += new System.EventHandler(this.AddClassButton_Click);
+            this.AddSubjectButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddSubjectButton.Location = new System.Drawing.Point(146, 103);
+            this.AddSubjectButton.Name = "AddSubjectButton";
+            this.AddSubjectButton.Size = new System.Drawing.Size(146, 33);
+            this.AddSubjectButton.TabIndex = 5;
+            this.AddSubjectButton.Text = "Đồng ý";
+            this.AddSubjectButton.UseVisualStyleBackColor = true;
+            this.AddSubjectButton.Visible = false;
+            this.AddSubjectButton.Click += new System.EventHandler(this.AddClassButton_Click);
             // 
             // AddSubjectLabel
             // 
@@ -71,7 +72,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(404, 192);
             this.Controls.Add(this.AddSubjectLabel);
-            this.Controls.Add(this.AddClassButton);
+            this.Controls.Add(this.AddSubjectButton);
             this.Controls.Add(this.textBox1);
             this.Name = "AddSubject";
             this.Text = "AddSubject";
@@ -83,7 +84,7 @@
         #endregion
 
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button AddClassButton;
+        private System.Windows.Forms.Button AddSubjectButton;
         private System.Windows.Forms.Label AddSubjectLabel;
     }
 }

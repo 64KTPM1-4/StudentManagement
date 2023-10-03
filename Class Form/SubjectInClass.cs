@@ -26,6 +26,8 @@ namespace QuanLiSinhVien
             InitializeComponent();
             currentClass = selectedClass;
             joinTableServices = new JoinTableServices(currentClass);
+            
+            
             ClassNameLabel.Text = "Danh sách học phần của lớp " + currentClass.ClassName;
             ClassSubjectGridView.DataSource = joinTableServices.JoinClassSubject();
             addClassSubject = new AddClassSubject(currentClass);

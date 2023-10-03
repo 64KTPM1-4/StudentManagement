@@ -24,8 +24,16 @@ namespace QuanLiSinhVien
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length > 0) AddSubjectLabel.Hide();
-            else AddSubjectLabel.Show();
+            if (textBox1.Text.Length > 0) 
+            {
+                AddSubjectLabel.Hide();
+                AddSubjectButton.Show();
+            }
+            else
+            {
+                AddSubjectLabel.Show();
+                AddSubjectButton.Hide();
+            }
         }
 
         private void AddClassButton_Click(object sender, EventArgs e)

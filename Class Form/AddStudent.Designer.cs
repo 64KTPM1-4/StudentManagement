@@ -52,6 +52,7 @@
             this.AddClassButton.TabIndex = 5;
             this.AddClassButton.Text = "Đồng ý";
             this.AddClassButton.UseVisualStyleBackColor = true;
+            this.AddClassButton.Visible = false;
             this.AddClassButton.Click += new System.EventHandler(this.AddClassButton_Click);
             // 
             // AddStudentLabel
