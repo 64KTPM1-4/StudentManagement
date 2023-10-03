@@ -37,8 +37,17 @@ namespace QuanLiSinhVien
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length > 0) AddTeacherLabel.Hide();
-            else AddTeacherLabel.Show();
+            if (textBox1.Text.Length > 0)
+            {
+                AddTeacherLabel.Hide();
+                if(ClassListBox.SelectedValue != null)
+                    AddTeacherButton.Show();
+            }
+            else
+            {
+                AddTeacherLabel.Show();
+                AddTeacherButton.Hide();
+            }
         }
     }
 }

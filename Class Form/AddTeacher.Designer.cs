@@ -31,7 +31,7 @@
             this.AddTeacherLabel = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.ClassListBox = new System.Windows.Forms.ComboBox();
-            this.AddClassButton = new System.Windows.Forms.Button();
+            this.AddTeacherButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AddTeacherLabel
@@ -65,23 +65,24 @@
             this.ClassListBox.TabIndex = 9;
             this.ClassListBox.Text = "Chọn lớp quản lí";
             // 
-            // AddClassButton
+            // AddTeacherButton
             // 
-            this.AddClassButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddClassButton.Location = new System.Drawing.Point(191, 121);
-            this.AddClassButton.Name = "AddClassButton";
-            this.AddClassButton.Size = new System.Drawing.Size(146, 33);
-            this.AddClassButton.TabIndex = 10;
-            this.AddClassButton.Text = "Đồng ý";
-            this.AddClassButton.UseVisualStyleBackColor = true;
-            this.AddClassButton.Click += new System.EventHandler(this.AddClassButton_Click);
+            this.AddTeacherButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddTeacherButton.Location = new System.Drawing.Point(191, 121);
+            this.AddTeacherButton.Name = "AddTeacherButton";
+            this.AddTeacherButton.Size = new System.Drawing.Size(146, 33);
+            this.AddTeacherButton.TabIndex = 10;
+            this.AddTeacherButton.Text = "Đồng ý";
+            this.AddTeacherButton.UseVisualStyleBackColor = true;
+            this.AddTeacherButton.Visible = false;
+            this.AddTeacherButton.Click += new System.EventHandler(this.AddClassButton_Click);
             // 
             // AddTeacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(647, 369);
-            this.Controls.Add(this.AddClassButton);
+            this.Controls.Add(this.AddTeacherButton);
             this.Controls.Add(this.ClassListBox);
             this.Controls.Add(this.AddTeacherLabel);
             this.Controls.Add(this.textBox1);
@@ -97,6 +98,6 @@
         private System.Windows.Forms.Label AddTeacherLabel;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox ClassListBox;
-        private System.Windows.Forms.Button AddClassButton;
+        private System.Windows.Forms.Button AddTeacherButton;
     }
 }
