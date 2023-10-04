@@ -11,5 +11,7 @@ namespace QuanLiSinhVien.Model
     {
         [DisplayName("Vi phạm")]
         public string Notes { get; set; } = string.Empty;
+        [DisplayName("Của")]
+        public string StudentName { get; set; }
     }
 }
