@@ -17,6 +17,8 @@ namespace QuanLiSinhVien.Model
         [DisplayName("Lớp quản lí")]
         public string MainClassName {  get; set; }
 
+        public List<string> Notes { get; set; } = new List<string>();
 
+        public List<float> Point { get; set; } = new List<float>();
     }
 }
