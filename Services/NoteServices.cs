@@ -20,10 +20,12 @@ namespace QuanLiSinhVien.Services
                 noteList = JsonConvert.DeserializeObject<List<NotesModel>>(json);
                 if (selectedStudent != null)
                 {
-                    noteList = noteList.Where(x => x.StudentName == selectedStudent.Name).Select(x => new NotesModel
+                    noteList = noteList.Where(x => x.StudentId == selectedStudent.Id).Select(x => new NotesModel
                     {
                         Notes = x.Notes,
-                        StudentName = x.StudentName,
+                        Diem = x.Diem,
+                        StudentId = x.StudentId,
+                        ClassId = x.ClassId,
                     }).OrderBy(x => x.Notes).ToList();
                 }
                 else
@@ -38,14 +40,15 @@ namespace QuanLiSinhVien.Services
             return noteList;
         }
 
-        public void AddNote(string Note, string StudentName)
+        public void AddNote(string Note, int StudentId, int ClassId)
         {
             var noteList = NoteSearch();
             List<NotesModel> newNote = new List<NotesModel>();
             newNote.Add(new NotesModel
             {
                 Notes = Note,
-                StudentName = StudentName
+                StudentId = StudentId,
+                ClassId = ClassId
             });
 
             noteList.AddRange(newNote);
@@ -70,6 +73,11 @@ namespace QuanLiSinhVien.Services
                 Note.Notes = newNote;
                 File.WriteAllText(@"Note.json", JsonConvert.SerializeObject(noteList));
             }
+        }
+
+        public void AddPoint(float Diem, int StudentId, int ClassId)
+        {
+            var noteList = NoteSearch();
         }
     }
 }
