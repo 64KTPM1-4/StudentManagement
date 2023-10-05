@@ -200,6 +200,7 @@
     <Compile Include="Model\JoinClassStudentModel.cs" />
     <Compile Include="Model\JoinClassSubjectModel.cs" />
     <Compile Include="Model\JoinSubjectStudentModel.cs" />
+    <Compile Include="Model\NotesModel.cs" />
     <Compile Include="Services\JoinSubjectStudent.cs" />
     <Compile Include="Model\StudentListClassModel.cs" />
     <Compile Include="Model\StudentModel.cs" />
@@ -216,6 +217,7 @@
     <Compile Include="Services\ClassServices.cs" />
     <Compile Include="Services\JoinTableServices.cs" />
     <Compile Include="Services\LoginServices.cs" />
+    <Compile Include="Services\NoteServices.cs" />
     <Compile Include="Services\StudentServices.cs" />
     <Compile Include="Services\SubjectServices.cs" />
     <Compile Include="Services\TeacherServices.cs" />
