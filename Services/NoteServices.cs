@@ -30,7 +30,7 @@ namespace QuanLiSinhVien.Services
                 }
                 else
                 {
-                    noteList = noteList.OrderBy(x => x.Notes).ToList();
+                    noteList = noteList.OrderBy(x => x.Notes ).ToList();
                 }
             }
             catch (FileNotFoundException)

@@ -201,7 +201,6 @@
     <Compile Include="Model\JoinClassSubjectModel.cs" />
     <Compile Include="Model\JoinSubjectStudentModel.cs" />
     <Compile Include="Model\NotesModel.cs" />
-    <Compile Include="Model\PointModel.cs" />
     <Compile Include="Services\JoinSubjectStudent.cs" />
     <Compile Include="Model\StudentListClassModel.cs" />
     <Compile Include="Model\StudentModel.cs" />
