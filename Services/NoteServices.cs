@@ -30,7 +30,7 @@ namespace QuanLiSinhVien.Services
                 }
                 else
                 {
-                    noteList = noteList.OrderBy(x => x.Notes ).ToList();
+                    noteList = noteList.OrderBy(x => x.Notes).ToList();
                 }
             }
             catch (FileNotFoundException)
@@ -55,7 +55,7 @@ namespace QuanLiSinhVien.Services
             File.WriteAllText(@"Note.json", JsonConvert.SerializeObject(noteList));
         }
 
-        public void DeleteNote(string Note) 
+        public void DeleteNote(string Note)
         {
             var noteList = NoteSearch();
             var index = noteList.FindIndex(s => s.Notes == Note);
@@ -68,14 +68,16 @@ namespace QuanLiSinhVien.Services
             var noteList = NoteSearch();
             var Note = noteList.FirstOrDefault(x => x.Notes.Equals(oldNote, StringComparison.OrdinalIgnoreCase));
 
-            if(Note != null) 
+            if (Note != null)
             {
                 Note.Notes = newNote;
                 File.WriteAllText(@"Note.json", JsonConvert.SerializeObject(noteList));
             }
         }
 
-        public void AddPoint(float point, string note, int studentId, int classId)
+
+        public void AddPoint(float point, int studentId, int classId)
+
         {
             var noteList = NoteSearch();
             var existingNote = noteList.FirstOrDefault(x => x.StudentId == studentId && x.ClassId == classId);
@@ -88,7 +90,9 @@ namespace QuanLiSinhVien.Services
             }
         }
 
-        public void DeletePoint(float point, string note, int studentId, int classId)
+
+        public void DeletePoint(float point, int studentId, int classId)
+
         {
             var noteList = NoteSearch();
             var existingNote = noteList.FirstOrDefault(x => x.StudentId == studentId && x.ClassId == classId);
@@ -101,7 +105,9 @@ namespace QuanLiSinhVien.Services
             }
         }
 
-        public void EditPoint(float oldPoint, float newPoint, string note, int studentId, int classId)
+
+        public void EditPoint(float oldPoint, float newPoint, int studentId, int classId)
+
         {
             var noteList = NoteSearch();
             var existingNote = noteList.FirstOrDefault(x => x.StudentId == studentId && x.ClassId == classId);
