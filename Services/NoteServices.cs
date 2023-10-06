@@ -55,7 +55,7 @@ namespace QuanLiSinhVien.Services
             File.WriteAllText(@"Note.json", JsonConvert.SerializeObject(noteList));
         }
 
-        public void DeleteNote(string Note) 
+        public void DeleteNote(string Note)
         {
             var noteList = NoteSearch();
             var index = noteList.FindIndex(s => s.Notes == Note);
