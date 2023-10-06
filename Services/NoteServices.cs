@@ -30,7 +30,7 @@ namespace QuanLiSinhVien.Services
                 }
                 else
                 {
-                    noteList = noteList.OrderBy(x => x.Notes ).ToList();
+                    noteList = noteList.OrderBy(x => x.Notes).ToList();
                 }
             }
             catch (FileNotFoundException)
@@ -68,16 +68,54 @@ namespace QuanLiSinhVien.Services
             var noteList = NoteSearch();
             var Note = noteList.FirstOrDefault(x => x.Notes.Equals(oldNote, StringComparison.OrdinalIgnoreCase));
 
-            if(Note != null) 
+            if (Note != null)
             {
                 Note.Notes = newNote;
                 File.WriteAllText(@"Note.json", JsonConvert.SerializeObject(noteList));
             }
         }
 
-        public void AddPoint(float Diem, int StudentId, int ClassId)
+        public void AddPoint(float point, int studentId, int classId)
         {
             var noteList = NoteSearch();
+            var existingNote = noteList.FirstOrDefault(x => x.StudentId == studentId && x.ClassId == classId);
+
+            if (existingNote != null)
+            {
+                existingNote.Diem.Add(point);
+
+                File.WriteAllText(@"Note.json", JsonConvert.SerializeObject(noteList));
+            }
+        }
+
+        public void DeletePoint(float point, int studentId, int classId)
+        {
+            var noteList = NoteSearch();
+            var existingNote = noteList.FirstOrDefault(x => x.StudentId == studentId && x.ClassId == classId);
+
+            if (existingNote != null)
+            {
+                existingNote.Diem.Remove(point);
+
+                File.WriteAllText(@"Note.json", JsonConvert.SerializeObject(noteList));
+            }
+        }
+
+        public void EditPoint(float oldPoint, float newPoint, int studentId, int classId)
+        {
+            var noteList = NoteSearch();
+            var existingNote = noteList.FirstOrDefault(x => x.StudentId == studentId && x.ClassId == classId);
+
+            if (existingNote != null)
+            {
+                int index = existingNote.Diem.IndexOf(oldPoint);
+                if (index != -1)
+                {
+                    existingNote.Diem[index] = newPoint;
+
+                    File.WriteAllText(@"Note.json", JsonConvert.SerializeObject(noteList));
+                }
+            }
         }
     }
 }
