@@ -75,7 +75,9 @@ namespace QuanLiSinhVien.Services
             }
         }
 
+
         public void AddPoint(float point, int studentId, int classId)
+
         {
             var noteList = NoteSearch();
             var existingNote = noteList.FirstOrDefault(x => x.StudentId == studentId && x.ClassId == classId);
@@ -88,7 +90,9 @@ namespace QuanLiSinhVien.Services
             }
         }
 
+
         public void DeletePoint(float point, int studentId, int classId)
+
         {
             var noteList = NoteSearch();
             var existingNote = noteList.FirstOrDefault(x => x.StudentId == studentId && x.ClassId == classId);
@@ -101,7 +105,9 @@ namespace QuanLiSinhVien.Services
             }
         }
 
+
         public void EditPoint(float oldPoint, float newPoint, int studentId, int classId)
+
         {
             var noteList = NoteSearch();
             var existingNote = noteList.FirstOrDefault(x => x.StudentId == studentId && x.ClassId == classId);
