@@ -14,6 +14,7 @@ namespace QuanLiSinhVien.Model
         public int StudentId { get; set; }
         public int ClassId { get; set; }
         [DisplayName("Điểm số")]
-        public float Point { get; set; }
+        public List<float> Diem { get; set; } = new List<float>();
+
     }
 }
