@@ -116,6 +116,12 @@
     <Compile Include="Class Form\AddClassSubject.Designer.cs">
       <DependentUpon>AddClassSubject.cs</DependentUpon>
     </Compile>
+    <Compile Include="Class Form\AddMainTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Class Form\AddMainTeacher.Designer.cs">
+      <DependentUpon>AddMainTeacher.cs</DependentUpon>
+    </Compile>
     <Compile Include="Class Form\AddStudent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,8 +205,10 @@
     <Compile Include="Model\DanhSachAcc.cs" />
     <Compile Include="Model\JoinClassStudentModel.cs" />
     <Compile Include="Model\JoinClassSubjectModel.cs" />
+    <Compile Include="Model\JoinListStudentModel.cs" />
     <Compile Include="Model\JoinSubjectStudentModel.cs" />
     <Compile Include="Model\NotesModel.cs" />
+    <Compile Include="Services\JoinListStudentServices.cs" />
     <Compile Include="Services\JoinSubjectStudent.cs" />
     <Compile Include="Model\StudentListClassModel.cs" />
     <Compile Include="Model\StudentModel.cs" />
@@ -226,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Class Form\AddClassSubject.resx">
       <DependentUpon>AddClassSubject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Class Form\AddMainTeacher.resx">
+      <DependentUpon>AddMainTeacher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Class Form\AddStudent.resx">
       <DependentUpon>AddStudent.cs</DependentUpon>

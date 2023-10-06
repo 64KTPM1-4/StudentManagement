@@ -16,18 +16,14 @@ namespace QuanLiSinhVien
     {
         StudentSevices studentSevices;
         List<StudentModel> studentLists;
+        JoinListStudentServices joinListStudentServices;
         public StudentList()
         {
             InitializeComponent();
             studentSevices = new StudentSevices();
-            studentLists = studentSevices.StudentSearch();
+            //joinListStudentServices = new JoinListStudentServices();
             StudentGridView.DataSource = studentSevices.StudentSearch();
             
-        }
-
-        private void StudentList_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void ReturnButton_Click(object sender, EventArgs e)
@@ -39,6 +35,7 @@ namespace QuanLiSinhVien
         {
             AddStudent addStudent = new AddStudent();
             addStudent.ShowDialog();
+            //joinListStudentServices = new JoinListStudentServices();
             StudentGridView.DataSource = studentSevices.StudentSearch();
             StudentGridView.Update();
             StudentGridView.Refresh();
@@ -56,19 +53,20 @@ namespace QuanLiSinhVien
 
         private void ShowButton()
         {
-            
+            EditStudentButton.Show();
             DeleteStudentButton.Show();
         }
         
         private void HideButton()
         {
-            
+            EditStudentButton.Hide();
             DeleteStudentButton.Hide();
         }
 
         private void DeleteStudentButton_Click(object sender, EventArgs e)
         {
             studentSevices.DeleteStudent(StudentGridView.SelectedCells[0].Value.ToString());
+            //joinListStudentServices = new JoinListStudentServices();
             StudentGridView.DataSource = studentSevices.StudentSearch();
             StudentGridView.Update();
             StudentGridView.Refresh();
@@ -77,7 +75,8 @@ namespace QuanLiSinhVien
 
         private void EditStudentButton_Click(object sender, EventArgs e)
         {
-
+            
+            
         }
     }
 }

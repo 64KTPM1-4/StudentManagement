@@ -35,6 +35,7 @@
             this.ClassNameLabel = new System.Windows.Forms.Label();
             this.ReturnButton = new System.Windows.Forms.Button();
             this.MainTeacherName = new System.Windows.Forms.Label();
+            this.AddMainTeacherButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClassStudentGridView)).BeginInit();
             this.SuspendLayout();
@@ -48,7 +49,7 @@
             this.AppName.BackColor = System.Drawing.SystemColors.Highlight;
             this.AppName.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.AppName.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AppName.Location = new System.Drawing.Point(442, 60);
+            this.AppName.Location = new System.Drawing.Point(442, 39);
             this.AppName.Name = "AppName";
             this.AppName.Size = new System.Drawing.Size(648, 47);
             this.AppName.TabIndex = 1;
@@ -91,7 +92,7 @@
             // ReturnButton
             // 
             this.ReturnButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReturnButton.Location = new System.Drawing.Point(1297, 202);
+            this.ReturnButton.Location = new System.Drawing.Point(1400, 84);
             this.ReturnButton.Name = "ReturnButton";
             this.ReturnButton.Size = new System.Drawing.Size(105, 40);
             this.ReturnButton.TabIndex = 14;
@@ -103,17 +104,30 @@
             // 
             this.MainTeacherName.AutoSize = true;
             this.MainTeacherName.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MainTeacherName.Location = new System.Drawing.Point(1210, 75);
+            this.MainTeacherName.Location = new System.Drawing.Point(1172, 154);
             this.MainTeacherName.Name = "MainTeacherName";
             this.MainTeacherName.Size = new System.Drawing.Size(54, 32);
             this.MainTeacherName.TabIndex = 15;
             this.MainTeacherName.Text = "AA";
+            // 
+            // AddMainTeacherButton
+            // 
+            this.AddMainTeacherButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddMainTeacherButton.Location = new System.Drawing.Point(1168, 202);
+            this.AddMainTeacherButton.Name = "AddMainTeacherButton";
+            this.AddMainTeacherButton.Size = new System.Drawing.Size(171, 40);
+            this.AddMainTeacherButton.TabIndex = 16;
+            this.AddMainTeacherButton.Text = "Thêm GVCN";
+            this.AddMainTeacherButton.UseVisualStyleBackColor = true;
+            this.AddMainTeacherButton.Visible = false;
+            this.AddMainTeacherButton.Click += new System.EventHandler(this.AddMainTeacherButton_Click);
             // 
             // StudentOfClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1849, 833);
+            this.Controls.Add(this.AddMainTeacherButton);
             this.Controls.Add(this.MainTeacherName);
             this.Controls.Add(this.ReturnButton);
             this.Controls.Add(this.ClassNameLabel);
@@ -122,7 +136,6 @@
             this.Controls.Add(this.AppName);
             this.Name = "StudentOfClass";
             this.Text = "StudentOfClass";
-            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.StudentOfClass_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClassStudentGridView)).EndInit();
             this.ResumeLayout(false);
@@ -138,5 +151,6 @@
         private System.Windows.Forms.Label ClassNameLabel;
         private System.Windows.Forms.Button ReturnButton;
         private System.Windows.Forms.Label MainTeacherName;
+        private System.Windows.Forms.Button AddMainTeacherButton;
     }
 }

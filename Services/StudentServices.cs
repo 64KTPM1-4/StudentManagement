@@ -19,28 +19,19 @@ namespace QuanLiSinhVien.Services
             {
                 string json = File.ReadAllText(@"Student.json");
                 studentList = JsonConvert.DeserializeObject<List<StudentModel>>(json);
-                if(selectedClass != null)
-                {
-                    studentList = studentList.Where(x => x.MainClassName == selectedClass.ClassName).Select(x => new StudentModel
-                    {
-                        Id = x.Id,
-                        Name = x.Name,
-                        MainClassName = x.MainClassName,
-                    }).OrderBy(x => x.Name).ToList();
-                    
-                }
-                else studentList = studentList.OrderBy(x => x.Name).ToList();
+                
+                studentList = studentList.OrderBy(x => x.Name).ToList();
                 
             }
             catch(FileNotFoundException)
             {
                 File.WriteAllText(@"Student.json", "[]");
             }
-            return studentList;
+            return studentList.OrderBy(x => x.Id).ToList();
         }
 
 
-        public void AddStudent(string StudentName, string mainClassName)
+        public void AddStudent(string StudentName)
         {
             int StudentId = 0;
             var studentList = StudentSearch();
@@ -55,7 +46,7 @@ namespace QuanLiSinhVien.Services
             {
                 Id = StudentId,
                 Name = StudentName,
-                MainClassName = mainClassName
+
             });
 
             studentList.AddRange(newStudent);
@@ -71,10 +62,10 @@ namespace QuanLiSinhVien.Services
         }
 
 
-        public void EditStudent(string oldStudentName, string newStudentName)
+        public void EditStudent(int Id, string newStudentName)
         {
             var studentList = StudentSearch();
-            var student = studentList.FirstOrDefault(s => s.Name.Equals(oldStudentName, StringComparison.OrdinalIgnoreCase));
+            var student = studentList.FirstOrDefault(s => s.Id == Id);
 
             if (student != null)
             {

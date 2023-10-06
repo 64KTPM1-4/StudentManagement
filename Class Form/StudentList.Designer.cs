@@ -35,6 +35,7 @@
             this.DeleteStudentButton = new System.Windows.Forms.Button();
             this.ReturnButton = new System.Windows.Forms.Button();
             this.StudentGridView = new System.Windows.Forms.DataGridView();
+            this.EditStudentButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StudentGridView)).BeginInit();
             this.SuspendLayout();
@@ -113,11 +114,24 @@
             this.StudentGridView.TabIndex = 14;
             this.StudentGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.StudentGridView_CellContentClick);
             // 
+            // EditStudentButton
+            // 
+            this.EditStudentButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EditStudentButton.Location = new System.Drawing.Point(106, 312);
+            this.EditStudentButton.Name = "EditStudentButton";
+            this.EditStudentButton.Size = new System.Drawing.Size(248, 35);
+            this.EditStudentButton.TabIndex = 15;
+            this.EditStudentButton.Text = "Sửa thông tin sinh viên";
+            this.EditStudentButton.UseVisualStyleBackColor = true;
+            this.EditStudentButton.Visible = false;
+            this.EditStudentButton.Click += new System.EventHandler(this.EditStudentButton_Click);
+            // 
             // StudentList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1849, 833);
+            this.Controls.Add(this.EditStudentButton);
             this.Controls.Add(this.ReturnButton);
             this.Controls.Add(this.DeleteStudentButton);
             this.Controls.Add(this.AddTeacherButton);
@@ -126,7 +140,6 @@
             this.Controls.Add(this.StudentGridView);
             this.Name = "StudentList";
             this.Text = "StudentList";
-            this.Load += new System.EventHandler(this.StudentList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.StudentGridView)).EndInit();
             this.ResumeLayout(false);
@@ -142,5 +155,6 @@
         private System.Windows.Forms.Button DeleteStudentButton;
         private System.Windows.Forms.Button ReturnButton;
         private System.Windows.Forms.DataGridView StudentGridView;
+        private System.Windows.Forms.Button EditStudentButton;
     }
 }

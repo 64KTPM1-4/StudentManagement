@@ -17,31 +17,27 @@ namespace QuanLiSinhVien
         ClassModel currentClass;
         StudentSevices studentSevices;
         TeacherServices teacherServices;
+        JoinListStudentServices joinListStudentServices;
         public StudentOfClass(ClassModel selectedClass)
         {
             InitializeComponent();
             currentClass = selectedClass;
             studentSevices = new StudentSevices();
             teacherServices = new TeacherServices();
-            ClassStudentGridView.DataSource = studentSevices.StudentSearch(selectedClass);
-            var currentTeacher = teacherServices.TeacherSearch(currentClass);
-            try
+            joinListStudentServices = new JoinListStudentServices(currentClass);
+            ClassStudentGridView.DataSource = joinListStudentServices.joinListStudent();
+            var currentTeacher = teacherServices.MainTeacher(currentClass);
+
+            MainTeacherName.Text = "GVCN: " + currentTeacher;
+            if (currentTeacher == "Chưa có")
             {
-                MainTeacherName.Text = "GVCN: " + currentTeacher[0].TeacherName;
+                AddMainTeacherButton.Show();
             }
-            catch
-            {
-                MainTeacherName.Text = "GVCN: Chưa có";
-            }
-            
+
+
             ClassNameLabel.Text = "Danh sách sinh viên thuộc lớp quản lí " + selectedClass.ClassName;
 
             
-        }
-
-        private void StudentOfClass_MouseClick(object sender, MouseEventArgs e)
-        {
-
         }
 
         private void ReturnButton_Click(object sender, EventArgs e)
@@ -49,9 +45,14 @@ namespace QuanLiSinhVien
             this.Close();
         }
 
-        private void AddStudent_Click(object sender, EventArgs e)
+        private void AddMainTeacherButton_Click(object sender, EventArgs e)
         {
-
+            AddMainTeacher addMainTeacher = new AddMainTeacher(currentClass.ClassId);
+            addMainTeacher.ShowDialog();
+            teacherServices = new TeacherServices();
+            MainTeacherName.Text = teacherServices.MainTeacher(currentClass);
+            MainTeacherName.Update();
+            MainTeacherName.Refresh();
         }
     }
 }

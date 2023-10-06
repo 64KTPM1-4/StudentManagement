@@ -16,14 +16,14 @@ namespace QuanLiSinhVien
 {
     public partial class AddClassSubject : Form
     {
-        List<SubjectModel> subjecList;
         ClassServices ClassServices;
         ClassModel currentClass = new ClassModel();
+        SubjectServices SubjectServices;
         public AddClassSubject(ClassModel selectedClass)
         {
             InitializeComponent();
-            subjecList = JsonConvert.DeserializeObject<List<SubjectModel>>(File.ReadAllText(@"Subject.json"));
-            SubjectListBox.DataSource = subjecList;
+            SubjectServices = new SubjectServices();
+            SubjectListBox.DataSource = SubjectServices.SubjectSearch();
             SubjectListBox.DisplayMember = "SubjectName";
             SubjectListBox.ValueMember = "SubjectId";
             ClassServices = new ClassServices();

@@ -23,7 +23,7 @@ namespace QuanLiSinhVien.Services
                     noteList = noteList.Where(x => x.StudentId == selectedStudent.Id).Select(x => new NotesModel
                     {
                         Notes = x.Notes,
-                        Diem = x.Diem,
+                        Point = x.Point,
                         StudentId = x.StudentId,
                         ClassId = x.ClassId,
                     }).OrderBy(x => x.Notes).ToList();

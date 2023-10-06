@@ -14,7 +14,6 @@ namespace QuanLiSinhVien.Model
         [DisplayName("Tên môn học")]
         public string SubjectName { get; set; } = string.Empty;
         public List<int> studentId { get; set; } = new List<int>();
-        
-
+        public int TeacherId { get; set; } = 0;
     }
 }

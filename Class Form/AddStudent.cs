@@ -25,7 +25,7 @@ namespace QuanLiSinhVien
             classList = JsonConvert.DeserializeObject<List<ClassModel>>(File.ReadAllText("Class.json"));
             ClassListBox.DataSource = classList;
             ClassListBox.DisplayMember = "ClassName";
-            ClassListBox.ValueMember = "ClassName";
+            ClassListBox.ValueMember = "ClassId";
           
         }
 
@@ -45,8 +45,8 @@ namespace QuanLiSinhVien
 
         private void AddClassButton_Click(object sender, EventArgs e)
         {
-            string ClassId = ClassListBox.SelectedValue.ToString();
-            studentSevices.AddStudent(textBox1.Text, ClassId);
+            var ClassId = (int)ClassListBox.SelectedValue;
+            studentSevices.AddStudent(textBox1.Text);
             this.Close();
            
             

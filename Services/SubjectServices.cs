@@ -24,7 +24,7 @@ namespace QuanLiSinhVien.Services
             {
                 File.WriteAllText(@"Subject.json", "[]");
             }
-            return subjectList;
+            return subjectList.OrderBy(x => x.SubjectId).ToList();
         }
 
         public bool AddSubject(string SubjectName)

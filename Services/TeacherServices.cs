@@ -11,26 +11,22 @@ namespace QuanLiSinhVien.Services
 {
     public class TeacherServices
     {
-        public List<TeacherModel> TeacherSearch(ClassModel selectedClass = null)
+        public List<TeacherModel> TeacherSearch()
         {
             var teacherList = new List<TeacherModel>();
             try
             {
                 string json = File.ReadAllText(@"Teacher.json");
                 teacherList = JsonConvert.DeserializeObject<List<TeacherModel>>(json);
-                if (selectedClass != null)
-                {
-                    teacherList = teacherList.Where(x => x.MainClassName == selectedClass.ClassName).ToList();
-                }
             }
             catch (FileNotFoundException)
             {
                 File.WriteAllText(@"Teacher.json", "[]");
             }
-            return teacherList;
+            return teacherList.OrderBy(x => x.TeacherId).ToList();
         }
 
-        public void AddTeacher(string TeacherName, string mainClassName)
+        public void AddTeacher(string TeacherName)
         {
             int TeacherId = 0;
             var teacherList = TeacherSearch();
@@ -46,7 +42,7 @@ namespace QuanLiSinhVien.Services
             {
                 TeacherId = TeacherId,
                 TeacherName = TeacherName,
-                MainClassName = mainClassName
+
             });
 
             teacherList.AddRange(newTeacher);
@@ -72,5 +68,21 @@ namespace QuanLiSinhVien.Services
                 File.WriteAllText(@"Teacher.json", JsonConvert.SerializeObject((teacher)));
             }
         }
+
+        public string MainTeacher(ClassModel selectedClass)
+        {
+
+            var teacherList = TeacherSearch();
+            var currentTeacher = teacherList.FirstOrDefault(x => x.TeacherId == selectedClass.TeacherId);
+            try
+            {
+                return currentTeacher.TeacherName;
+            }
+            catch(NullReferenceException)
+            {
+                return "Chưa có";
+            }
+        }
+
     }
 }

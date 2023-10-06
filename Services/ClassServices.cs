@@ -23,7 +23,7 @@ namespace QuanLiSinhVien.Services
             {
                 File.WriteAllText(@"Class.json", "[]");
             }
-            return classList;
+            return classList.OrderBy(x => x.ClassId).ToList();
         }
 
         public bool AddClass(string ClassName)
@@ -89,7 +89,7 @@ namespace QuanLiSinhVien.Services
 
         public void DeleteClass(string className)
         {
-            var classList = JsonConvert.DeserializeObject<List<ClassModel>>(File.ReadAllText(@"Class.json"));
+            var classList = ClassSearch();
             var index = classList.FindIndex(x => x.ClassName == className);
             classList.RemoveAt(index);
             File.WriteAllText(@"Class.json", JsonConvert.SerializeObject(classList));
@@ -108,10 +108,19 @@ namespace QuanLiSinhVien.Services
                 return true;
             }
             else return false;
-            
-
 
         }
+
+        public void AddMainTeacher(int ClassId, int TeacherId)
+        {
+            var classList = ClassSearch();
+            int index = classList.FindIndex(x => x.ClassId == ClassId);
+            var currentClass = classList.FirstOrDefault(x => x.ClassId == ClassId);
+            currentClass.TeacherId = TeacherId;
+            classList[index] = currentClass;
+            File.WriteAllText(@"Class.json", JsonConvert.SerializeObject(classList));
+        }
+
 
     }
 }
