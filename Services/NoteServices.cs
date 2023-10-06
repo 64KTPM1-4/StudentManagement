@@ -75,9 +75,47 @@ namespace QuanLiSinhVien.Services
             }
         }
 
-        public void AddPoint(float Diem, int StudentId, int ClassId)
+        public void AddPoint(float point, string note, int studentId, int classId)
         {
             var noteList = NoteSearch();
+            var existingNote = noteList.FirstOrDefault(x => x.StudentId == studentId && x.ClassId == classId);
+
+            if (existingNote != null)
+            {
+                existingNote.Diem.Add(point);
+
+                File.WriteAllText(@"Note.json", JsonConvert.SerializeObject(noteList));
+            }
+        }
+
+        public void DeletePoint(float point, string note, int studentId, int classId)
+        {
+            var noteList = NoteSearch();
+            var existingNote = noteList.FirstOrDefault(x => x.StudentId == studentId && x.ClassId == classId);
+
+            if (existingNote != null)
+            {
+                existingNote.Diem.Remove(point);
+
+                File.WriteAllText(@"Note.json", JsonConvert.SerializeObject(noteList));
+            }
+        }
+
+        public void EditPoint(float oldPoint, float newPoint, string note, int studentId, int classId)
+        {
+            var noteList = NoteSearch();
+            var existingNote = noteList.FirstOrDefault(x => x.StudentId == studentId && x.ClassId == classId);
+
+            if (existingNote != null)
+            {
+                int index = existingNote.Diem.IndexOf(oldPoint);
+                if (index != -1)
+                {
+                    existingNote.Diem[index] = newPoint;
+
+                    File.WriteAllText(@"Note.json", JsonConvert.SerializeObject(noteList));
+                }
+            }
         }
     }
 }
