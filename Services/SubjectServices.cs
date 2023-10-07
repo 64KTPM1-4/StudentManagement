@@ -76,7 +76,7 @@ namespace QuanLiSinhVien.Services
                 var noteList = JsonConvert.DeserializeObject<List<NotesModel>>(File.ReadAllText(@"Note.json"));
                 NotesModel notes = new NotesModel
                 {
-                    Notes = string.Empty,
+                    Notes = "Chưa có",
                     StudentId = studentId,
                     SubjectId = currentSubject.SubjectId,
                     ClassId = currentClass.ClassId,

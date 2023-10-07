@@ -33,7 +33,7 @@ namespace QuanLiSinhVien
         private void SubjectStudentGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             var onclick = SubjectStudentGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
-            if (e.ColumnIndex == 1 && onclick != "0")
+            if (e.ColumnIndex == 1)
             {
                 DeleteClassStudentButton.Show();
                 PointButton.Show();
