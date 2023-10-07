@@ -40,13 +40,13 @@ namespace QuanLiSinhVien.Services
             File.WriteAllText(@"Class.json", JsonConvert.SerializeObject(classList));
         }
 
-        public List<JoinClassStudentModel> JoinClassStudents()
+        public List<JoinStudentModel> JoinClassStudents()
         {
             var studentList = JsonConvert.DeserializeObject<List<StudentModel>>(File.ReadAllText(@"Student.json"));
             var query = currentClass.StudentId.Select(x => x).Join(studentList,
                                                ID => ID,
                                                list => list.Id,
-                                               (ID, list) => new JoinClassStudentModel
+                                               (ID, list) => new JoinStudentModel
                                                {
                                                    Id = ID,
                                                    StudentName = list.Name

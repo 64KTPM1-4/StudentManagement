@@ -6,10 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Common.CommandTrees;
 
 namespace QuanLiSinhVien.Services
 {
-    public class NoteServices
+   /* public class NoteServices
     {
         public List<NotesModel> NoteSearch(StudentModel selectedStudent = null)
         {
@@ -23,9 +24,9 @@ namespace QuanLiSinhVien.Services
                     noteList = noteList.Where(x => x.StudentId == selectedStudent.Id).Select(x => new NotesModel
                     {
                         Notes = x.Notes,
-                        Diem = x.Diem,
-                        StudentId = x.StudentId,
-                        ClassId = x.ClassId,
+                        dqt = x.dqt,
+                        dt = x.dt,
+                        dtk = (x.dqt * x.dt) / 2,
                     }).OrderBy(x => x.Notes).ToList();
                 }
                 else
@@ -123,5 +124,5 @@ namespace QuanLiSinhVien.Services
                 }
             }
         }
-    }
+    }*/
 }

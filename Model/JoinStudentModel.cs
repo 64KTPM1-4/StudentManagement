@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace QuanLiSinhVien.Model
 {
-    public class JoinClassStudentModel
+    public class JoinStudentModel
     {
         [DisplayName("ID")]
         public int Id { get; set; }

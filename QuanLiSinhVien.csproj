@@ -110,11 +110,23 @@
     <Compile Include="Class Form\AddClass.Designer.cs">
       <DependentUpon>AddClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Class Form\AddClassStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Class Form\AddClassStudent.Designer.cs">
+      <DependentUpon>AddClassStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Class Form\AddClassSubject.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Class Form\AddClassSubject.Designer.cs">
       <DependentUpon>AddClassSubject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class Form\AddMainTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Class Form\AddMainTeacher.Designer.cs">
+      <DependentUpon>AddMainTeacher.cs</DependentUpon>
     </Compile>
     <Compile Include="Class Form\AddStudent.cs">
       <SubType>Form</SubType>
@@ -151,6 +163,18 @@
     </Compile>
     <Compile Include="Class Form\EditClass.Designer.cs">
       <DependentUpon>EditClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class Form\SetNotes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Class Form\SetNotes.Designer.cs">
+      <DependentUpon>SetNotes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class Form\SetPoint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Class Form\SetPoint.Designer.cs">
+      <DependentUpon>SetPoint.cs</DependentUpon>
     </Compile>
     <Compile Include="Class Form\StudentInSubject.cs">
       <SubType>Form</SubType>
@@ -197,10 +221,11 @@
     <Compile Include="Model\AccountModel.cs" />
     <Compile Include="Model\ClassModel.cs" />
     <Compile Include="Model\DanhSachAcc.cs" />
-    <Compile Include="Model\JoinClassStudentModel.cs" />
+    <Compile Include="Model\JoinStudentModel.cs" />
     <Compile Include="Model\JoinClassSubjectModel.cs" />
-    <Compile Include="Model\JoinSubjectStudentModel.cs" />
+    <Compile Include="Model\JoinStudentNoteModel.cs" />
     <Compile Include="Model\NotesModel.cs" />
+    <Compile Include="Services\JoinClassStudentServices.cs" />
     <Compile Include="Services\JoinSubjectStudent.cs" />
     <Compile Include="Model\StudentListClassModel.cs" />
     <Compile Include="Model\StudentModel.cs" />
@@ -224,8 +249,14 @@
     <EmbeddedResource Include="Class Form\AddClass.resx">
       <DependentUpon>AddClass.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Class Form\AddClassStudent.resx">
+      <DependentUpon>AddClassStudent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Class Form\AddClassSubject.resx">
       <DependentUpon>AddClassSubject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Class Form\AddMainTeacher.resx">
+      <DependentUpon>AddMainTeacher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Class Form\AddStudent.resx">
       <DependentUpon>AddStudent.cs</DependentUpon>
@@ -244,6 +275,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Class Form\EditClass.resx">
       <DependentUpon>EditClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Class Form\SetNotes.resx">
+      <DependentUpon>SetNotes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Class Form\SetPoint.resx">
+      <DependentUpon>SetPoint.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Class Form\StudentInSubject.resx">
       <DependentUpon>StudentInSubject.cs</DependentUpon>

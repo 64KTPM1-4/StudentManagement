@@ -152,6 +152,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "SubjectInClass";
             this.Text = "SubjectInClass";
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SubjectInClass_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClassSubjectGridView)).EndInit();
             this.ResumeLayout(false);

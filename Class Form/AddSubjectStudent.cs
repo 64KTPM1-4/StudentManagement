@@ -19,9 +19,11 @@ namespace QuanLiSinhVien
         SubjectModel currentSubject;
         List<StudentModel> studentList;
         SubjectServices subjectServices;
-        public AddSubjectStudent(SubjectModel selectedSubject)
+        ClassModel currentClass;
+        public AddSubjectStudent(ClassModel selectedClass ,SubjectModel selectedSubject)
         {
             InitializeComponent();
+            currentClass = selectedClass;
             this.currentSubject = selectedSubject;
             studentList = JsonConvert.DeserializeObject<List<StudentModel>>(File.ReadAllText("Student.json"));
             StudentListBox.DataSource = studentList;
@@ -40,7 +42,7 @@ namespace QuanLiSinhVien
         private void OkButton_Click(object sender, EventArgs e)
         {
             int Id = (int)StudentListBox.SelectedValue;
-            if (subjectServices.AddSubjectStudent(currentSubject, Id))
+            if (subjectServices.AddSubjectStudent(currentSubject, currentClass, Id))
                 this.Close();
             else MessageBox.Show("Sinh viên đã tồn tại trong danh sách !");
         }

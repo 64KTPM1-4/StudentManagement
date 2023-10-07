@@ -46,7 +46,7 @@ namespace QuanLiSinhVien.Services
                     SubjectId = SubjectId,
                     SubjectName = SubjectName,
 
-                });
+                }) ;
 
                 subjectList.AddRange(newSubject);
                 File.WriteAllText(@"Subject.json", JsonConvert.SerializeObject(subjectList));
@@ -63,16 +63,29 @@ namespace QuanLiSinhVien.Services
             File.WriteAllText(@"Subject.json", JsonConvert.SerializeObject(subjectList));
         }
 
-        public bool AddSubjectStudent(SubjectModel currentSubject, int StudentId)
+        public bool AddSubjectStudent(SubjectModel currentSubject, ClassModel currentClass, int studentId)
         {
 
             var subjectList = SubjectSearch();
             int index = subjectList.FindIndex(x => x.SubjectId == currentSubject.SubjectId);
-            var valid = subjectList[index].studentId.FindIndex(x => x == StudentId);
+            var valid = subjectList[index].StudentId.FindIndex(x => x == studentId);
 
             if (valid == -1)
             {
-                subjectList[index].studentId.Add(StudentId);
+                subjectList[index].StudentId.Add(studentId);
+                var noteList = JsonConvert.DeserializeObject<List<NotesModel>>(File.ReadAllText(@"Note.json"));
+                NotesModel notes = new NotesModel
+                {
+                    Notes = string.Empty,
+                    StudentId = studentId,
+                    SubjectId = currentSubject.SubjectId,
+                    ClassId = currentClass.ClassId,
+                    dqt = 0,
+                    dt = 0,
+                    dtk = 0
+                };
+                noteList.Add(notes);
+                File.WriteAllText(@"Note.json", JsonConvert.SerializeObject(noteList));
                 File.WriteAllText(@"Subject.json", JsonConvert.SerializeObject(subjectList));
                 return true;
             }

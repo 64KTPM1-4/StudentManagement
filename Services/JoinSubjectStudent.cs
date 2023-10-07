@@ -12,37 +12,65 @@ namespace QuanLiSinhVien.Services
     {
         List<SubjectModel> subjectList;
         SubjectModel currentSubject;
-        public JoinSubjectStudent(string SubjectName)
+        List<NotesModel> noteList;
+        List<StudentModel> studentList;
+        public JoinSubjectStudent(ClassModel currentClass, SubjectModel currentSubject)
         {
+           
+            studentList = JsonConvert.DeserializeObject<List<StudentModel>>(File.ReadAllText(@"Student.json"));
             subjectList = JsonConvert.DeserializeObject<List<SubjectModel>>(File.ReadAllText(@"Subject.json"));
-            currentSubject = subjectList.FirstOrDefault(x => x.SubjectName == SubjectName);
+            try
+            {
+                noteList = JsonConvert.DeserializeObject<List<NotesModel>>(File.ReadAllText(@"Note.json"));
+                noteList = noteList.Where(x => x.SubjectId == currentSubject.SubjectId && x.ClassId == currentClass.ClassId).ToList();
+            }
+            catch (FileNotFoundException)
+            {
+                noteList = new List<NotesModel>();
+                File.WriteAllText(@"Note.json", "[]");
+            }
+            this.currentSubject = currentSubject;
         }
 
-        public List<JoinSubjectStudentModel> Join()
+        public List<JoinStudentNoteModel> Join()
         {
-            var studentList = JsonConvert.DeserializeObject<List<StudentModel>>(File.ReadAllText(@"Student.json"));
-            var query = currentSubject.studentId.Select(x => x).Join(studentList,
+            var query = studentList.Join(noteList,
                 
-                    subject => subject,
-                    student => student.Id,
-                    (subject, student) => new JoinSubjectStudentModel
-                    {
-                        Id = subject,
-                        Name = student.Name,
-                    }
+                        student => student.Id,
+                        note => note.StudentId,
+                        (student, note) => new JoinStudentNoteModel
+                        {
+                            Id = student.Id,
+                            Name = student.Name,
+                            dqt = note.dqt,
+                            dt = note.dt,
+                            dtk = (note.dqt + note.dt) / 2,
+                            Note = note.Notes,
+                        }).ToList();
 
-                ).ToList();
             return query;
+           
         }
 
-        public void DeleteSubjectStudent(string studentName)
+        public void DeleteSubjectStudent(int studentId)
         {
-            var studentList = JsonConvert.DeserializeObject<List<StudentModel>>(File.ReadAllText(@"Student.json"));
-            var studentId = studentList.Where(x => x.Name == studentName).Select(x => x.Id).FirstOrDefault();
-            var subjectList = JsonConvert.DeserializeObject<List<SubjectModel>>(File.ReadAllText(@"Subject.json"));
-            var index = subjectList.FindIndex(x => x.SubjectId == currentSubject.SubjectId);
-            subjectList[index].studentId.Remove(studentId);
+            subjectList[subjectList.FindIndex(x => x.SubjectId == currentSubject.SubjectId)].StudentId.Remove(studentId);
+            noteList.Remove(noteList.FirstOrDefault(x => x.StudentId == studentId));
             File.WriteAllText(@"Subject.json", JsonConvert.SerializeObject(subjectList));
+            File.WriteAllText(@"Note.json", JsonConvert.SerializeObject(noteList));
+        }
+
+        public void AddPoint(double dqt, double dt, int studentId)
+        {
+            noteList[noteList.FindIndex(x => x.StudentId == studentId)].dt = dt;
+            noteList[noteList.FindIndex(x => x.StudentId == studentId)].dqt = dqt;
+            File.WriteAllText(@"Note.json", JsonConvert.SerializeObject(noteList));
+        }
+
+        public void AddNotes(string notes, int studentId)
+        {
+            noteList[noteList.FindIndex(x => x.StudentId == studentId)].Notes = notes;
+            File.WriteAllText(@"Note.json", JsonConvert.SerializeObject(noteList));
         }
 
     }

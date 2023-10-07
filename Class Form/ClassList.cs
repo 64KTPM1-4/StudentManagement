@@ -27,6 +27,7 @@ namespace QuanLiSinhVien
             classList = new List<ClassModel> { };
             classList = classServices.ClassSearch();
             this.dataGridView1.DataSource = classList;
+            dataGridView1.Columns[2].Visible = false;
           
             
         }

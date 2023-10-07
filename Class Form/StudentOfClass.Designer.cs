@@ -35,6 +35,10 @@
             this.ClassNameLabel = new System.Windows.Forms.Label();
             this.ReturnButton = new System.Windows.Forms.Button();
             this.MainTeacherName = new System.Windows.Forms.Label();
+            this.AddStudentToClassButton = new System.Windows.Forms.Button();
+            this.DeleteStudentFromClassButton = new System.Windows.Forms.Button();
+            this.AddMainTeacherButton = new System.Windows.Forms.Button();
+            this.DeleteMainTeacherButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClassStudentGridView)).BeginInit();
             this.SuspendLayout();
@@ -77,6 +81,7 @@
             this.ClassStudentGridView.RowTemplate.Height = 24;
             this.ClassStudentGridView.Size = new System.Drawing.Size(736, 579);
             this.ClassStudentGridView.TabIndex = 9;
+            this.ClassStudentGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ClassStudentGridView_CellClick);
             // 
             // ClassNameLabel
             // 
@@ -91,7 +96,7 @@
             // ReturnButton
             // 
             this.ReturnButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReturnButton.Location = new System.Drawing.Point(1297, 202);
+            this.ReturnButton.Location = new System.Drawing.Point(1216, 235);
             this.ReturnButton.Name = "ReturnButton";
             this.ReturnButton.Size = new System.Drawing.Size(105, 40);
             this.ReturnButton.TabIndex = 14;
@@ -109,11 +114,62 @@
             this.MainTeacherName.TabIndex = 15;
             this.MainTeacherName.Text = "AA";
             // 
+            // AddStudentToClassButton
+            // 
+            this.AddStudentToClassButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddStudentToClassButton.Location = new System.Drawing.Point(137, 245);
+            this.AddStudentToClassButton.Name = "AddStudentToClassButton";
+            this.AddStudentToClassButton.Size = new System.Drawing.Size(190, 40);
+            this.AddStudentToClassButton.TabIndex = 16;
+            this.AddStudentToClassButton.Text = "Thêm sinh viên";
+            this.AddStudentToClassButton.UseVisualStyleBackColor = true;
+            this.AddStudentToClassButton.Click += new System.EventHandler(this.AddStudentToClassButton_Click);
+            // 
+            // DeleteStudentFromClassButton
+            // 
+            this.DeleteStudentFromClassButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteStudentFromClassButton.Location = new System.Drawing.Point(137, 308);
+            this.DeleteStudentFromClassButton.Name = "DeleteStudentFromClassButton";
+            this.DeleteStudentFromClassButton.Size = new System.Drawing.Size(190, 40);
+            this.DeleteStudentFromClassButton.TabIndex = 17;
+            this.DeleteStudentFromClassButton.Text = "Xóa sinh viên";
+            this.DeleteStudentFromClassButton.UseVisualStyleBackColor = true;
+            this.DeleteStudentFromClassButton.Visible = false;
+            this.DeleteStudentFromClassButton.Click += new System.EventHandler(this.DeleteStudentFromClassButton_Click);
+            // 
+            // AddMainTeacherButton
+            // 
+            this.AddMainTeacherButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddMainTeacherButton.Location = new System.Drawing.Point(1216, 131);
+            this.AddMainTeacherButton.Name = "AddMainTeacherButton";
+            this.AddMainTeacherButton.Size = new System.Drawing.Size(170, 40);
+            this.AddMainTeacherButton.TabIndex = 18;
+            this.AddMainTeacherButton.Text = "Thêm GVCN";
+            this.AddMainTeacherButton.UseVisualStyleBackColor = true;
+            this.AddMainTeacherButton.Visible = false;
+            this.AddMainTeacherButton.Click += new System.EventHandler(this.AddMainTeacherButton_Click);
+            // 
+            // DeleteMainTeacherButton
+            // 
+            this.DeleteMainTeacherButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteMainTeacherButton.Location = new System.Drawing.Point(1216, 131);
+            this.DeleteMainTeacherButton.Name = "DeleteMainTeacherButton";
+            this.DeleteMainTeacherButton.Size = new System.Drawing.Size(170, 40);
+            this.DeleteMainTeacherButton.TabIndex = 19;
+            this.DeleteMainTeacherButton.Text = "Xóa GVCN";
+            this.DeleteMainTeacherButton.UseVisualStyleBackColor = true;
+            this.DeleteMainTeacherButton.Visible = false;
+            this.DeleteMainTeacherButton.Click += new System.EventHandler(this.DeleteMainTeacherButton_Click);
+            // 
             // StudentOfClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1849, 833);
+            this.Controls.Add(this.DeleteMainTeacherButton);
+            this.Controls.Add(this.AddMainTeacherButton);
+            this.Controls.Add(this.DeleteStudentFromClassButton);
+            this.Controls.Add(this.AddStudentToClassButton);
             this.Controls.Add(this.MainTeacherName);
             this.Controls.Add(this.ReturnButton);
             this.Controls.Add(this.ClassNameLabel);
@@ -122,7 +178,6 @@
             this.Controls.Add(this.AppName);
             this.Name = "StudentOfClass";
             this.Text = "StudentOfClass";
-            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.StudentOfClass_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClassStudentGridView)).EndInit();
             this.ResumeLayout(false);
@@ -138,5 +193,9 @@
         private System.Windows.Forms.Label ClassNameLabel;
         private System.Windows.Forms.Button ReturnButton;
         private System.Windows.Forms.Label MainTeacherName;
+        private System.Windows.Forms.Button AddStudentToClassButton;
+        private System.Windows.Forms.Button DeleteStudentFromClassButton;
+        private System.Windows.Forms.Button AddMainTeacherButton;
+        private System.Windows.Forms.Button DeleteMainTeacherButton;
     }
 }

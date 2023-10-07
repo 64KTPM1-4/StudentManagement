@@ -16,12 +16,14 @@ namespace QuanLiSinhVien
     {
         StudentSevices studentSevices;
         List<StudentModel> studentLists;
+        int selectedStudentId;
         public StudentList()
         {
             InitializeComponent();
             studentSevices = new StudentSevices();
             studentLists = studentSevices.StudentSearch();
             StudentGridView.DataSource = studentSevices.StudentSearch();
+            StudentGridView.Columns[2].Visible = false;
             
         }
 
@@ -49,6 +51,7 @@ namespace QuanLiSinhVien
             var onclick = StudentGridView.SelectedCells[0].Value.ToString();
             if (e.ColumnIndex == 1 && onclick != "0")
             {
+                selectedStudentId = (int)StudentGridView.Rows[e.RowIndex].Cells[0].Value;
                 ShowButton();
             }
             else HideButton();
@@ -68,7 +71,7 @@ namespace QuanLiSinhVien
 
         private void DeleteStudentButton_Click(object sender, EventArgs e)
         {
-            studentSevices.DeleteStudent(StudentGridView.SelectedCells[0].Value.ToString());
+            studentSevices.DeleteStudent(selectedStudentId);
             StudentGridView.DataSource = studentSevices.StudentSearch();
             StudentGridView.Update();
             StudentGridView.Refresh();

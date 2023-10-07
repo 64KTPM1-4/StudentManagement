@@ -12,24 +12,13 @@ namespace QuanLiSinhVien.Services
 {
     public class StudentSevices
     {
-        public List<StudentModel> StudentSearch(ClassModel selectedClass = null)
+        public List<StudentModel> StudentSearch()
         {
             var studentList = new List<StudentModel>() { };
             try
             {
                 string json = File.ReadAllText(@"Student.json");
                 studentList = JsonConvert.DeserializeObject<List<StudentModel>>(json);
-                if(selectedClass != null)
-                {
-                    studentList = studentList.Where(x => x.MainClassName == selectedClass.ClassName).Select(x => new StudentModel
-                    {
-                        Id = x.Id,
-                        Name = x.Name,
-                        MainClassName = x.MainClassName,
-                    }).OrderBy(x => x.Name).ToList();
-                    
-                }
-                else studentList = studentList.OrderBy(x => x.Name).ToList();
                 
             }
             catch(FileNotFoundException)
@@ -55,17 +44,16 @@ namespace QuanLiSinhVien.Services
             {
                 Id = StudentId,
                 Name = StudentName,
-                MainClassName = mainClassName
             });
 
             studentList.AddRange(newStudent);
             File.WriteAllText(@"Student.json", JsonConvert.SerializeObject(studentList));
         }
 
-        public void DeleteStudent(string StudentName)
+        public void DeleteStudent(int StudentId)
         {
             var studentList = StudentSearch();
-            var index = studentList.FindIndex(x => x.Name == StudentName);
+            var index = studentList.FindIndex(x => x.Id == StudentId);
             studentList.RemoveAt(index);
             File.WriteAllText(@"Student.json", JsonConvert.SerializeObject(studentList));
         }

@@ -13,12 +13,7 @@ namespace QuanLiSinhVien.Model
         public int Id { get; set; } = 0;
         [DisplayName("Tên sinh viên")]
         public string Name { get; set; } = string.Empty;
+        public int ClassId { get; set; } = -5;
 
-        [DisplayName("Lớp quản lí")]
-        public string MainClassName {  get; set; }
-
-        public List<string> Notes { get; set; } = new List<string>();
-
-        public List<float> Point { get; set; } = new List<float>();
     }
 }

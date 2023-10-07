@@ -64,28 +64,56 @@ namespace QuanLiSinhVien.Services
         {
             
             var classList = ClassSearch();
+            
             int index = classList.FindIndex(x => x.ClassId == currentClass.ClassId);
             var valid = classList[index].SubjectId.FindIndex(x => x == SubjectId);
 
             if (valid == -1)
             {
+                var subjectList = JsonConvert.DeserializeObject<List<SubjectModel>>(File.ReadAllText(@"Subject.json"));
                 classList[index].SubjectId.Add(SubjectId);
                 File.WriteAllText(@"Class.json", JsonConvert.SerializeObject(classList));
+                File.WriteAllText(@"Subject.json", JsonConvert.SerializeObject(subjectList));
                 return true;
             }
             else return false;
 
         }
 
-        public void AddClassStudent(ClassModel currentClass, int StudentId)
+        public string AddClassStudent(ClassModel currentClass, int StudentId)
         {
             var classList = ClassSearch();
-            int index = classList.FindIndex(s =>  s.ClassId == currentClass.ClassId);
+            var valid = currentClass.StudentId.FindIndex(x => x == StudentId);
+            var studentList = JsonConvert.DeserializeObject<List<StudentModel>>(File.ReadAllText("Student.json"));
+            var currentStudent = studentList.FirstOrDefault(x => x.Id == StudentId);
+            
 
-            classList[index].StudentId.Add(StudentId);
+            if (valid == -1)
+            {
+                if (currentStudent.ClassId == -5)
+                {
+                    int index = classList.FindIndex(s => s.ClassId == currentClass.ClassId);
+                    classList[index].StudentId.Add(StudentId);
 
-            File.WriteAllText(@"Class.json", JsonConvert.SerializeObject(classList));
+                    currentStudent.ClassId = currentClass.ClassId;
+                    int stIndex = studentList.FindIndex(s => s.Id == StudentId);
+                    studentList[stIndex] = currentStudent;
+
+                    File.WriteAllText(@"Student.json", JsonConvert.SerializeObject(studentList));
+                    File.WriteAllText(@"Class.json", JsonConvert.SerializeObject(classList));
+                    return "";
+                }
+                else
+                {
+                    var exsistClass = classList.FirstOrDefault(x => x.ClassId == currentStudent.ClassId);
+                    var ClassName = exsistClass.ClassName;
+                    return ClassName;
+                }
+                
+            }
+            else return "In this class";
         }
+            
 
         public void DeleteClass(string className)
         {
@@ -108,9 +136,38 @@ namespace QuanLiSinhVien.Services
                 return true;
             }
             else return false;
-            
 
+        }
 
+        public void DeleteStudentFromClass(ClassModel selectedClass, int selectedStudentId)
+        {
+            var classList = JsonConvert.DeserializeObject<List<ClassModel>>(File.ReadAllText(@"Class.json"));
+            selectedClass.StudentId.Remove(selectedStudentId);
+            var index = classList.FindIndex(x => x.ClassId == selectedClass.ClassId);
+            classList[index] = selectedClass;
+            File.WriteAllText(@"Class.json", JsonConvert.SerializeObject(classList));
+
+            var studentList = JsonConvert.DeserializeObject<List<StudentModel>>(File.ReadAllText(@"Student.json"));
+            var stIndex = studentList.FindIndex(x => x.Id == selectedStudentId);
+            studentList[stIndex].ClassId = -5;
+            File.WriteAllText(@"Student.json", JsonConvert.SerializeObject(studentList));
+
+        }
+
+        public void AddMainTeacher(ClassModel selectedClass, int teacherId)
+        {
+            var classList = JsonConvert.DeserializeObject<List<ClassModel>>(File.ReadAllText(@"Class.json"));
+            selectedClass.MainTeacherId = teacherId;
+            classList[classList.FindIndex(x => x.ClassId == selectedClass.ClassId)] = selectedClass;
+            File.WriteAllText(@"Class.json", JsonConvert.SerializeObject(classList));
+        }
+
+        public void DeleteMainTeacher(ClassModel selectedClass)
+        {
+            var classList = JsonConvert.DeserializeObject<List<ClassModel>>(File.ReadAllText(@"Class.json"));
+            selectedClass.MainTeacherId = -5;
+            classList[classList.FindIndex(x => x.ClassId == selectedClass.ClassId)] = selectedClass;
+            File.WriteAllText(@"Class.json", JsonConvert.SerializeObject(classList));
         }
 
     }

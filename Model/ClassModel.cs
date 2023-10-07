@@ -16,6 +16,7 @@ namespace QuanLiSinhVien.Model
         public string ClassName { get; set; }
         public List<int> SubjectId { get; set; } = new List<int>();
         public List<int> StudentId { get; set; } = new List<int>();
+        public int MainTeacherId { get; set; } = -5;
 
     }
 }

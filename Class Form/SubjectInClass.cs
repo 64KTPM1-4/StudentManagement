@@ -43,6 +43,11 @@ namespace QuanLiSinhVien
                 DeleteClassSubjectButton.Show();
                 ShowSubjectStudent.Show();
             }
+            else
+            {
+                DeleteClassSubjectButton.Hide();
+                ShowSubjectStudent.Hide();
+            }
         }
 
         private void ReturnButton_Click(object sender, EventArgs e)
@@ -74,10 +79,16 @@ namespace QuanLiSinhVien
         private void ShowSubjectStudent_Click(object sender, EventArgs e)
         {
             var subjectList = JsonConvert.DeserializeObject<List<SubjectModel>>(File.ReadAllText("Subject.json"));
-            StudentInSubject studentInSubject = new StudentInSubject(subjectList.FirstOrDefault(x => x.SubjectName == ClassSubjectGridView.SelectedCells[0].Value.ToString()), currentClass.ClassName);
+            StudentInSubject studentInSubject = new StudentInSubject(subjectList.FirstOrDefault(x => x.SubjectName == ClassSubjectGridView.SelectedCells[0].Value.ToString()), currentClass);
             this.Hide();
             studentInSubject.ShowDialog();
             this.Show();
+            DeleteClassSubjectButton.Hide();
+            ShowSubjectStudent.Hide();
+        }
+
+        private void SubjectInClass_MouseClick(object sender, MouseEventArgs e)
+        {
             DeleteClassSubjectButton.Hide();
             ShowSubjectStudent.Hide();
         }
