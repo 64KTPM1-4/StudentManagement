@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentInSubject));
             this.AppName = new System.Windows.Forms.Label();
             this.SubjectStudentGridView = new System.Windows.Forms.DataGridView();
             this.ClassNameLabel = new System.Windows.Forms.Label();
@@ -153,6 +154,7 @@
             this.Controls.Add(this.ClassNameLabel);
             this.Controls.Add(this.SubjectStudentGridView);
             this.Controls.Add(this.AppName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StudentInSubject";
             this.Text = "StudentInSubject";
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.StudentInSubject_MouseClick);

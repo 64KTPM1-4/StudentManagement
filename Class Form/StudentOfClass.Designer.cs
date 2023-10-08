@@ -176,6 +176,7 @@
             this.Controls.Add(this.ClassStudentGridView);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.AppName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StudentOfClass";
             this.Text = "StudentOfClass";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

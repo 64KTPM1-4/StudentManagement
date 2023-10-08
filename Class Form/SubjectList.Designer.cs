@@ -124,6 +124,7 @@
             this.Controls.Add(this.SubjectGridView);
             this.Controls.Add(this.AppName);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SubjectList";
             this.Text = "SubjectList";
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SubjectList_MouseClick);

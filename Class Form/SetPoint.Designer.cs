@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetPoint));
             this.dqtTextBox = new System.Windows.Forms.TextBox();
             this.dtTextBox = new System.Windows.Forms.TextBox();
             this.Submit = new System.Windows.Forms.Button();
@@ -93,6 +94,7 @@
             this.Controls.Add(this.dtTextBox);
             this.Controls.Add(this.dqtTextBox);
             this.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "SetPoint";
             this.Text = "SetPoint";

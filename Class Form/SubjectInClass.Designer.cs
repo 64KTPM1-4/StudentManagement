@@ -150,6 +150,7 @@
             this.Controls.Add(this.ClassSubjectGridView);
             this.Controls.Add(this.AppName);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SubjectInClass";
             this.Text = "SubjectInClass";
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SubjectInClass_MouseClick);

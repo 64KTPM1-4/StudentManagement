@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddMainTeacher));
             this.TeacherComboBox = new System.Windows.Forms.ComboBox();
             this.OkButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -60,6 +61,7 @@
             this.ClientSize = new System.Drawing.Size(527, 289);
             this.Controls.Add(this.OkButton);
             this.Controls.Add(this.TeacherComboBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddMainTeacher";
             this.Text = "AddMainTeacher";
             this.ResumeLayout(false);

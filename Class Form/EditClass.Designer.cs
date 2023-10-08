@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditClass));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.AddClassButton = new System.Windows.Forms.Button();
             this.EditClassLabel = new System.Windows.Forms.Label();
@@ -73,6 +74,7 @@
             this.Controls.Add(this.EditClassLabel);
             this.Controls.Add(this.AddClassButton);
             this.Controls.Add(this.textBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EditClass";
             this.Text = "EditClass";
             this.ResumeLayout(false);

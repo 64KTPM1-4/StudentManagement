@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetNotes));
             this.NotesBox = new System.Windows.Forms.RichTextBox();
             this.Submit = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -59,6 +60,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.Submit);
             this.Controls.Add(this.NotesBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SetNotes";
             this.Text = "SetNotes";
             this.ResumeLayout(false);

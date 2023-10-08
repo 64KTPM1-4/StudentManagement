@@ -124,6 +124,7 @@
             this.Controls.Add(this.AppName);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.StudentGridView);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StudentList";
             this.Text = "StudentList";
             this.Load += new System.EventHandler(this.StudentList_Load);
