@@ -29,7 +29,7 @@ namespace QuanLiSinhVien.Services
         }
 
 
-        public void AddStudent(string StudentName, string mainClassName)
+        public void AddStudent(string StudentName)
         {
             int StudentId = 0;
             var studentList = StudentSearch();

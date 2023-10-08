@@ -22,19 +22,14 @@ namespace QuanLiSinhVien
         {
             InitializeComponent();
             studentSevices = new StudentSevices();
-            classList = JsonConvert.DeserializeObject<List<ClassModel>>(File.ReadAllText("Class.json"));
-            ClassListBox.DataSource = classList;
-            ClassListBox.DisplayMember = "ClassName";
-            ClassListBox.ValueMember = "ClassName";
-          
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             if (textBox1.Text.Count() > 0) {
                 AddStudentLabel.Hide();
-                if (ClassListBox.SelectedValue != null)
-                    AddClassButton.Show();
+                AddClassButton.Show();
+                
             }
             else
             {
@@ -45,8 +40,8 @@ namespace QuanLiSinhVien
 
         private void AddClassButton_Click(object sender, EventArgs e)
         {
-            string ClassId = ClassListBox.SelectedValue.ToString();
-            studentSevices.AddStudent(textBox1.Text, ClassId);
+            
+            studentSevices.AddStudent(textBox1.Text);
             this.Close();
            
             

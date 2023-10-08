@@ -31,7 +31,7 @@ namespace QuanLiSinhVien.Services
             return teacherList;
         }
 
-        public void AddTeacher(string TeacherName, string mainClassName)
+        public void AddTeacher(string TeacherName)
         {
             int TeacherId = 0;
             var teacherList = TeacherSearch();
