@@ -9,12 +9,13 @@ namespace QuanLiSinhVien.Services
     {
         List<ClassModel> classList;
         ClassModel currentClass;
+        
        public JoinTableServices(ClassModel selectedClass)
        {
             classList = JsonConvert.DeserializeObject<List<ClassModel>>(File.ReadAllText(@"Class.json"));
             currentClass = classList.FirstOrDefault(x => x.ClassId == selectedClass.ClassId);
        }
-        public List<JoinClassSubjectModel> JoinClassSubject() 
+        public List<JoinClassSubjectModel> JoinClassSubject(int SubjectId = -5) 
         {            
             var subjectList = JsonConvert.DeserializeObject<List<SubjectModel>>(File.ReadAllText(@"Subject.json"));
             var query = currentClass.SubjectId.Select(x => x).Join(subjectList,
@@ -27,6 +28,7 @@ namespace QuanLiSinhVien.Services
                                                         SubjectName = list.SubjectName
                                                     }
                                                     ).ToList();
+            if(SubjectId >= 0) query = query.Where(x => x.SubjectId == SubjectId).ToList();
             return query;
         }
 

@@ -68,6 +68,7 @@
             this.TeacherGridView.AllowUserToResizeColumns = false;
             this.TeacherGridView.AllowUserToResizeRows = false;
             this.TeacherGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.TeacherGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.TeacherGridView.ColumnHeadersHeight = 29;
             this.TeacherGridView.GridColor = System.Drawing.SystemColors.Control;
             this.TeacherGridView.Location = new System.Drawing.Point(413, 192);
@@ -117,6 +118,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(1849, 833);
             this.Controls.Add(this.DeleteTeacherButton);
             this.Controls.Add(this.AddTeacherButton);
@@ -127,7 +129,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TeacherList";
             this.Text = "TeacherList";
-            this.Load += new System.EventHandler(this.TeacherList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TeacherGridView)).EndInit();
             this.ResumeLayout(false);

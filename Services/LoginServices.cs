@@ -1,28 +1,25 @@
-﻿using QuanLiSinhVien.Model;
+﻿using Newtonsoft.Json;
+using QuanLiSinhVien.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.IO;
 
 namespace QuanLiSinhVien.Services
 {
     public class LoginServices
     {
-        public bool isAccountValid(List<AccountModel> accounts, string Username, string Password)
+        List<AccountModel> accounts;
+        public AccountModel isAccountValid(string Username, string Password)
         {
-            bool valid = false;
-            foreach (AccountModel account in accounts)
-            {
-                if (account.username == Username && account.password == Password)
-                {
-                    valid = true;
-                    break;
-                }
-
-            }
-            return valid;
+            
+            accounts = JsonConvert.DeserializeObject<List<AccountModel>>(File.ReadAllText(@"Account.json"));
+            var currentAccount = accounts.FirstOrDefault(x => x.username == Username && x.password == Password);
+            return currentAccount;
+            
         }
     }
 }

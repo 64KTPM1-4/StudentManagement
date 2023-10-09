@@ -47,21 +47,58 @@ namespace QuanLiSinhVien.Login_Form
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            var accounts = JsonConvert.DeserializeObject<List<AccountModel>>(File.ReadAllText(@"Account.json"));
+            
             LoginServices login = new LoginServices();
-            bool valid = login.isAccountValid(accounts, Username.Text, Password.Text);
-
-            if (valid)
+            var currentAccount = login.isAccountValid(Username.Text, Password.Text);
+            ClassServices classServices = new ClassServices();
+            var classList = classServices.ClassSearch();
+            try
             {
-                Class_Form class_Form = new Class_Form();
-                this.Hide();
-                class_Form.ShowDialog();
-                this.Show();
+                if (currentAccount.roles == "chuyenvien")
+                {
+                    Class_Form class_Form = new Class_Form();
+                    this.Hide();
+                    class_Form.ShowDialog();
+                    this.Show();
+                }
+                else if(currentAccount.roles == "loptruong")
+                {
+                    
+                    var currentClass = classList.FirstOrDefault(x => x.ClassId == currentAccount.ClassId);
+                    StudentOfClass studentOfClass = new StudentOfClass(currentClass, currentAccount.roles);
+                    this.Hide();
+                    studentOfClass.HideButton();
+                    studentOfClass.ShowDialog();
+                    this.Show();
+                    
+                }
+                else if(currentAccount.roles == "GVCN")
+                {
+                    var currentClass = classList.FirstOrDefault(x => x.ClassId == currentAccount.ClassId);
+                    StudentOfClass studentOfClass = new StudentOfClass(currentClass);
+                    this.Hide();
+                    studentOfClass.HideMainTeacherButton();
+                    studentOfClass.ShowDialog();
+                    this.Show();
+                }
+                else if(currentAccount.roles == "GVBM")
+                {
+                    ClassList classlist = new ClassList(currentAccount.SubjectId);
+                    this.Hide();
+                    classlist.ShowDialog();
+                    this.Show();
+                    
+                }
+                Username.Text = "Tên đăng nhập";
+                Password.Text = "Mật khẩu";
             }
-            else
+            catch (NullReferenceException)
             {
                 MessageBox.Show("Tài khoản hoặc mật khẩu không đúng !");
             }
+            
+                
+            
         }
 
         private void Password_KeyPress(object sender, KeyPressEventArgs e)

@@ -68,6 +68,7 @@
             this.SubjectGridView.AllowUserToResizeColumns = false;
             this.SubjectGridView.AllowUserToResizeRows = false;
             this.SubjectGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.SubjectGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.SubjectGridView.ColumnHeadersHeight = 29;
             this.SubjectGridView.GridColor = System.Drawing.SystemColors.Control;
             this.SubjectGridView.Location = new System.Drawing.Point(413, 192);
@@ -117,6 +118,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(1849, 833);
             this.Controls.Add(this.DeleteSubjectButton);
             this.Controls.Add(this.AddSubjectButton);

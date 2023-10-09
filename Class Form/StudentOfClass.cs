@@ -21,7 +21,8 @@ namespace QuanLiSinhVien
         ClassServices classServices;
         int selectedStudentId;
         List<TeacherModel> currentTeacher;
-        public StudentOfClass(ClassModel selectedClass)
+        string Role;
+        public StudentOfClass(ClassModel selectedClass, string role = "")
         {
             InitializeComponent();
             classServices = new ClassServices();
@@ -47,6 +48,9 @@ namespace QuanLiSinhVien
                 
             }
             else DeleteMainTeacherButton.Show();
+
+            Role = role;
+           
         }
 
 
@@ -68,11 +72,16 @@ namespace QuanLiSinhVien
 
         private void ClassStudentGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            
             var onclick = ClassStudentGridView.SelectedCells[0].Value.ToString();
-            if (e.ColumnIndex == 1 && onclick != "0")
+            if (e.ColumnIndex == 1 && onclick != "0" && Role != "loptruong")
             {
                 selectedStudentId = (int)ClassStudentGridView.Rows[e.RowIndex].Cells[0].Value;
                 DeleteStudentFromClassButton.Show();
+            }
+            else if (e.ColumnIndex == 1 && onclick != "0" && Role == "loptruong")
+            {
+                selectedStudentId = (int)ClassStudentGridView.Rows[e.RowIndex].Cells[0].Value;
             }
             else
             {
@@ -107,5 +116,18 @@ namespace QuanLiSinhVien
             DeleteMainTeacherButton.Hide();
             AddMainTeacherButton.Show();
         }
+        public void HideButton()
+        {
+            AddMainTeacherButton.Hide();
+            AddStudentToClassButton.Hide();
+            DeleteMainTeacherButton.Hide();
+
+        }
+        public void HideMainTeacherButton()
+        {
+            AddMainTeacherButton.Hide();
+            DeleteMainTeacherButton.Hide();
+        }
+        
     }
 }

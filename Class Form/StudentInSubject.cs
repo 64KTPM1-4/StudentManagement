@@ -16,11 +16,12 @@ namespace QuanLiSinhVien
     public partial class StudentInSubject : Form
     {
         JoinSubjectStudent joinSubjectStudent;
-        SubjectServices subjectServices;
+
         SubjectModel currentSubject;
         ClassModel currentClass;
         int selectedStudentId;
-        public StudentInSubject(SubjectModel selectedSubject, ClassModel selectedClass)
+        int SubjectId;
+        public StudentInSubject(SubjectModel selectedSubject, ClassModel selectedClass, int currentSubjectId = -5)
         {
             InitializeComponent();
             currentClass = selectedClass;
@@ -28,14 +29,23 @@ namespace QuanLiSinhVien
             SubjectStudentGridView.DataSource = joinSubjectStudent.Join();
             currentSubject = selectedSubject;
             ClassNameLabel.Text = "Danh sách sinh viên đăng ký học phần " + currentSubject.SubjectName + " lớp " + currentClass.ClassName;
+            SubjectId = currentSubjectId;
+            if (currentSubjectId != -5) AddClassStudentButton.Hide();
         }
 
         private void SubjectStudentGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             var onclick = SubjectStudentGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
-            if (e.ColumnIndex == 1)
+            if (e.ColumnIndex == 1 && SubjectId == -5)
             {
                 DeleteClassStudentButton.Show();
+                PointButton.Show();
+                NoteButton.Show();
+                selectedStudentId = (int)SubjectStudentGridView.Rows[e.RowIndex].Cells[0].Value;
+            }
+            else if (e.ColumnIndex == 1 && SubjectId != -5)
+            {
+                
                 PointButton.Show();
                 NoteButton.Show();
                 selectedStudentId = (int)SubjectStudentGridView.Rows[e.RowIndex].Cells[0].Value;

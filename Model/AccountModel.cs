@@ -12,5 +12,7 @@ namespace QuanLiSinhVien.Model
         public string username { get; set; } = string.Empty;
         public string password { get; set; } = string.Empty;
         public string roles { get; set; } = string.Empty;
+        public int ClassId { get; set; } = -5;
+        public int SubjectId { get; set; } = -5;
     }
 }

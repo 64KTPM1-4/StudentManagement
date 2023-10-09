@@ -77,7 +77,7 @@
             // DeleteStudentButton
             // 
             this.DeleteStudentButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteStudentButton.Location = new System.Drawing.Point(106, 256);
+            this.DeleteStudentButton.Location = new System.Drawing.Point(106, 247);
             this.DeleteStudentButton.Name = "DeleteStudentButton";
             this.DeleteStudentButton.Size = new System.Drawing.Size(225, 35);
             this.DeleteStudentButton.TabIndex = 11;
@@ -102,6 +102,7 @@
             this.StudentGridView.AllowUserToResizeColumns = false;
             this.StudentGridView.AllowUserToResizeRows = false;
             this.StudentGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.StudentGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.StudentGridView.ColumnHeadersHeight = 29;
             this.StudentGridView.GridColor = System.Drawing.SystemColors.Control;
             this.StudentGridView.Location = new System.Drawing.Point(413, 192);
@@ -117,6 +118,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(1849, 833);
             this.Controls.Add(this.ReturnButton);
             this.Controls.Add(this.DeleteStudentButton);

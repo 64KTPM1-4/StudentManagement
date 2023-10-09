@@ -27,10 +27,6 @@ namespace QuanLiSinhVien
 
         }
 
-        private void TeacherList_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void ReturnButton_Click(object sender, EventArgs e)
         {

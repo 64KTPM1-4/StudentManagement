@@ -21,26 +21,33 @@ namespace QuanLiSinhVien
         ClassModel currentClass;
         ClassServices classServices;
         JoinTableServices joinTableServices;
-        public SubjectInClass(ClassModel selectedClass)
+        int currentSubjectId;
+        public SubjectInClass(ClassModel selectedClass, int SubjectId = -5)
         {
             InitializeComponent();
             currentClass = selectedClass;
             joinTableServices = new JoinTableServices(currentClass);
-            
+            currentSubjectId = SubjectId;
             
             ClassNameLabel.Text = "Danh sách học phần của lớp " + currentClass.ClassName;
-            ClassSubjectGridView.DataSource = joinTableServices.JoinClassSubject();
+            ClassSubjectGridView.DataSource = joinTableServices.JoinClassSubject(SubjectId);
             addClassSubject = new AddClassSubject(currentClass);
             classServices = new ClassServices();
+            if (SubjectId != -5) AddClassSubjectButton.Hide();
             
         }
 
         private void ClassSubjectGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var onclick = ClassSubjectGridView.SelectedCells[0].Value.ToString();
-            if(e.ColumnIndex == 1 && onclick != "0")
+            if(e.ColumnIndex == 1 && onclick != "0" && currentSubjectId == -5)
             {
                 DeleteClassSubjectButton.Show();
+                ShowSubjectStudent.Show();
+            }
+            else if (e.ColumnIndex == 1 && onclick != "0" && currentSubjectId != -5)
+            {
+                
                 ShowSubjectStudent.Show();
             }
             else
@@ -79,7 +86,7 @@ namespace QuanLiSinhVien
         private void ShowSubjectStudent_Click(object sender, EventArgs e)
         {
             var subjectList = JsonConvert.DeserializeObject<List<SubjectModel>>(File.ReadAllText("Subject.json"));
-            StudentInSubject studentInSubject = new StudentInSubject(subjectList.FirstOrDefault(x => x.SubjectName == ClassSubjectGridView.SelectedCells[0].Value.ToString()), currentClass);
+            StudentInSubject studentInSubject = new StudentInSubject(subjectList.FirstOrDefault(x => x.SubjectName == ClassSubjectGridView.SelectedCells[0].Value.ToString()), currentClass, currentSubjectId);
             this.Hide();
             studentInSubject.ShowDialog();
             this.Show();

@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Cryptography.X509Certificates;
 
 namespace QuanLiSinhVien
 {
@@ -20,7 +21,8 @@ namespace QuanLiSinhVien
         private ClassServices classServices;
         private List<ClassModel> classList;
         ClassModel selectedClass;
-        public ClassList()
+        int currentSubjectId;
+        public ClassList(int SubjecId = -5)
         {
             InitializeComponent();
             classServices = new ClassServices();
@@ -28,7 +30,8 @@ namespace QuanLiSinhVien
             classList = classServices.ClassSearch();
             this.dataGridView1.DataSource = classList;
             dataGridView1.Columns[2].Visible = false;
-          
+            currentSubjectId = SubjecId;
+            if (SubjecId != -5) Add_Class.Hide();
             
         }
 
@@ -36,10 +39,15 @@ namespace QuanLiSinhVien
         {
             
             var onclick = dataGridView1.SelectedCells[0].Value.ToString();
-            if (e.ColumnIndex == 1 && onclick != "0")
+            if (e.ColumnIndex == 1 && onclick != "0" && currentSubjectId == -5)
             {
                 selectedClass = classList.FirstOrDefault(x => x.ClassName == onclick);
                 ShowButton();
+            }
+            else if(e.ColumnIndex == 1 && onclick != "0" && currentSubjectId != -5)
+            {
+                selectedClass = classList.FirstOrDefault(x => x.ClassName == onclick);
+                ShowSubject.Show();
             }
             else
             {
@@ -72,8 +80,8 @@ namespace QuanLiSinhVien
 
         private void ShowSubject_Click(object sender, EventArgs e)
         {
-           
-            SubjectInClass subjectInClass = new SubjectInClass(selectedClass);
+            
+            SubjectInClass subjectInClass = new SubjectInClass(selectedClass, currentSubjectId);
             this.Hide();
             subjectInClass.ShowDialog();
             this.Show();
@@ -132,5 +140,8 @@ namespace QuanLiSinhVien
             HideButton();
 
         }
+
+       
+
     }
 }

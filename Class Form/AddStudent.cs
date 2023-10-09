@@ -17,7 +17,7 @@ namespace QuanLiSinhVien
     public partial class AddStudent : Form
     {
         StudentSevices studentSevices;
-        List<ClassModel> classList;
+
         public AddStudent()
         {
             InitializeComponent();

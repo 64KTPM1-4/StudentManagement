@@ -72,6 +72,7 @@
             this.ClassStudentGridView.AllowUserToResizeColumns = false;
             this.ClassStudentGridView.AllowUserToResizeRows = false;
             this.ClassStudentGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ClassStudentGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClassStudentGridView.ColumnHeadersHeight = 29;
             this.ClassStudentGridView.GridColor = System.Drawing.SystemColors.Control;
             this.ClassStudentGridView.Location = new System.Drawing.Point(416, 202);
@@ -165,6 +166,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(1849, 833);
             this.Controls.Add(this.DeleteMainTeacherButton);
             this.Controls.Add(this.AddMainTeacherButton);
